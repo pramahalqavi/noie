@@ -16,3 +16,5 @@
 // });
 
 Route::get('/', 'HomeController@index');
+Route::get('collections', 'ProductController@index');
+Route::get('about', 'AboutController@index');

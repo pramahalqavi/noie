@@ -7,17 +7,17 @@ html, body {
 .background {
     padding: 0;
     margin: 0;
-    background-image: url('/images/img1.jpg');
+    /* background-image: url('/images/img1.jpg'); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
 }
 
-.row {
+.nav {
     margin: 0;
     padding-top: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 0px;
     overflow: hidden;
     background-image: linear-gradient(to top, rgba(255,0,0,0), #333);
     color: white;
@@ -25,7 +25,7 @@ html, body {
     font-family: 'Thasadith', sans-serif;
 }
 
-.row:hover {
+.nav:hover {
     background-color: #333;
 }
 
@@ -47,7 +47,12 @@ html, body {
     display: inline-block;
     color: white;
     text-align: center;
-    padding: 15px 25px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     text-decoration: none;
 }
 
@@ -64,16 +69,17 @@ html, body {
   display: none;
   position: absolute;
   color: white;
-  background-color: white;
+  background-color: rgba(204,204,204,0.9);
   width: 100%;
   left: 0;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  /* z-index: 1; */
+  z-index: 3;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
-  background-color: white;
+  overflow: auto;
+  /* background-color: #ccc; */
 }
 
 /* Create three equal columns that floats next to each other */
@@ -81,8 +87,18 @@ html, body {
   float: left;
   width: 33.33%;
   padding: 0;
-  background-color: #ccc;
-  height: 250px;
+  background-color: rgba(255,0,0,0);
+  overflow: auto;
+  max-height: 500px;
+}
+
+.column h3 {
+  float: none;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
 }
 
 .column a {
@@ -95,7 +111,8 @@ html, body {
 }
 
 .column a:hover {
-  background-color: #ddd;
+  /* background-color: #ddd; */
+  color: white;
 }
 
 /* Clear floats after the columns */
@@ -108,4 +125,114 @@ html, body {
 .content {
     font-family: 'Thasadith', sans-serif;
     text-align: center;
+}
+
+/* Radio Button */
+/* The container */
+.container {
+  display: inline-block;
+  position: relative;
+  margin-right: 50px;
+  padding-left: 35px;
+  margin-bottom: 25px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  /* background-color: #2196F3; */
+  background-color: #333;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+/* Button */
+button {
+  background-color: #333;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #444;
+}
+
+/* Rowblock-2 */
+.rowblock-2 {
+  margin-top: 1%;
+  margin-left: 1%;
+  margin-bottom: 1%;
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.columnblock-2 {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  text-align: justify;
+  color: white;
+  padding: 30px 50px 30px 50px;
+  font-size: 20px;
+}
+
+.socmed-icon {
+  margin-right: 8px;
 }
