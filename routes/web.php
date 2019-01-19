@@ -17,4 +17,6 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('collections', 'ProductController@index');
+Route::get('collections/order', 'OrderFormController@index');
 Route::get('about', 'AboutController@index');
+Route::get('payment-status', 'InvoiceSearchController@index');

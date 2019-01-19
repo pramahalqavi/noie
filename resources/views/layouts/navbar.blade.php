@@ -50,7 +50,7 @@
                     </div>
 
                     <a class="navbutton" href="{{url('about')}}">ABOUT</a>
-                    <a class="navbutton" href="">PAYMENT STATUS</a>
+                    <a class="navbutton" href="{{url('payment-status')}}">PAYMENT STATUS</a>
                 </ul>
             </div>
         </div>

@@ -19,14 +19,14 @@ html, body {
     padding-top: 15px;
     padding-bottom: 0px;
     overflow: hidden;
-    background-image: linear-gradient(to top, rgba(255,0,0,0), #333);
+    background-image: linear-gradient(to top, rgba(255,0,0,0), #222);
     color: white;
     text-align: center;
     font-family: 'Thasadith', sans-serif;
 }
 
 .nav:hover {
-    background-color: #333;
+    background-color: #222;
 }
 
 .logo {
@@ -134,7 +134,7 @@ html, body {
   position: relative;
   margin-right: 50px;
   padding-left: 35px;
-  margin-bottom: 25px;
+  margin-bottom: 45px;
   cursor: pointer;
   font-size: 22px;
   -webkit-user-select: none;
@@ -170,7 +170,7 @@ html, body {
 /* When the radio button is checked, add a blue background */
 .container input:checked ~ .checkmark {
   /* background-color: #2196F3; */
-  background-color: #333;
+  background-color: #222;
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
@@ -197,20 +197,22 @@ html, body {
 
 /* Button */
 button {
-  background-color: #333;
+  background-color: #222;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 10px 36px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 20px;
   margin: 4px 2px;
   cursor: pointer;
+  line-height: 32px;
+  font-family: 'Thasadith', sans-serif;
 }
 
 button:hover {
-  background-color: #444;
+  background-color: #333;
 }
 
 /* Rowblock-2 */
@@ -236,3 +238,47 @@ button:hover {
 .socmed-icon {
   margin-right: 8px;
 }
+
+input[type=text], input[type=tel] {
+  padding: 10px 10px;
+  margin-top: 8px;
+  border: none;
+  width: 40%;
+  font-size: 20px;
+  line-height: 32px;
+  margin: 5px;
+  border: 1px;
+}
+
+input[type=text]:focus {
+	background-color: #fff;
+  /* border: 1px solid #222; */
+  /* outline-width: 0; */
+}
+
+.search-container {
+  width: 100%;
+  position: absolute;
+  top: 40%;
+}
+
+#payment-search-heading {
+  width: 100%;
+  top: 30%;
+  position: absolute;
+}
+
+.input-label {
+  font-size: 26px;
+  width: 30%;
+  text-align: right;
+}
+
+#input-order-form {
+  float: left;
+}
+
+#order-button {
+  margin-top: 40px;
+}
+
