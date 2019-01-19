@@ -28,19 +28,19 @@
                         <div class="dropdown-content">  
                             <div class="row">
                                 <div class="column">
-                                    <h3>Category 1</h3>
+                                    <h4>Category 1</h4>
                                     <a href="{{url('collections')}}">Link 1</a>
                                     <a href="">Link 2</a>
                                     <a href="">Link 3</a>
                                 </div>
                                 <div class="column">
-                                    <h3>Category 2</h3>
+                                    <h4>Category 2</h4>
                                     <a href="#">Link 1</a>
                                     <a href="#">Link 2</a>
                                     <a href="#">Link 3</a>
                                 </div>
                                 <div class="column">
-                                    <h3>Category 3</h3>
+                                    <h4>Category 3</h4>
                                     <a href="#">Link 1</a>
                                     <a href="#">Link 2</a>
                                     <a href="#">Link 3</a>

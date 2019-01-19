@@ -30,7 +30,7 @@ html, body {
 }
 
 .logo {
-    font-size: 40px;
+    font-size: 28px;
     padding-bottom: 5px;
 }
 
@@ -40,7 +40,7 @@ html, body {
     padding: 0;
     overflow: hidden;
     background-color: rgba(255,0,0,0);
-    font-size: 20px;
+    font-size: 15px;
 }
         
 .navbutton {
@@ -48,11 +48,11 @@ html, body {
     color: white;
     text-align: center;
     margin-top: 5px;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
     padding-right: 25px;
     padding-left: 25px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     text-decoration: none;
 }
 
@@ -66,7 +66,7 @@ html, body {
 }
 
 .dropdown-content {
-  display: none;
+  /* display: none; */
   position: absolute;
   color: white;
   background-color: rgba(204,204,204,0.9);
@@ -74,12 +74,16 @@ html, body {
   left: 0;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 3;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.15s ease-out;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
-  overflow: auto;
-  /* background-color: #ccc; */
+  /* overflow: auto; */
+  max-height: 500px;
+  transition: max-height 0.25s ease-in;
 }
 
 /* Create three equal columns that floats next to each other */
@@ -92,10 +96,10 @@ html, body {
   max-height: 500px;
 }
 
-.column h3 {
+.column h4 {
   float: none;
   color: black;
-  padding: 16px;
+  padding: 7px;
   text-decoration: none;
   display: block;
   text-align: left;
@@ -104,7 +108,7 @@ html, body {
 .column a {
   float: none;
   color: black;
-  padding: 16px;
+  padding: 7px;
   text-decoration: none;
   display: block;
   text-align: left;
@@ -132,11 +136,11 @@ html, body {
 .container {
   display: inline-block;
   position: relative;
-  margin-right: 50px;
+  margin-right: 40px;
   padding-left: 35px;
   margin-bottom: 45px;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 18px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -200,14 +204,14 @@ button {
   background-color: #222;
   border: none;
   color: white;
-  padding: 10px 36px;
+  padding: 7px 30px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
+  font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-  line-height: 32px;
+  line-height: 22px;
   font-family: 'Thasadith', sans-serif;
 }
 
@@ -232,7 +236,7 @@ button:hover {
   text-align: justify;
   color: white;
   padding: 30px 50px 30px 50px;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .socmed-icon {
@@ -240,20 +244,19 @@ button:hover {
 }
 
 input[type=text], input[type=tel] {
-  padding: 10px 10px;
+  padding: 7px 10px;
   margin-top: 8px;
   border: none;
-  width: 40%;
-  font-size: 20px;
-  line-height: 32px;
+  width: 50%;
+  font-size: 16px;
+  line-height: 22px;
   margin: 5px;
+  margin-left: 25px;
   border: 1px;
 }
 
 input[type=text]:focus {
 	background-color: #fff;
-  /* border: 1px solid #222; */
-  /* outline-width: 0; */
 }
 
 .search-container {
@@ -266,19 +269,18 @@ input[type=text]:focus {
   width: 100%;
   top: 30%;
   position: absolute;
+  font-family: 'Thasadith', sans-serif;
 }
 
+/* Order Form */
 .input-label {
-  font-size: 26px;
-  width: 30%;
+  font-size: 20px;
+  width: 35%;
   text-align: right;
-}
-
-#input-order-form {
-  float: left;
 }
 
 #order-button {
   margin-top: 40px;
 }
+
 

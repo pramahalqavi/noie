@@ -1,12 +1,12 @@
 @extends('layouts.navbar')
 
 @section('content')
-    <h2 class="product-collection" style="font-size: 32px"> Collection 1 </h3>
-    <h2 class="product-name" style="font-size: 32px"> Name 1 </h2>
+    <h2 class="product-collection" style="font-size: 26px"> Collection 1 </h3>
+    <h2 class="product-name" style="font-size: 26px"> Name 1 </h2>
     <hr style="width: 30%">
-    <p class="price" style="font-size: 32px"> $ 1,000 </p>
-    <p class="material" style="font-size: 28px"> Plastic Material </p>
-        <p style="display: inline-block; font-size: 22px; margin-right: 25px;"> SIZE: </p>
+    <p class="price" style="font-size: 26px"> $ 1,000 </p>
+    <p class="material" style="font-size: 22px"> Plastic Material </p>
+        <p style="display: inline-block; font-size: 18px; margin-right: 25px;"> SIZE: </p>
         <label class="container"> S 
             <input type="radio" name="size" id="radio1" value="S"/>
             <span class="checkmark"></span>
