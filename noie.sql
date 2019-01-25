@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2019 at 02:13 PM
+-- Generation Time: Jan 25, 2019 at 02:23 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.1.13
 
@@ -55,7 +55,6 @@ CREATE TABLE `products` (
 
 CREATE TABLE `transactions` (
   `id` int(11) NOT NULL,
-  `time` date NOT NULL,
   `product_id` int(11) NOT NULL,
   `cust_name` varchar(50) NOT NULL,
   `cust_email` varchar(100) NOT NULL,
@@ -64,7 +63,9 @@ CREATE TABLE `transactions` (
   `cust_city` varchar(255) NOT NULL,
   `cust_state` varchar(255) NOT NULL,
   `cust_zipcode` varchar(6) NOT NULL,
-  `unique_code` int(3) NOT NULL
+  `unique_code` int(3) NOT NULL,
+  `created_at` date NOT NULL,
+  `updated_at` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
