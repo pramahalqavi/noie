@@ -1,3 +1,8 @@
 # How To Run
-``` composer install ```
-``` php artisan key:generate ```
+Run the following command on the project root directory to start the server:
+``` 
+composer install 
+```
+``` 
+php artisan key:generate 
+```
