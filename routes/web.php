@@ -38,3 +38,7 @@ Route::get('admin/transaction', function() {
 Route::get('admin/adminRole', function() {
 	return view('admin-side/adminRole');
 });
+
+Route::get('admin', function() {
+	return view('admin-side/login');
+});
