@@ -31,9 +31,7 @@ Route::get('admin/product', function() {
 	return view('admin-side/product');
 });
 
-Route::get('admin/transaction', function() {
-	return view('admin-side/transaction');
-});
+Route::get('admin/transaction', 'TransactionController@index');
 
 Route::get('admin/adminRole', function() {
 	return view('admin-side/adminRole');

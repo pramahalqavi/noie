@@ -368,24 +368,14 @@ html { height: 100%;}
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
-                              <th scope="row">1</th>
-                              <td>Mark</td>
-                              <td>Otto</td>
-                              <td>Money confirmed <i class="fas fa-sort-down"></i></td>
+                            @foreach($transactions as $transaction)
+                            <tr> 
+                              <th scope="row">{{ $transaction->transaction_id }}</th>
+                              <td>{{ $transaction->product_id }}</td>
+                              <td>{{ $transaction->cust_name }}</td>
+                              <td> {{ $transaction->status }} <i class="fas fa-sort-down"></i></td>
                             </tr>
-                            <tr>
-                              <th scope="row">2</th>
-                              <td>Jacob</td>
-                              <td>Thornton</td>
-                              <td>Money confirmed <i class="fas fa-sort-down"></i></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">3</th>
-                              <td>Larry</td>
-                              <td>the Bird</td>
-                              <td>Money confirmed <i class="fas fa-sort-down"></i></td>
-                            </tr>
+                            @endforeach
                           </tbody>
                         </table>
                     </div>
