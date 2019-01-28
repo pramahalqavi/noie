@@ -37,20 +37,10 @@
                       </div>
                       <input type="password" class="form-control" placeholder="Enter password..." aria-label="Password" aria-describedby="basic-addon1" required>
                     </div>
-                    <!-- <div classs="form-group input-group-prepend">
-                        <span class="input-group-text">
-                            text
-                        </span>
-                        <input type="email" class="form-control" name="email" placeholder="Enter Email..." required="">
-                    </div>
-
-                    <div classs="form-group row input-group" style="margin-top: 0.5em">
-                        <input type="password" class="form-control" name="password" placeholder="Enter password...">
-                    </div> -->
 
                     <div classs="form-group row input-group" style="margin-top: 2em">
                         <!-- <button class="btn btn-primary" style="width: 100%">Login</button> -->
-                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Login</button>
                     </div>
                 </form>
             </div>
