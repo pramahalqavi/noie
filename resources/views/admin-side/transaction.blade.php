@@ -314,6 +314,10 @@ html { height: 100%;}
     color: #79aefe;
 }
 
+.clickable-row:hover {
+    cursor: pointer;
+}
+
 </style>
 
 </head>
@@ -361,24 +365,21 @@ html { height: 100%;}
                         <table class="table table-striped">
                           <thead style="background-color: #314190; color: white">
                             <tr>
-                              <th scope="col">ID</th>
-                              <th scope="col">Product</th>
-                              <th scope="col">Name</th>
-                              <!-- <th scope="col">Email</th>
-                              <th scope="col">Phone Number</th>
-                              <th scope="col">Address</th>
-                              <th scope="col">City</th> -->
-                              <th scope="col">Status</th>
-                              
+                              <th scope="col" width="13%">Transaction ID</th>
+                              <th scope="col" width="30%">Name</th>
+                              <th scope="col" width="30%">Product</th>
+                              <th scope="col" width="14%">Price</th>
+                              <th scope="col" width="13%">Status</th>
                             </tr>
                           </thead>
                           <tbody>
                             @foreach($transactions as $transaction)
-                            <tr> 
+                            <tr class="clickable-row" href="">  
                               <th scope="row">{{ $transaction->transaction_id }}</th>
-                              <td>{{ $transaction->product_id }}</td>
                               <td>{{ $transaction->cust_name }}</td>
-                              <td> {{ $transaction->status }} <i class="fas fa-sort-down"></i></td>
+                              <td>{{ $transaction->product_id }}</td>
+                              <td>{{ $transaction->unique_code }}</td>
+                              <td> {{ $transaction->status }} </td>
                             </tr>
                             @endforeach
                           </tbody>
@@ -419,7 +420,11 @@ html { height: 100%;}
       
       $('[data-toggle="offcanvas"]').click(function () {
             $('#wrapper').toggleClass('toggled');
-      });  
+      }); 
+
+      $(".clickable-row").click(function() {
+          window.location = $(this).data('href');
+      });
     });
 
 </script>

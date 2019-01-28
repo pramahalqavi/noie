@@ -17,4 +17,8 @@ class TransactionController extends Controller {
 
         return view('admin-side/transaction', ['transactions' => $transactions]);
     }
+
+    public function detail($id) {
+        
+    }
 }
