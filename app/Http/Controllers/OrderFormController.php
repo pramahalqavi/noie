@@ -6,6 +6,6 @@ use Illuminate\Http\Request;
 
 class OrderFormController extends Controller {
     public function index() {
-        return view('products/order_form');
+        return view('user-side/order_form');
     }
 }

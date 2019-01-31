@@ -6,6 +6,6 @@ use Illuminate\Http\Request;
 
 class InvoiceSearchController extends Controller {
     public function index() {
-        return view('payment_status/payment_status');
+        return view('user-side/payment_status');
     }
 }
