@@ -28,13 +28,13 @@ Route::get('admin/stat', function() {
 });
 
 Route::get('admin/product', function() {
-	return view('admin-side/product');
+	return view('admin-side/adminProduct');
 });
 
 Route::get('admin/transaction', 'TransactionController@index');
 Route::get('admin/transaction/{id}', 'TransactionController@detail');
 
-Route::get('admin/adminRole', function() {
+Route::get('admin/admin-role', function() {
 	return view('admin-side/adminRole');
 });
 
