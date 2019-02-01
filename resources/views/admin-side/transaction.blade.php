@@ -15,11 +15,11 @@
     </thead>
     <tbody>
       @foreach($transactions as $transaction)
-      <tr class="clickable-row" href="">
+      <tr class="clickable-row" onclick="detailPage({{$transaction->transaction_id}})">
         <th scope="row">{{ $transaction->transaction_id }}</th>
         <td>{{ $transaction->cust_name }}</td>
         <td>{{ $transaction->product_name }}</td>
-        <td> Rp {{ number_format($transaction->product_price + $transaction->unique_code) }} </td>
+        <td> Rp {{ number_format($transaction->product_price) }} </td>
         <td> {{ $transaction->status }} </td>
       </tr>
       @endforeach

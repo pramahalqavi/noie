@@ -303,3 +303,8 @@ html { height: 100%;}
 .clickable-row:hover {
     cursor: pointer;
 }
+
+/*------------ Transaction Detail ------------*/
+.label-detail {
+    background-color: #f2f2f2;
+}

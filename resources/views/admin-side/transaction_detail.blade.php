@@ -1,35 +1,51 @@
 @extends('layouts.admin-navbar')
 
 @section('content')
-<h2 style=""> Transaction Detail </h2>
-    <table style="width:100%" cellpadding="1%">
+<h2 > Transaction Details </h2>
+    <table class="table table-bordered" style="margin-top: 3%">
         <tr> 
-            <td class="input-label">Name</td>
+            <td class="label-detail" align="right">Transaction ID: </td>
+            <td align="left"> {{$row->transaction_id}} </td>
+        </tr>
+        <tr> 
+            <td class="label-detail" align="right">Product Name: </td>
+            <td align="left"> {{$row->product_name}} </td>
+        </tr>
+        <tr> 
+            <td class="label-detail" align="right">Price: </td>
+            <td align="left"> Rp {{number_format($row->product_price)}} </td>
+        </tr>
+        <tr> 
+            <td class="label-detail" align="right">Name: </td>
             <td align="left"> {{$row->cust_name}} </td>
         </tr>
         <tr> 
-            <td class="input-label">Email</td>
+            <td class="label-detail" align="right">Email: </td>
             <td align="left"> {{$row->cust_email}} </td>
         </tr>
         <tr> 
-            <td class="input-label">Phone Number</td>
+            <td class="label-detail" align="right">Phone Number: </td>
             <td align="left"> {{$row->cust_phone}} </td>
         </tr>
         <tr> 
-            <td class="input-label">Address</td>
+            <td class="label-detail" align="right">Address: </td>
             <td align="left"> {{$row->cust_address}} </td>
         </tr>
         <tr> 
-            <td class="input-label">City</td>
+            <td class="label-detail" align="right">City: </td>
             <td align="left"> {{$row->cust_city}} </td>
         </tr>
         <tr> 
-            <td class="input-label">State</td>
+            <td class="label-detail" align="right">State: </td>
             <td align="left"> {{$row->cust_state}} </td>
         </tr>
         <tr> 
-            <td class="input-label">Zipcode</td>
+            <td class="label-detail" align="right">Zipcode: </td>
             <td align="left"> {{$row->cust_zipcode}} </td>
+        </tr>
+        <tr> 
+            <td class="label-detail" align="right">Status: </td>
+            <td align="left"> {{$row->status}} </td>
         </tr>
     </table>
 @endsection

@@ -91,10 +91,12 @@
             $('#wrapper').toggleClass('toggled');
       }); 
 
-      $(".clickable-row").click(function() {
-          window.location = $(this).data('href');
-      });
     });
+
+    function detailPage(trans_id) {
+        var url = '{{url("admin/transaction/detail")}}' + '/' + trans_id;
+        window.location.href = url;
+    }
 
 </script>
 

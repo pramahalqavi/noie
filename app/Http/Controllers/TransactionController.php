@@ -13,6 +13,9 @@ class TransactionController extends Controller {
                             ->join('products','transactions.product_id','=','products.product_id')
                             ->select('transactions.*', 'products.name as product_name', 'products.price as product_price')
                             ->get();
+        foreach ($transactions as $transaction) {
+            $transaction->product_price += $transaction->unique_code;
+        }
         // $transactions = Transaction::all();
         // dd($transactions);
 
@@ -23,7 +26,7 @@ class TransactionController extends Controller {
         $row = DB::table('transactions')->where('transaction_id', $id)->first();
 
         $product = DB::table('products')->where('product_id', $row->product_id)->first();
-        $row->product_price = $product->price;
+        $row->product_price = $product->price + $row->unique_code;
         $row->product_name = $product->name;
 
         // dd($row);
