@@ -14,7 +14,7 @@
             </tr>
             <tr> 
                 <td class="label-detail" align="right">Price: </td>
-                <td align="left"> Rp {{number_format($row->product_price)}} </td>
+                <td align="left"> Rp {{number_format($row->unique_price)}} </td>
             </tr>
             <tr> 
                 <td class="label-detail" align="right">Name: </td>
@@ -45,6 +45,10 @@
                 <td align="left"> {{$row->cust_zipcode}} </td>
             </tr>
             <tr> 
+                <td class="label-detail" align="right">Order Date: </td>
+                <td align="left"> {{ date('d/m/Y H:i', strtotime($row->created_at)) }} </td>
+            </tr>
+            <tr> 
                 <td class="label-detail" align="right">Status: </td>
                 <td align="left">
         
@@ -61,8 +65,33 @@
             </td>
             </tr>
         </table>
-        <input type="submit" class="btn btn-primary transaction-detail-button" value="Save" width="20%"/>
-        {{csrf_field()}}
-        <input type="hidden" name="_method" value="put"/>
+        <button type="button" class="btn btn-primary transaction-detail-button" data-toggle="modal" data-target="#confirmationModal">Save</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="confirmationModal" role="dialog">
+            <div class="modal-dialog">
+            
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Confirmation</h4>
+                </div>
+
+                <div class="modal-body">
+                    <p>A notification email will be sent to the customer. Are you sure want to change the status?</p>
+                </div>
+
+                <div class="modal-footer text-right">
+                    <button type="button" class="btn btn-danger modal-button" data-dismiss="modal">Cancel</button>
+                    <input type="submit" class="btn btn-primary modal-button" value="OK" width="20%"/>
+                        {{csrf_field()}}
+                    <input type="hidden" name="_method" value="put"/>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+
     </form>
+    
 @endsection

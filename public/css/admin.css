@@ -49,7 +49,8 @@ html { height: 100%;}
 
 #page-content-wrapper {
     width: 100%;
-    padding-top: 70px;
+    padding-top: 50px;
+    padding-bottom: 70px;
 }
 
 #wrapper.toggled #page-content-wrapper {
@@ -319,4 +320,13 @@ html { height: 100%;}
 
 .status-dropdown {
     width: 30%;
+}
+
+/*------------ Confirmation Modal ------------*/
+.modal-footer {
+    max-height: 300px;
+}
+.btn.btn-primary.modal-button {
+    display: inline-block;
+    width: 8%;
 }

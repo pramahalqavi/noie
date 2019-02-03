@@ -13,7 +13,7 @@
         </tr>
         <tr> 
             <td class="label-detail" align="right">Price: </td>
-            <td align="left"> Rp {{number_format($row->product_price)}} </td>
+            <td align="left"> Rp {{number_format($row->unique_price)}} </td>
         </tr>
         <tr> 
             <td class="label-detail" align="right">Name: </td>
@@ -42,6 +42,10 @@
         <tr> 
             <td class="label-detail" align="right">Zipcode: </td>
             <td align="left"> {{$row->cust_zipcode}} </td>
+        </tr>
+        <tr> 
+            <td class="label-detail" align="right">Order Date: </td>
+            <td align="left"> {{ date('d/m/Y H:i', strtotime($row->created_at)) }} </td>
         </tr>
         <tr> 
             <td class="label-detail" align="right">Status: </td>
