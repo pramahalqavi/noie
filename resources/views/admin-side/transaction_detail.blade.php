@@ -2,10 +2,10 @@
 
 @section('content')
 <h2 > Transaction Details </h2>
-    <table class="table table-bordered" style="margin-top: 3%">
+    <table class="table table-bordered" style="margin-top: 1%">
         <tr> 
-            <td class="label-detail" align="right">Transaction ID: </td>
-            <td align="left"> {{$row->transaction_id}} </td>
+            <td class="label-detail" align="right" width="30%">Transaction ID: </td>
+            <td align="left" width="70%"> {{$row->transaction_id}} </td>
         </tr>
         <tr> 
             <td class="label-detail" align="right">Product Name: </td>
@@ -48,4 +48,5 @@
             <td align="left"> {{$row->status}} </td>
         </tr>
     </table>
+    <a class="btn btn-primary transaction-detail-button" href="{{ route('transaction.detail.edit', [$row->transaction_id]) }}"> Edit Status </a>
 @endsection

@@ -308,3 +308,15 @@ html { height: 100%;}
 .label-detail {
     background-color: #f2f2f2;
 }
+
+.btn.btn-primary.transaction-detail-button {
+    margin-top: 5px;
+    position: absolute;
+    display: block;
+    left: 50%;
+    width: 8%;
+}
+
+.status-dropdown {
+    width: 30%;
+}

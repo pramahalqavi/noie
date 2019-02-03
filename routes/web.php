@@ -15,11 +15,11 @@
 //     return view('welcome');
 // });
 
-Route::get('/', 'HomeController@index');
-Route::get('collections', 'ProductController@index');
-Route::get('collections/order', 'OrderFormController@index');
-Route::get('about', 'AboutController@index');
-Route::get('payment-status', 'InvoiceSearchController@index');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('collections', 'ProductController@index')->name('collections');
+Route::get('collections/order', 'OrderFormController@index')->name('collections.order');
+Route::get('about', 'AboutController@index')->name('about');
+Route::get('payment-status', 'InvoiceSearchController@index')->name('payment-status');
 
 
 /*--------------- Admin side ---------------*/
@@ -31,8 +31,10 @@ Route::get('admin/product', function() {
 	return view('admin-side/adminProduct');
 });
 
-Route::get('admin/transaction', 'TransactionController@index');
-Route::get('admin/transaction/detail/{id}', 'TransactionController@detail');
+Route::get('admin/transaction', 'TransactionController@index')->name('transaction');
+Route::get('admin/transaction/detail/{id}', 'TransactionController@detail')->name('transaction.detail');
+Route::get('admin/transaction/detail/{id}/edit', 'TransactionController@editStatus')->name('transaction.detail.edit');
+Route::put('admin/transaction/detail/{id}', 'TransactionController@updateStatus')->name('transaction.detail');
 
 Route::get('admin/admin-role', function() {
 	return view('admin-side/adminRole');

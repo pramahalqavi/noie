@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2019 at 04:30 AM
+-- Generation Time: Feb 03, 2019 at 04:31 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.1.13
 
@@ -41,11 +41,19 @@ CREATE TABLE `admins` (
 
 CREATE TABLE `products` (
   `product_id` int(11) NOT NULL,
-  `name` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `price` int(11) NOT NULL,
-  `collection` int(11) NOT NULL,
-  `year` int(11) NOT NULL
+  `collection` varchar(255) NOT NULL,
+  `year` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`product_id`, `name`, `price`, `collection`, `year`) VALUES
+(1, 'Adidas EQT', 1500000, 'Collection 1', '2018'),
+(2, 'Adidas Prophere', 2000000, 'Collection 2', '2018');
 
 -- --------------------------------------------------------
 
@@ -65,8 +73,8 @@ CREATE TABLE `transactions` (
   `cust_zipcode` varchar(6) NOT NULL,
   `unique_code` int(3) NOT NULL,
   `status` varchar(100) NOT NULL,
-  `created_at` date NOT NULL,
-  `updated_at` date NOT NULL
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -74,7 +82,8 @@ CREATE TABLE `transactions` (
 --
 
 INSERT INTO `transactions` (`transaction_id`, `product_id`, `cust_name`, `cust_email`, `cust_phone`, `cust_address`, `cust_city`, `cust_state`, `cust_zipcode`, `unique_code`, `status`, `created_at`, `updated_at`) VALUES
-(1, 435, 'testing123', 'testing@f.c', '023232232323', 'testing st', 'tesst', 'testing', '123455', 124, 'Unpaid', '2019-01-28', '2019-01-28');
+(1, 1, 'Harry', 'harry@gg.co', '023232232323', 'testing street', 'Bandung', 'Indonesia', '123455', 124, 'Sending', '2019-01-27 17:00:00', '2019-02-02 20:29:43'),
+(2, 2, 'Potter', 'potter@pp.co', '033343432233', 'hogwarts', 'London', 'England', '022932', 453, 'Unpaid', '2019-01-30 17:00:00', '2019-01-30 17:00:00');
 
 --
 -- Indexes for dumped tables
@@ -106,13 +115,13 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -22,14 +22,14 @@
                     NOIE
                 </div>
                 <div class="noie-navbar">
-                    <a class="noie-navbutton" href="{{url('/')}}">HOME</a>
+                    <a class="noie-navbutton" href="{{ route('home') }}">HOME</a>
                     <div class="noie-dropdown">
                         <a class="noie-navbutton">COLLECTIONS </a>
                         <div class="noie-dropdown-content">
                             <div class="noie-row">
                                 <div class="noie-column">
                                     <h4>Category 1</h4>
-                                    <a href="{{url('collections')}}">Link 1</a>
+                                    <a href="{{route('collections')}}">Link 1</a>
                                     <a href="">Link 2</a>
                                     <a href="">Link 3</a>
                                 </div>
@@ -49,8 +49,8 @@
                         </div>
                     </div>
 
-                    <a class="noie-navbutton" href="{{url('about')}}">ABOUT</a>
-                    <a class="noie-navbutton" href="{{url('payment-status')}}">PAYMENT STATUS</a>
+                    <a class="noie-navbutton" href="{{route('about')}}">ABOUT</a>
+                    <a class="noie-navbutton" href="{{route('payment-status')}}">PAYMENT STATUS</a>
                 </ul>
             </div>
         </div>

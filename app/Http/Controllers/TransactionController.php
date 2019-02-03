@@ -29,8 +29,24 @@ class TransactionController extends Controller {
         $row->product_price = $product->price + $row->unique_code;
         $row->product_name = $product->name;
 
-        // dd($row);
-
         return view('admin-side/transaction_detail', ['row' => $row]);
+    }
+
+    public function editStatus($id) {
+        $row = DB::table('transactions')->where('transaction_id', $id)->first();
+
+        $product = DB::table('products')->where('product_id', $row->product_id)->first();
+        $row->product_price = $product->price + $row->unique_code;
+        $row->product_name = $product->name;
+
+        return view('admin-side/transaction_detail_edit', ['row' => $row]);
+    }
+
+    public function updateStatus(Request $request, $id) {
+        $transaction = Transaction::where('transaction_id', $id)->first();
+        $transaction->status = $request->status;
+        $transaction->save();
+
+        return redirect()->route('transaction.detail', [$transaction->transaction_id]);
     }
 }
