@@ -52,7 +52,7 @@
                 <td class="label-detail" align="right">Status: </td>
                 <td align="left">
         
-                <select name="status" class="status-dropdown">
+                <select id="select-status" name="status" class="status-dropdown">
                     @foreach (array("Unpaid", "Packaging", "Sending", "Completed") as $status)
                         <option value="{{$status}}"
                         @if ($status == $row->status)
@@ -65,7 +65,8 @@
             </td>
             </tr>
         </table>
-        <button type="button" class="btn btn-primary transaction-detail-button" data-toggle="modal" data-target="#confirmationModal">Save</button>
+        <button id="conf-modal-button" type="button" class="btn btn-primary transaction-detail-button" data-toggle="modal" data-target="#confirmationModal" disabled="disabled">Save</button>
+        <!--  -->
 
         <!-- Modal -->
         <div class="modal fade" id="confirmationModal" role="dialog">
@@ -93,5 +94,16 @@
         </div>
 
     </form>
+
+    <script> 
+        $('#select-status').change(function() {
+            var curr_status = '{{$row->status}}';
+            if (curr_status == $('#select-status option:selected').text() ) {
+                $('#conf-modal-button').prop('disabled', true);
+            } else {
+                $('#conf-modal-button').prop('disabled', false);
+            }
+        });
+    </script>
     
 @endsection

@@ -2,7 +2,7 @@
 
 @section('content')
   <h1 style="text-align: center">LIST OF TRANSACTIONS</h1>
-  <br><br>
+  <button type="button" class="btn btn-success">Export Excel</button>
   <table class="table table-striped">
     <thead style="background-color: #314190; color: white">
       <tr>
