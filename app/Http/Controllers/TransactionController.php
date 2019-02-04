@@ -6,15 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Transaction;
+use App\Exports\TransactionsExport;
+use Excel;
 
 class TransactionController extends Controller {
     public function index() {
-        // $transactions = DB::table('transactions')
-        //                     ->join('products','transactions.product_id','=','products.product_id')
-        //                     ->select('transactions.*', 'products.name as product_name', 'products.price as product_price')
-        //                     ->get();
         $transactions = Transaction::orderBy('created_at','desc')->paginate(10);
-        
         return view('admin-side/transaction', ['transactions' => $transactions]);
     }
 
@@ -40,5 +37,9 @@ class TransactionController extends Controller {
         }
 
         return redirect()->route('transaction.detail', [$transaction->transaction_id]);
+    }
+
+    public function downloadExcel() {
+        return Excel::download(new TransactionsExport(), 'noie_transactions.xlsx');
     }
 }

@@ -35,6 +35,7 @@ Route::get('admin/transaction', 'TransactionController@index')->name('transactio
 Route::get('admin/transaction/detail/{id}', 'TransactionController@detail')->name('transaction.detail');
 Route::get('admin/transaction/detail/{id}/edit', 'TransactionController@editStatus')->name('transaction.detail.edit');
 Route::put('admin/transaction/detail/{id}', 'TransactionController@updateStatus')->name('transaction.detail');
+Route::get('admin/transaction/download-excel', 'TransactionController@downloadExcel')->name('transaction.download.excel');
 
 Route::get('admin/admin-role', function() {
 	return view('admin-side/adminRole');
