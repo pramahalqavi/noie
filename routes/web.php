@@ -37,9 +37,10 @@ Route::get('admin/transaction/detail/{id}/edit', 'TransactionController@editStat
 Route::put('admin/transaction/detail/{id}', 'TransactionController@updateStatus')->name('transaction.detail');
 Route::get('admin/transaction/download-excel', 'TransactionController@downloadExcel')->name('transaction.download.excel');
 
-Route::get('admin/admin-role', function() {
-	return view('admin-side/adminRole');
-});
+Route::get('admin/admin-role', 'AdminRoleController@index')->name('admin-role');
+Route::get('admin/admin-role/register', 'AdminRoleController@registerNewAdmin')->name('admin-role.register');
+Route::post('admin/admin-role/register', 'AdminRoleController@emailCheck')->name('admin-role.register');
+Route::post('admin/admin-role', 'AdminRoleController@submitRegister')->name('admin-role');
 
 Route::get('admin', function() {
 	return view('admin-side/login');

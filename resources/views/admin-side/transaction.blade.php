@@ -2,7 +2,7 @@
 
 @section('content')
   <h1 style="text-align: center">LIST OF TRANSACTIONS</h1>
-  <a class="btn btn-success" href="{{route('transaction.download.excel')}}">Export Excel</a>
+  <a class="btn btn-success top-table-btn" href="{{route('transaction.download.excel')}}">Export Excel</a>
   <table class="table table-striped">
     <thead style="background-color: #314190; color: white">
       <tr>

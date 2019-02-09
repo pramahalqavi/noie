@@ -332,8 +332,34 @@ html { height: 100%;}
 }
 
 /*------------ Transaction ------------*/
-.btn.btn-success {
+.btn.btn-success.top-table-btn {
     margin-bottom: 1%;
     margin-top: 1%;
     float: right;
 }
+
+/*------------ Admin-Role ------------*/
+.btn.btn-primary.top-table-btn {
+    margin-bottom: 1%;
+    margin-top: 1%;
+    float: right;
+    display:inline-block;
+}
+
+input[type=email], input[type=password] {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+  }
+  
+  input[type=text]:focus, input[type=password]:focus {
+    outline: none;
+  }
+
+  #email-warning, #pass-warning, #confpass-warning {
+      font-size: 15px;
+      color: #d50027;
+      display: none;
+  }
