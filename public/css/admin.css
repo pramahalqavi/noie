@@ -165,7 +165,7 @@ html { height: 100%;}
     box-shadow: none;
 }
 
-.sidebar-identity {
+/* .sidebar-identity {
     color: #ddd;
     font-size: 12px;
     padding: 2px 3px;
@@ -178,7 +178,7 @@ html { height: 100%;}
     width: 50%;
     height: 10%;
     font-size: 13px;
-}
+} */
 
 /*-------------------------------*/
 /*       Hamburger-Cross         */

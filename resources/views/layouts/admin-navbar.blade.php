@@ -26,20 +26,26 @@
                     <a href="{{route('home')}}">
                        NOIE
                     </a>
-                    <div class="sidebar-identity"> {{ Auth::guard('admin')->user()->getEmail() }} 
-                     <a class="btn btn-primary navbar-btn" id="logout-button" href="{{route('logout')}}">Logout</a> </div>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li class="dropdown-header">{{ Auth::guard('admin')->user()->getEmail() }}</li>
+                    <li><a href="{{route('logout')}}">Logout</a></li>
+                  </ul>
+                </li>
+
+                <li>
+                    <a href="#">Statistics</a>
                 </li>
                 <li>
-                    <a href="#">Stat</a>
-                </li>
-                <li>
-                    <a href="#">Product</a>
+                    <a href="#">Products</a>
                 </li>
                 <li>
                     <a href="{{route('transaction')}}">Transactions</a>
                 </li>
                 <li>
-                    <a href="{{route('admin-role')}}">Admin role</a>
+                    <a href="{{route('admin-role')}}">Admin Role</a>
                 </li>
             </ul>
         </nav>
