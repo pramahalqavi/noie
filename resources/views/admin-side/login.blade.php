@@ -4,7 +4,6 @@
 
     <title>Log In</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" type="text/css" href="http://archaea.sith.itb.ac.id/wp-content/themes/zerif-lite/custom/assets/login.css" > -->
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
@@ -24,23 +23,23 @@
                     </h1>
                 </div>
 
-                <form class="form-horizontal" style="margin: 0 10%" action="">
+                <form class="form-horizontal" style="margin: 0 10%" action="{{route('login')}}" method="post">
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                       </div>
-                      <input type="email" class="form-control" placeholder="Enter email..." aria-label="Email" aria-describedby="basic-addon1" required>
+                      <input type="email" name="email" class="form-control" placeholder="Enter email..." aria-label="Email" aria-describedby="basic-addon1" required>
                     </div>
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
                       </div>
-                      <input type="password" class="form-control" placeholder="Enter password..." aria-label="Password" aria-describedby="basic-addon1" required>
+                      <input type="password" name="password" class="form-control" placeholder="Enter password..." aria-label="Password" aria-describedby="basic-addon1" required>
                     </div>
 
                     <div classs="form-group row input-group" style="margin-top: 2em">
-                        <!-- <button class="btn btn-primary" style="width: 100%">Login</button> -->
                         <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Login</button>
+                        {{ csrf_field() }}
                     </div>
                 </form>
             </div>

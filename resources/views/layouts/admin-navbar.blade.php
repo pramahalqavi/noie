@@ -23,9 +23,11 @@
         <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
             <ul class="nav sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="#">
+                    <a href="{{route('home')}}">
                        NOIE
                     </a>
+                    <div class="sidebar-identity"> {{ Auth::guard('admin')->user()->getEmail() }} 
+                     <a class="btn btn-primary navbar-btn" id="logout-button" href="{{route('logout')}}">Logout</a> </div>
                 </li>
                 <li>
                     <a href="#">Stat</a>
@@ -34,10 +36,10 @@
                     <a href="#">Product</a>
                 </li>
                 <li>
-                    <a href="#">Transactions</a>
+                    <a href="{{route('transaction')}}">Transactions</a>
                 </li>
                 <li>
-                    <a href="#">Admin role</a>
+                    <a href="{{route('admin-role')}}">Admin role</a>
                 </li>
             </ul>
         </nav>

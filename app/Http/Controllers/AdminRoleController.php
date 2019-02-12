@@ -33,12 +33,11 @@ class AdminRoleController extends Controller {
         if ($isExists) {
             return redirect()->back()->with('error', 'Email has already registered before');
         } else {
-            return redirect()->back()->withErrors(['error', 'Email has already registered before']);
-            // $admin = new Admin;
-            // $admin->email = $request->email;
-            // $admin->password = Hash::make($request->password);
-            // $admin->save();
-            // return redirect()->route('admin-role');
+            Admin::create([
+                'email' => $request->email,
+                'password' => bcrypt($request->psw)
+            ]);
+            return redirect()->route('admin-role');
         }
     }
 }

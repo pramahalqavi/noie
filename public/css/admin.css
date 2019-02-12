@@ -165,6 +165,21 @@ html { height: 100%;}
     box-shadow: none;
 }
 
+.sidebar-identity {
+    color: #ddd;
+    font-size: 12px;
+    padding: 2px 3px;
+    margin-bottom: 5px;
+    display:block;
+    white-space: nowrap;
+}
+
+#logout-button {
+    width: 50%;
+    height: 10%;
+    font-size: 13px;
+}
+
 /*-------------------------------*/
 /*       Hamburger-Cross         */
 /*-------------------------------*/
@@ -346,7 +361,7 @@ html { height: 100%;}
     display:inline-block;
 }
 
-input[type=email], input[type=password] {
+input[type=email], input[type=password], input[type=text] {
     width: 100%;
     padding: 12px;
     margin: 5px 0 22px 0;
@@ -354,7 +369,7 @@ input[type=email], input[type=password] {
     border: none;
   }
   
-  input[type=text]:focus, input[type=password]:focus {
+  input[type=text]:focus, input[type=password]:focus, input[type=text]:focus {
     outline: none;
   }
 
