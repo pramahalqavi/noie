@@ -40,4 +40,15 @@ class AdminRoleController extends Controller {
             return redirect()->route('admin-role');
         }
     }
+
+    public function deleteAdmin(Request $request) {
+        dd($request->email);
+        $isExists = Admin::where('email', $request->email)->first();
+        if (!$isExists) {
+            return redirect()->back()->with('error', 'Failed to delete admin');
+        } else {
+            Admin::where('email', $request->email)->delete();
+            return redirect()->route('admin-role')->with('message', 'Admin successfully deleted');
+        }
+    }
 }

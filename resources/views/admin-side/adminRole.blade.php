@@ -4,6 +4,11 @@
 <h1 style="text-align: center">ADMIN ROLE</h1>
 <a class="btn btn-primary top-table-btn" href="{{route('admin-role.register')}}">Add New Admin</a>
 <button class="btn btn-danger top-table-btn" type="button" onclick="deleteAdminOnPress({{$admins->count()}})" id="delete-admin-btn">Delete Admin</button>
+@if (session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+@endif
 <table class="table table-striped">
   <thead style="background-color: #279636; color: white">
     <tr>
@@ -15,9 +20,10 @@
   @if($admins->count())
       @foreach($admins as $index => $admin)
       <tr>
-        <form method="post" action="">
+        <form method="post" action="{{route('admin-role.delete')}}">
         <td>{{$admin->email}}</td>
-        <td><button class="btn btn-danger table-btn" data-toggle="modal" data-target="#confirmationModal" id="delete-btn-no-{{$index}}" >Delete</button></td>
+        <input type="hidden" value="{{$admin->email}}" name="email"/>
+        <td><button type="button" class="btn btn-danger table-btn" data-toggle="modal" data-target="#confirmationModal" id="delete-btn-no-{{$index}}" >Delete</button></td>
         <!-- Modal -->
         <div class="modal fade" id="confirmationModal" role="dialog">
             <div class="modal-dialog">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2019 at 03:37 AM
+-- Generation Time: Feb 13, 2019 at 04:29 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.1.13
 
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `admins` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `remember_token` varchar(255) NOT NULL
+  `remember_token` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`email`, `password`, `remember_token`) VALUES
-('wqwq@example.com', '$2y$10$LfHX0hXpjiresnXi1Doqye9a4oZdxmmo5hvF4/1e8TYwKY4hXaVuO', '15YZH3083yXYBmSmpoLW0pSC9mYA33ONHvnAYiIfrLIr4I7hfUjgeJ0rDeAD');
+('wqwq@example.com', '$2y$10$LfHX0hXpjiresnXi1Doqye9a4oZdxmmo5hvF4/1e8TYwKY4hXaVuO', 'Uolomrn8geq8aZ9FSXaJgSjhdZU76kC7X5X3U9evHjPV6Pu3FVvsPJiXwzPw');
 
 -- --------------------------------------------------------
 
