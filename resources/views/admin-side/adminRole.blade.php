@@ -3,6 +3,7 @@
 @section('content')
 <h1 style="text-align: center">ADMIN ROLE</h1>
 <a class="btn btn-primary top-table-btn" href="{{route('admin-role.register')}}">Add New Admin</a>
+<button class="btn btn-danger top-table-btn" type="button" onclick="deleteAdminOnPress({{$admins->count()}})" id="delete-admin-btn">Delete Admin</button>
 <table class="table table-striped">
   <thead style="background-color: #279636; color: white">
     <tr>
@@ -12,15 +13,42 @@
   </thead>
   <tbody>
   @if($admins->count())
-      @foreach($admins as $admin)
+      @foreach($admins as $index => $admin)
       <tr>
+        <form method="post" action="">
         <td>{{$admin->email}}</td>
-        <td></td>
+        <td><button class="btn btn-danger table-btn" data-toggle="modal" data-target="#confirmationModal" id="delete-btn-no-{{$index}}" >Delete</button></td>
+        <!-- Modal -->
+        <div class="modal fade" id="confirmationModal" role="dialog">
+            <div class="modal-dialog">
+            
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Confirmation</h4>
+                </div>
+
+                <div class="modal-body">
+                    <p>Deleted account cannot be restored. Are you sure want to delete the account?</p>
+                </div>
+
+                <div class="modal-footer text-right">
+                    <button type="button" class="btn btn-primary modal-button" data-dismiss="modal">Cancel</button>
+                    <input type="submit" class="btn btn-danger modal-button" value="OK" width="20%"/>
+                    {{csrf_field()}}
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        </form>
       </tr>
       @endforeach
   @endif
-    
+
   </tbody>
 </table>
-
+<div class="text-center"> 
+  {!! $admins->links() !!}
+</div>
 @endsection

@@ -28,15 +28,20 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                       </div>
-                      <input type="email" name="email" class="form-control" placeholder="Enter email..." aria-label="Email" aria-describedby="basic-addon1" required>
+                      <input type="email" name="email" class="form-control" placeholder="Enter email.." aria-label="Email" aria-describedby="basic-addon1" required value="{{old('email')}}">
                     </div>
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
                       </div>
-                      <input type="password" name="password" class="form-control" placeholder="Enter password..." aria-label="Password" aria-describedby="basic-addon1" required>
+                      <input type="password" name="password" class="form-control" placeholder="Enter password.." aria-label="Password" aria-describedby="basic-addon1" required>
                     </div>
 
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
                     <div classs="form-group row input-group" style="margin-top: 2em">
                         <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Login</button>
                         {{ csrf_field() }}

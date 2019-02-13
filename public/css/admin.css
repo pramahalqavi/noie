@@ -343,6 +343,11 @@ html { height: 100%;}
 }
 .btn.btn-primary.modal-button {
     display: inline-block;
+    width: 13%;
+}
+
+.btn.btn-danger.modal-button {
+    display: inline-block;
     width: 8%;
 }
 
@@ -357,8 +362,21 @@ html { height: 100%;}
 .btn.btn-primary.top-table-btn {
     margin-bottom: 1%;
     margin-top: 1%;
+    margin-left: 1%;
     float: right;
     display:inline-block;
+}
+
+.btn.btn-danger.top-table-btn {
+    margin-bottom: 1%;
+    margin-top: 1%;
+    float: right;
+    display:inline-block;
+}
+
+.btn.btn-danger.table-btn {
+    float: right;
+    visibility: hidden;
 }
 
 input[type=email], input[type=password], input[type=text] {

@@ -88,7 +88,7 @@
             trigger.removeClass('is-open');
             trigger.addClass('is-closed');
             isClosed = false;
-          } else {   
+          } else {
             overlay.show();
             trigger.removeClass('is-closed');
             trigger.addClass('is-open');
@@ -107,78 +107,60 @@
         window.location.href = url;
     }
 
-    function checkEmail(giveWarning) {
+    function checkEmail() {
         var email = document.getElementById("email-id").value;
-        var isValidEmail = false;
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if( re.test(String(email).toLowerCase()) ) {
-            $.ajax({
-                type: "POST",
-                url: "{{route('admin-role.register')}}",
-                data: { "_token": "{{ csrf_token() }}", "email": email },
-                dataType: "json",
-                success: function(response) {
-                    if (response.exists){
-                        document.getElementById("email-warning").style.display = 'block';
-                        document.getElementById("email-warning").innerHTML = "Email is already registered";
-                        document.getElementById("email-id").style.border = '1px solid #d50027';
-                        document.getElementById("reg-btn").disabled = true;
-                        
-                    } else {
-                        document.getElementById("email-id").style.border = 'none';
-                        document.getElementById("email-warning").style.display = 'none';
-                        if (checkPassword(false) && checkConfPassword(false) && !giveWarning) {
-                            document.getElementById("reg-btn").disabled = false;
-                        } else if (checkPassword(false) && checkConfPassword(false) && giveWarning) {
-                            document.getElementById("reg-btn").disabled = false;
-                        }
-                    }
-                },
-                error: function (jqXHR, exception) {
-                    alert('something wrong')
-                }
-            });
+            document.getElementById("email-warning").style.display = 'none';
+            document.getElementById("email-id").style.border = 'none';
         } else {
             document.getElementById("email-warning").style.display = 'block';
             document.getElementById("email-warning").innerHTML = "You have entered an invalid email address";
             document.getElementById("email-id").style.border = '1px solid #d50027';
-            document.getElementById("reg-btn").disabled = true;
+            return false;
         }
     }
-    function checkPassword(giveWarning) {
+    function checkPassword() {
         var psw = document.getElementById("psw-id").value;
         if (psw.length < 8) {
-            if (giveWarning) {
-                document.getElementById("pass-warning").style.display = 'block';
-                document.getElementById("pass-warning").innerHTML = "Password must contain at least 8 characters";
-                document.getElementById("psw-id").style.border = '1px solid #d50027';
-            }
-            document.getElementById("reg-btn").disabled = true;
+            document.getElementById("pass-warning").style.display = 'block';
+            document.getElementById("pass-warning").innerHTML = "Password must contain at least 8 characters";
+            document.getElementById("psw-id").style.border = '1px solid #d50027';
             return false;
         } else {
             document.getElementById("psw-id").style.border = 'none';
             document.getElementById("pass-warning").style.display = 'none';
-            checkEmail(false);
             return true;
         }
     }
 
-    function checkConfPassword(giveWarning) {
+    function checkConfPassword() {
         var psw = document.getElementById("psw-id").value;
         var psw_repeat = document.getElementById("psw-repeat-id").value;
          if (psw != psw_repeat) {
-            if (giveWarning) {
-                document.getElementById("confpass-warning").style.display = 'block';
-                document.getElementById("confpass-warning").innerHTML = "Password and Confirm password doesn't match";
-                document.getElementById("psw-repeat-id").style.border = '1px solid #d50027';
-            }
-            document.getElementById("reg-btn").disabled = true;
+            document.getElementById("confpass-warning").style.display = 'block';
+            document.getElementById("confpass-warning").innerHTML = "Password and Confirm password doesn't match";
+            document.getElementById("psw-repeat-id").style.border = '1px solid #d50027';
             return false;
         } else {
             document.getElementById("psw-repeat-id").style.border = 'none';
             document.getElementById("confpass-warning").style.display = 'none';
-            checkEmail(false);
             return true;
+        }
+    }
+
+    function deleteAdminOnPress(adminCount) {
+        var button = document.getElementById("delete-admin-btn");
+        if (button.innerHTML == "Delete Admin") {
+            button.innerHTML = "Cancel Delete";
+            for (var i = 0; i < adminCount; ++i) {
+                document.getElementById("delete-btn-no-" + i).style.visibility = 'visible';
+            }
+        } else if (button.innerHTML == "Cancel Delete") {
+            button.innerHTML = "Delete Admin";
+            for (var i = 0; i < adminCount; ++i) {
+                document.getElementById("delete-btn-no-" + i).style.visibility = 'hidden';
+            }
         }
     }
 

@@ -10,7 +10,7 @@ use App\Models\Admin;
 
 class AdminRoleController extends Controller {
     public function index() {
-        $admins = DB::table('admins')->select('email')->get();
+        $admins = DB::table('admins')->select('email')->paginate(10);
         return view('admin-side/adminRole', ['admins' => $admins]);
     }
 
@@ -31,7 +31,7 @@ class AdminRoleController extends Controller {
     public function submitRegister(Request $request) {
         $isExists = Admin::where('email', $request->email)->first();
         if ($isExists) {
-            return redirect()->back()->with('error', 'Email has already registered before');
+            return redirect()->back()->with('error', 'Failed create admin, email has already registered before')->withInput();
         } else {
             Admin::create([
                 'email' => $request->email,

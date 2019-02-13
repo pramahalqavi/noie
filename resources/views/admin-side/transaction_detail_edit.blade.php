@@ -66,7 +66,6 @@
             </tr>
         </table>
         <button id="conf-modal-button" type="button" class="btn btn-primary transaction-detail-button" data-toggle="modal" data-target="#confirmationModal" disabled="disabled">Save</button>
-        <!--  -->
 
         <!-- Modal -->
         <div class="modal fade" id="confirmationModal" role="dialog">

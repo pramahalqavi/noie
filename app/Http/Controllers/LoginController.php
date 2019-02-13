@@ -19,7 +19,7 @@ class LoginController extends Controller {
     public function loginAttempt(Request $request) {
         $auth = Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password]);
         if (!$auth) {
-            return redirect()->back();
+            return redirect()->back()->with('error','Wrong email or password')->withInput();
         }
         return redirect()->route('transaction');
     }
