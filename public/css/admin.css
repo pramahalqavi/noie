@@ -312,13 +312,18 @@ html { height: 100%;}
 }
 
 /*------------ Customization ------------*/
-.produk i {
-    color: #79aefe;
-}
-
 .clickable-row:hover {
     cursor: pointer;
 }
+
+/*------------ PRODUCT MANAGEMENT ------------*/
+hr.right-line {
+  width: 90%;
+  border-width: 2px;
+  margin-right:0;
+  float: right;
+}
+
 
 /*------------ Transaction Detail ------------*/
 .label-detail {
@@ -398,3 +403,6 @@ input[type=email], input[type=password], input[type=text] {
       color: #d50027;
       display: none;
   }
+
+
+/*----- PRODUCT MANAGEMENT -----*/
