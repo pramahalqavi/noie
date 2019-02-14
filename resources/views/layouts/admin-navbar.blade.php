@@ -30,7 +30,7 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li class="dropdown-header">{{ Auth::guard('admin')->user()->getEmail() }}</li>
+                    <li class="dropdown-header">{{ Session::get('auth-email') }}</li>
                     <li><a href="{{route('logout')}}">Logout</a></li>
                   </ul>
                 </li>
@@ -151,10 +151,16 @@
 
     function deleteAdminOnPress(adminCount) {
         var button = document.getElementById("delete-admin-btn");
+        var email = "{{Session::get('auth-email')}}";
         if (button.innerHTML == "Delete Admin") {
             button.innerHTML = "Cancel Delete";
+            let tbl = document.getElementById("admin-table").getElementsByTagName('tbody')[0];
             for (var i = 0; i < adminCount; ++i) {
-                document.getElementById("delete-btn-no-" + i).style.visibility = 'visible';
+                if (tbl.rows[i].cells[0].innerHTML == email) {
+                    document.getElementById("delete-btn-no-" + i).style.visibility = 'hidden';
+                } else {
+                    document.getElementById("delete-btn-no-" + i).style.visibility = 'visible';
+                }
             }
         } else if (button.innerHTML == "Cancel Delete") {
             button.innerHTML = "Delete Admin";

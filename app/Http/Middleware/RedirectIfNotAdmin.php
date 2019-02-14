@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class RedirectIfNotAdmin {
     /**
@@ -15,7 +16,11 @@ class RedirectIfNotAdmin {
      * @return mixed
      */
     public function handle($request, Closure $next, $guard = 'admin') {
-        if (!Auth::guard($guard)->check()) {
+        // dd(Auth::guard($guard)->user()->getEmail());
+        // if (!Auth::guard($guard)->check()) {
+        //     return redirect(route('login'));
+        // }
+        if (!Session::get('auth-login')) {
             return redirect(route('login'));
         }
         return $next($request);

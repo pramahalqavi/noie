@@ -16,11 +16,11 @@
                 <p id="email-warning"></p>
 
                 <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" onblur="checkPassword()" name="psw" id="psw-id" required>
+                <input type="password" placeholder="Enter Password" onblur="checkPassword()" name="psw" id="psw-id" pattern=".{8,}" required>
                 <p id="pass-warning"></p>
 
                 <label for="psw-repeat"><b>Confirm Password</b></label>
-                <input type="password" placeholder="Confirm Password" onblur="checkConfPassword()" name="psw-repeat" id="psw-repeat-id" required>
+                <input type="password" placeholder="Confirm Password" onblur="checkConfPassword()" name="psw-repeat" id="psw-repeat-id" pattern=".{8,}" required>
                 <p id="confpass-warning"></p>
 
                 @if (session('error'))

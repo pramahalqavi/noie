@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class RedirectIfAuthenticated
 {
@@ -16,7 +17,10 @@ class RedirectIfAuthenticated
      * @return mixed
      */
     public function handle($request, Closure $next, $guard = 'admin') {
-        if (Auth::guard($guard)->check()) {
+        // if (Auth::guard($guard)->check()) {
+        //     return redirect(route('transaction'));
+        // }
+        if (Session::get('auth-login')) {
             return redirect(route('transaction'));
         }
         return $next($request);

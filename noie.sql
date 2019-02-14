@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 13, 2019 at 04:29 PM
+-- Generation Time: Feb 14, 2019 at 05:11 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.1.13
 
@@ -39,7 +39,10 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`email`, `password`, `remember_token`) VALUES
-('wqwq@example.com', '$2y$10$LfHX0hXpjiresnXi1Doqye9a4oZdxmmo5hvF4/1e8TYwKY4hXaVuO', 'Uolomrn8geq8aZ9FSXaJgSjhdZU76kC7X5X3U9evHjPV6Pu3FVvsPJiXwzPw');
+('diahdewi.165@gmail.com', '$2y$10$JYdDma99J2tD7lHTTgs8TunfhSdPmlal/N5.AsqiltB6q6jrHH8iy', NULL),
+('rtrt@example.com', '$2y$10$ju.qFzajfHXrs.8p26BNKOeOvhBYxes6Kqn0ea6mDfcDzsxBEq0Wi', NULL),
+('wawa@example.com', '$2y$10$TV26TEIxWRza9UGwzBpG4eod3Pz1fXui5BEjlPInWWpIrvuYRvFyK', NULL),
+('wqwq@example.com', '$2y$10$LfHX0hXpjiresnXi1Doqye9a4oZdxmmo5hvF4/1e8TYwKY4hXaVuO', NULL);
 
 -- --------------------------------------------------------
 

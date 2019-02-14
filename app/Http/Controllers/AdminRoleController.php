@@ -37,12 +37,11 @@ class AdminRoleController extends Controller {
                 'email' => $request->email,
                 'password' => bcrypt($request->psw)
             ]);
-            return redirect()->route('admin-role');
+            return redirect()->route('admin-role')->with('message', 'Admin successfully registered');
         }
     }
 
     public function deleteAdmin(Request $request) {
-        dd($request->email);
         $isExists = Admin::where('email', $request->email)->first();
         if (!$isExists) {
             return redirect()->back()->with('error', 'Failed to delete admin');

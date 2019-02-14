@@ -45,7 +45,7 @@ Route::group(['middleware' => ['admin']], function () {
 	Route::get('admin/admin-role/register', 'AdminRoleController@registerNewAdmin')->name('admin-role.register');
 	Route::post('admin/admin-role/register', 'AdminRoleController@emailCheck')->name('admin-role.register');
 	Route::post('admin/admin-role', 'AdminRoleController@submitRegister')->name('admin-role');
-	Route::post('admin/admin-role/delete', 'AdminRoleController@deleteAdmin')->name('admin-role.delete');
+	Route::post('admin/admin-role/delete', 'AdminRoleController@deleteAdmin')->middleware('admin.root')->name('admin-role.delete');
 
 	Route::get('admin-logout', 'LoginController@logout')->name('logout');
 });
