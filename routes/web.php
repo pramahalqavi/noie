@@ -47,5 +47,7 @@ Route::group(['middleware' => ['admin']], function () {
 	Route::post('admin/admin-role', 'AdminRoleController@submitRegister')->name('admin-role');
 	Route::post('admin/admin-role/delete', 'AdminRoleController@deleteAdmin')->middleware('admin.root')->name('admin-role.delete');
 
-	Route::get('admin-logout', 'LoginController@logout')->name('logout');
+	Route::get('admin/change-password', 'AdminRoleController@changePassword')->name('change-password');
+	Route::put('admin/submit-change-password', 'AdminRoleController@submitChangePassword')->name('change-password.submit');
+	Route::get('admin/admin-logout', 'LoginController@logout')->name('logout');
 });

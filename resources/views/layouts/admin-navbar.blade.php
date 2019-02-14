@@ -31,6 +31,7 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li class="dropdown-header">{{ Session::get('auth-email') }}</li>
+                    <li><a href="{{route('change-password')}}">Change Password</a></li>
                     <li><a href="{{route('logout')}}">Logout</a></li>
                   </ul>
                 </li>
@@ -167,6 +168,21 @@
             for (var i = 0; i < adminCount; ++i) {
                 document.getElementById("delete-btn-no-" + i).style.visibility = 'hidden';
             }
+        }
+    }
+
+    function checkChangePassword() {
+        var curpass = document.getElementById("cur-psw-id").value;
+        var newpass = document.getElementById("psw-id").value;
+        if (curpass == newpass) {
+            document.getElementById("pass-warning").style.display = 'block';
+            document.getElementById("pass-warning").innerHTML = "New password must different from current password";
+            document.getElementById("psw-id").style.border = '1px solid #d50027';
+            return false;
+        } else {
+            document.getElementById("psw-id").style.border = 'none';
+            document.getElementById("pass-warning").style.display = 'none';
+            return checkConfPassword();
         }
     }
 
