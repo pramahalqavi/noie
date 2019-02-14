@@ -67,7 +67,11 @@
             </td>
             </tr>
         </table>
-        <button id="conf-modal-button" type="button" class="btn btn-primary transaction-detail-button" data-toggle="modal" data-target="#confirmationModal" disabled="disabled">Save</button>
+        <div class="btn-wrapper">
+            <a class="btn btn-danger transaction-detail-button" href="{{route('transaction.detail', ['id' => $row->transaction_id])}}" >Cancel</a>
+            <button id="conf-modal-button" type="button" class="btn btn-primary transaction-detail-button" data-toggle="modal" data-target="#confirmationModal" disabled="disabled">Save</button>
+        </div>
+        
 
         <!-- Modal -->
         <div class="modal fade" id="confirmationModal" role="dialog">
