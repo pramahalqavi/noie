@@ -12,10 +12,10 @@ class AdminProductController extends Controller
 
 	public function index() {
     	
-    	$collections = Collection::orderBy('year', 'desc')->get();
+    	$years = Collection::distinct()->orderBy('year', 'desc')->get(['year']);
     	// dd($collections);
 
-		return view('admin-side/adminProduct', ['rows' => $collections]);
+		return view('admin-side/adminProduct', ['years' => $years]);
 	}
 
 
