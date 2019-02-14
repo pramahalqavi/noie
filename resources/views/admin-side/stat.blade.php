@@ -1,5 +1,7 @@
 @extends('layouts.admin-navbar')
 
+@section('title', 'Statistics')
+
 @section('content')
   <h3 style="color: grey">19 January 2019</h3>
   <h2>DAYS</h2>

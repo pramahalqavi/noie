@@ -1,5 +1,7 @@
 @extends('layouts.admin-navbar')
 
+@section('title', 'Transaction')
+
 @section('content')
   <h1 style="text-align: center">LIST OF TRANSACTIONS</h1>
   <a class="btn btn-success top-table-btn" href="{{route('transaction.download.excel')}}">Export Excel</a>

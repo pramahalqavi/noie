@@ -1,5 +1,7 @@
 @extends('layouts.admin-navbar')
 
+@section('title', 'Product management')
+
 @section('content')
 
 <h1 style="text-align: center">PRODUCT MANAGEMENT</h1>

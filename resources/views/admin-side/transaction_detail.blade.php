@@ -1,5 +1,7 @@
 @extends('layouts.admin-navbar')
 
+@section('title', 'Transaction detail')
+
 @section('content')
 <h2 > Transaction Details </h2>
     <table class="table table-bordered" style="margin-top: 1%">

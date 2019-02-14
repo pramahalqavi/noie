@@ -1,5 +1,7 @@
 @extends('layouts.admin-navbar')
 
+@section('title', 'Change password')
+
 @section('content')
 <div class="container">
     <div class="col-lg-10" style="margin:0 auto;" >

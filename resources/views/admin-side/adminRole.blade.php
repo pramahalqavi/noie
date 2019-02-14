@@ -1,5 +1,7 @@
 @extends('layouts.admin-navbar')
 
+@section('title', 'Admin role')
+
 @section('content')
 <h1 style="text-align: center">ADMIN ROLE</h1>
 @if (session('message'))

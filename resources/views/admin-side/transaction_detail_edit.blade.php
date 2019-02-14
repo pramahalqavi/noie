@@ -1,5 +1,7 @@
 @extends('layouts.admin-navbar')
 
+@section('title', 'Edit status transaction')
+
 @section('content')
 <h2 > Transaction Details </h2>
     <form action="{{route('transaction.detail', [$row->transaction_id])}}" method="post">
