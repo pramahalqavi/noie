@@ -302,10 +302,6 @@ input[type=text], input[type=tel] {
   text-align: left;
 }
 
-#payment-result-not-found {
-
-}
-
 .not-found-line {
   margin: 0 15%;
   border: .3px solid #ddd;

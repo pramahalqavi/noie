@@ -55,13 +55,6 @@ function showCollection(year) {
 //   } 
 // }
 
-
-/*---------- Transaction Detail -----------*/
-function detailPage(trans_id) {
-    var url = '{{url("admin/transaction/detail")}}' + '/' + trans_id;
-    window.location.href = url;
-}
-
 /*---------- Register Admin -----------*/
 function checkEmail() {
     var email = document.getElementById("email-id").value;

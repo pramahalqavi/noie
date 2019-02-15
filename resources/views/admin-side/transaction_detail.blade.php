@@ -55,7 +55,7 @@
         </tr>
     </table>
     <div class="btn-wrapper">
-        <a class="btn btn-danger transaction-detail-button" href="{{route('transaction')}}" >Cancel</a>
+        <a class="btn btn-danger transaction-detail-button" href="{{route('transaction')}}" >Back</a>
         <a class="btn btn-primary transaction-detail-button" href="{{ route('transaction.detail.edit', [$row->transaction_id]) }}"> Edit Status </a>
     </div>
 @endsection

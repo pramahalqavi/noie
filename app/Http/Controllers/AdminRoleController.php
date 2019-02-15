@@ -11,7 +11,7 @@ use App\Models\Admin;
 
 class AdminRoleController extends Controller {
     public function index() {
-        $admins = DB::table('admins')->select('email')->paginate(10);
+        $admins = DB::table('admins')->select('email')->paginate(15);
         return view('admin-side/adminRole', ['admins' => $admins]);
     }
 
@@ -32,23 +32,23 @@ class AdminRoleController extends Controller {
     public function submitRegister(Request $request) {
         $isExists = Admin::where('email', $request->email)->first();
         if ($isExists) {
-            return redirect()->back()->with('error', 'Failed create admin, email has already registered before')->withInput();
+            return redirect()->back()->with('error', 'Create admin failed, email has already registered before.')->withInput();
         } else {
             Admin::create([
                 'email' => $request->email,
                 'password' => bcrypt($request->psw)
             ]);
-            return redirect()->route('admin-role')->with('message', 'Admin successfully registered');
+            return redirect()->route('admin-role')->with('message', 'Admin successfully registered.');
         }
     }
 
     public function deleteAdmin(Request $request) {
         $isExists = Admin::where('email', $request->email)->first();
         if (!$isExists) {
-            return redirect()->back()->with('error', 'Failed to delete admin');
+            return redirect()->back()->with('error', 'Delete admin failed.');
         } else {
             Admin::where('email', $request->email)->delete();
-            return redirect()->route('admin-role')->with('message', 'Admin successfully deleted');
+            return redirect()->route('admin-role')->with('message', 'Admin successfully deleted.');
         }
     }
 
@@ -62,9 +62,9 @@ class AdminRoleController extends Controller {
         if (Hash::check($request->curpsw, $admin->password)) {
             $admin->password = bcrypt($request->psw);
             $admin->save();
-            return redirect()->back()->with('message', 'Password successfully changed');
+            return redirect()->back()->with('message', 'Password successfully changed.');
         } else {
-            return redirect()->back()->with('error', 'Failed change password, wrong current password');
+            return redirect()->back()->with('error', 'Change password failed, wrong current password.');
         }
     }
 }

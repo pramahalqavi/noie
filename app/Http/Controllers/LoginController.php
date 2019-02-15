@@ -21,7 +21,7 @@ class LoginController extends Controller {
         $auth = Admin::where('email', $request->email)->first();
         // $auth = Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password]);
         if (!$auth) {
-            return redirect()->back()->with('error','Wrong email or password')->withInput();
+            return redirect()->back()->with('error','Wrong email or password.')->withInput();
         } else {
              // dd(Auth::guard('admin')->user()->getEmail());
             if (Hash::check($request->password, $auth->password)) {
@@ -29,7 +29,7 @@ class LoginController extends Controller {
                 Session::put('auth-login', TRUE);
                 return redirect()->route('transaction');
             }
-            return redirect()->back()->with('error','Wrong email or password')->withInput();
+            return redirect()->back()->with('error','Wrong email or password.')->withInput();
         }
     }
 

@@ -33,4 +33,11 @@
     {!! $transactions->links() !!}
   </div>
 
+  <script> 
+  function detailPage(trans_id) {
+    var url = '{{url("admin/transaction/detail")}}' + '/' + trans_id;
+      window.location.href = url;
+  }
+  </script>
+
 @endsection

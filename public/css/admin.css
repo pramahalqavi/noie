@@ -410,7 +410,7 @@ hr.right-line {
 
 .btn.btn-danger.table-btn {
     float: right;
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 
 input[type=email], input[type=password], input[type=text] {

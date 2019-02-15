@@ -10,9 +10,6 @@
     </div>
 @endif
 <a class="btn btn-primary top-table-btn" href="{{route('admin-role.register')}}">Add New Admin</a>
-@if (Session::get('auth-email') == 'diahdewi.165@gmail.com')
-    <button class="btn btn-danger top-table-btn" type="button" onclick="deleteAdminOnPress({{$admins->count()}})" id="delete-admin-btn">Delete Admin</button>
-@endif
 <table class="table table-striped" id="admin-table">
   <thead style="background-color: #279636; color: white">
     <tr>
@@ -25,10 +22,10 @@
       @foreach($admins as $index => $admin)
       <tr>
         <form method="post" action="{{route('admin-role.delete')}}">
-        <td>{{$admin->email}}</td>
+        <td class="admin-table-col"> {{$admin->email}} </td>
         <input type="hidden" value="{{$admin->email}}" name="email"/>
         <td>
-        @if (Session::get('auth-email') == 'diahdewi.165@gmail.com')
+        @if (Session::get('auth-email') == 'diahdewi.165@gmail.com' && $admin->email != Session::get('auth-email'))
             <button type="button" class="btn btn-danger table-btn" data-toggle="modal" data-target="#confirmationModal_{{$index}}" id="delete-btn-no-{{$index}}" >Delete</button>
         @endif
         </td>
