@@ -19,7 +19,7 @@
     @if($transactions->count())
       @foreach($transactions as $transaction)
       <tr class="clickable-row" onclick="detailPage({{$transaction->transaction_id}})">
-        <th scope="row">{{ $transaction->transaction_id }}</th>
+        <td scope="row">{{ $transaction->transaction_id }}</td>
         <td>{{ $transaction->cust_name }}</td>
         <td>{{ $transaction->product_name }}</td>
         <td> {{ $transaction->status }} </td>
