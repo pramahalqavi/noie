@@ -20,10 +20,7 @@ Route::get('collections', 'ProductController@index')->name('collections');
 Route::get('collections/order', 'OrderFormController@index')->name('collections.order');
 Route::get('about', 'AboutController@index')->name('about');
 Route::get('payment-status', 'InvoiceSearchController@index')->name('payment-status');
-Route::get('payment-status/result', function() {
-	return view('user-side/payment_status_result');
-})->name('payment-status.result');
-
+Route::post('payment-status', 'InvoiceSearchController@doSearch')->name('payment-status.search');
 
 /*--------------- Admin side ---------------*/
 Route::get('admin', 'LoginController@index')->middleware('guest')->name('login');

@@ -1,3 +1,4 @@
+/*------------ Navigation Bar ------------*/
 html, body {
     padding: 0;
     margin: 0;
@@ -22,7 +23,7 @@ html, body {
     color: white;
     text-align: center;
     font-family: 'Thasadith', sans-serif;
-    /* height: 16%; */
+    display: block;
 }
 
 .noie-nav:hover {
@@ -33,7 +34,6 @@ html, body {
     font-size: 28px;
     padding-bottom: 5px;
     vertical-align: center;
-    /* height: 34%; */
 }
 
 .noie-navbar {
@@ -43,7 +43,6 @@ html, body {
     overflow: hidden;
     background-color: rgba(255,0,0,0);
     font-size: 15px;
-    /* height: 66%; */
 }
         
 .noie-navbutton {
@@ -71,7 +70,7 @@ html, body {
 .noie-dropdown-content {
   position: absolute;
   color: white;
-  background-color: rgba(204,204,204,0.9);
+  background-color:  #e9ecec;
   width: 100%;
   left: 0;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -129,7 +128,8 @@ html, body {
 }
 
 .content {
-    font-family: 'Thasadith', sans-serif;
+    /* font-family: 'Thasadith', sans-serif; */
+    font-family: 'Tahoma', 'Geneva', 'sans-serif';
     text-align: center;
 }
 
@@ -226,6 +226,7 @@ button:hover {
   background-color: #333;
 }
 
+/*------------ About ------------*/
 /* Rowblock-2 */
 .rowblock-2 {
   margin-top: 1%;
@@ -250,41 +251,67 @@ button:hover {
   margin-right: 8px;
 }
 
+/*------------ Payment Search ------------*/
 input[type=text], input[type=tel] {
   padding: 7px 10px;
   margin-top: 8px;
-  border: none;
   width: 50%;
-  font-size: 16px;
-  line-height: 22px;
   margin: 5px;
-  margin-left: 25px;
-  border: 1px;
 }
 
-input[type=text]:focus {
-	background-color: #fff;
+.button-group {
+  margin-top: 2%;
+}
+
+.search-button {
+  display: inline-block;
+}
+
+.search-input {
+  display: inline-block;
+  width: 50%;
+  background: #fefefe;
 }
 
 .search-container {
   width: 100%;
-  position: absolute;
-  top: 35%;
+  display: block;
+  margin-top: 2%;
 }
 
 .result-container {
-  width: 80%;
+  margin: 3% 10%;
+}
+
+.result-table {
   text-align: center;
+}
+
+.search-label-detail {
+  background-color: #f2f2f2;
 }
 
 #payment-search-heading {
   width: 100%;
-  top: 25%;
-  position: absolute;
-  font-family: 'Thasadith', sans-serif;
+  margin-top: 2%;
+  display: block;
 }
 
-/* Order Form */
+.payment-result-heading {
+  margin-top: 2%;
+  text-align: left;
+}
+
+#payment-result-not-found {
+
+}
+
+.not-found-line {
+  margin: 0 15%;
+  border: .3px solid #ddd;
+}
+
+/*------------ Order Form ------------*/
 .form-style {
   margin-top: 2%;
 }

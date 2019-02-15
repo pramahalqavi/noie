@@ -56,12 +56,13 @@ function showCollection(year) {
 // }
 
 
-
+/*---------- Transaction Detail -----------*/
 function detailPage(trans_id) {
     var url = '{{url("admin/transaction/detail")}}' + '/' + trans_id;
     window.location.href = url;
 }
 
+/*---------- Register Admin -----------*/
 function checkEmail() {
     var email = document.getElementById("email-id").value;
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -104,6 +105,7 @@ function checkConfPassword() {
     }
 }
 
+/*---------- Admin Role -----------*/
 function deleteAdminOnPress(adminCount) {
     var button = document.getElementById("delete-admin-btn");
     var email = "{{Session::get('auth-email')}}";
@@ -125,6 +127,7 @@ function deleteAdminOnPress(adminCount) {
     }
 }
 
+/*---------- Change Password -----------*/
 function checkChangePassword() {
     var curpass = document.getElementById("cur-psw-id").value;
     var newpass = document.getElementById("psw-id").value;

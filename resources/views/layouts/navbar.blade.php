@@ -6,7 +6,11 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Thasadith" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <link href="{{asset('css/default.css')}}" rel="stylesheet" type="text/css">
+
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
     </head>
     <body>
@@ -15,7 +19,7 @@
         @elseif(\Request::is('about'))
         <div class="background" style="background-image: url('/images/img2.jpg')">
         @else
-        <div class="background" style="background-color: #eee">
+        <!-- <div class="background" style="background-color: #eee"> -->
         @endif
             <div class="noie-nav">
                 <div class="noie-logo">
