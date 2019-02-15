@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 14, 2019 at 05:11 AM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.1.13
+-- Host: localhost
+-- Generation Time: Feb 15, 2019 at 02:13 AM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -47,6 +47,32 @@ INSERT INTO `admins` (`email`, `password`, `remember_token`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `collections`
+--
+
+CREATE TABLE `collections` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `year` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `collections`
+--
+
+INSERT INTO `collections` (`id`, `name`, `year`) VALUES
+(1, 'AA', '2016'),
+(2, 'BB', '2016'),
+(3, 'CC', '2016'),
+(4, 'DD', '2016'),
+(5, 'EE', '2017'),
+(6, 'FF', '2017'),
+(7, 'GG', '2017'),
+(8, 'HH', '2017');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `products`
 --
 
@@ -54,6 +80,7 @@ CREATE TABLE `products` (
   `product_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `price` int(11) NOT NULL,
+  `size` varchar(255) DEFAULT NULL,
   `collection` varchar(255) NOT NULL,
   `year` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -62,9 +89,9 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `name`, `price`, `collection`, `year`) VALUES
-(1, 'Adidas EQT', 1500000, 'Collection 1', '2018'),
-(2, 'Adidas Prophere', 2000000, 'Collection 2', '2018');
+INSERT INTO `products` (`product_id`, `name`, `price`, `size`, `collection`, `year`) VALUES
+(1, 'Adidas EQT', 1500000, NULL, 'Collection 1', '2018'),
+(2, 'Adidas Prophere', 2000000, NULL, 'Collection 2', '2018');
 
 -- --------------------------------------------------------
 
@@ -118,6 +145,12 @@ ALTER TABLE `admins`
   ADD PRIMARY KEY (`email`);
 
 --
+-- Indexes for table `collections`
+--
+ALTER TABLE `collections`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -132,6 +165,12 @@ ALTER TABLE `transactions`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `collections`
+--
+ALTER TABLE `collections`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `products`
