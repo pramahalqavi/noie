@@ -269,12 +269,17 @@ input[type=text]:focus {
 .search-container {
   width: 100%;
   position: absolute;
-  top: 40%;
+  top: 35%;
+}
+
+.result-container {
+  width: 80%;
+  text-align: center;
 }
 
 #payment-search-heading {
   width: 100%;
-  top: 30%;
+  top: 25%;
   position: absolute;
   font-family: 'Thasadith', sans-serif;
 }
