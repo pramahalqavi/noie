@@ -312,13 +312,45 @@ html { height: 100%;}
 }
 
 /*------------ Customization ------------*/
-.produk i {
-    color: #79aefe;
-}
-
 .clickable-row:hover {
     cursor: pointer;
 }
+
+/*------------ PRODUCT MANAGEMENT ------------*/
+hr.right-line {
+  width: 82%;
+  border-width: 2px;
+  margin-right:0;
+  float: right;
+}
+
+.collection-list {
+  /*display: none;*/
+}
+
+.collection-list li {
+  font-size: 1.5em;
+  margin-left: 1.25em;
+}
+
+.fa-angle-right{
+  transform: rotate(0deg);
+  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Safari 3-8 */
+  transition: transform .1s linear;
+  -ms-transition: transform .1s linear;
+  -webkit-transition: transform .1s linear;
+}
+
+.fa-angle-right.open{
+  transform: rotate(90deg);
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Safari 3-8 */
+  transition: transform .1s linear;
+  -ms-transition: transform .1s linear;
+  -webkit-transition: transform .1s linear;
+}
+
 
 /*------------ Transaction Detail ------------*/
 .label-detail {
@@ -398,3 +430,6 @@ input[type=email], input[type=password], input[type=text] {
       color: #d50027;
       display: none;
   }
+
+
+/*----- PRODUCT MANAGEMENT -----*/
