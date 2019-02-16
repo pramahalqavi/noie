@@ -20,15 +20,33 @@
 @endforeach
 
 <br>
-<button class="add_field_button btn btn-success btn-md"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Year</button>
+<button onclick="showFormAddYear()" class="add_field_button btn btn-success btn-md"><span id="addY" class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Year</button>
     
 <div id="addYear">
-    <br><hr>
+    <br><hr><br>
     <form action="/admin/product" method="POST">
         <div class="form-group row">
-            <label for="collection1" class="col-sm-2 col-form-label">Collection 1</label>
+            <label for="collection1" class="col-sm-2 col-form-label" style="margin-top: .8em">Collection 1</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="collection1" placeholder="Collection 1">
+                <input type="text" class="form-control" id="collection1" placeholder="Type here...">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="collection2" class="col-sm-2 col-form-label" style="margin-top: .8em">Collection 2</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="collection2" placeholder="Type here...">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="collection3" class="col-sm-2 col-form-label" style="margin-top: .8em">Collection 3</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="collection3" placeholder="Type here...">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="collection4" class="col-sm-2 col-form-label" style="margin-top: .8em">Collection 4</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="collection4" placeholder="Type here...">
             </div>
         </div>
         <div class="form-group row">
