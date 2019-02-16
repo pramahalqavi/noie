@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 use App\Models\Collection;
 
@@ -14,13 +15,24 @@ class AdminProductController extends Controller
     	
     	$years = Collection::distinct()->orderBy('year', 'desc')->get(['year']);
 
-    	$collections = Collection::orderBy('year', 'desc')->get();
+    	$collections = Collection::orderBy('year', 'desc')->orderBy('id')->get();
     	// dd($collections);
 
 		return view('admin-side/adminProduct', ['years' => $years, 'collections' => $collections]);
 	}
 
+	public function show($id) {
+		$collection = Collection::find($id);
+
+		// dd($collection);
+
+		return view('admin-side/productEdit', ['collection' => $collection]);
+	}
+
 	public function addYear(Request $request) {
+
+		// dd($request);
+
 		$collection1 = new Collection;
 		$collection1->year = $request->year;
 		$collection1->name = $request->collection1;
