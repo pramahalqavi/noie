@@ -31,7 +31,12 @@ Route::group(['middleware' => ['admin']], function () {
 		return view('admin-side/stat');
 	});
 
-	Route::get('admin/product', 'AdminProductController@index' );
+	/*---------- Admin Product ----------*/
+	Route::post('admin/product', 'AdminProductController@addYear');
+
+	Route::get('admin/product', 'AdminProductController@index' )->name('product-mgt');
+
+
 
 	Route::get('admin/transaction', 'TransactionController@index')->name('transaction');
 	Route::get('admin/transaction/detail/{id}', 'TransactionController@detail')->name('transaction.detail');
