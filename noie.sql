@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 15, 2019 at 02:13 AM
+-- Generation Time: Feb 16, 2019 at 11:50 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -68,7 +68,11 @@ INSERT INTO `collections` (`id`, `name`, `year`) VALUES
 (5, 'EE', '2017'),
 (6, 'FF', '2017'),
 (7, 'GG', '2017'),
-(8, 'HH', '2017');
+(8, 'HH', '2017'),
+(9, 'II', '2018'),
+(10, 'JJ', '2018'),
+(11, 'KK', '2018'),
+(12, 'LL', '2018');
 
 -- --------------------------------------------------------
 
@@ -81,17 +85,16 @@ CREATE TABLE `products` (
   `name` varchar(255) NOT NULL,
   `price` int(11) NOT NULL,
   `size` varchar(255) DEFAULT NULL,
-  `collection` varchar(255) NOT NULL,
-  `year` varchar(10) NOT NULL
+  `collection_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `name`, `price`, `size`, `collection`, `year`) VALUES
-(1, 'Adidas EQT', 1500000, NULL, 'Collection 1', '2018'),
-(2, 'Adidas Prophere', 2000000, NULL, 'Collection 2', '2018');
+INSERT INTO `products` (`product_id`, `name`, `price`, `size`, `collection_id`) VALUES
+(1, 'Adidas EQT', 1500000, NULL, 1),
+(2, 'Adidas Prophere', 2000000, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -154,7 +157,8 @@ ALTER TABLE `collections`
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`product_id`);
+  ADD PRIMARY KEY (`product_id`),
+  ADD KEY `collection` (`collection_id`);
 
 --
 -- Indexes for table `transactions`
@@ -170,7 +174,7 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `collections`
 --
 ALTER TABLE `collections`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -183,6 +187,16 @@ ALTER TABLE `products`
 --
 ALTER TABLE `transactions`
   MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `products`
+--
+ALTER TABLE `products`
+  ADD CONSTRAINT `collection_fk` FOREIGN KEY (`collection_id`) REFERENCES `collections` (`id`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
