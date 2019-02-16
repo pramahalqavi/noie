@@ -324,13 +324,26 @@ hr.right-line {
   float: right;
 }
 
+.year-section {
+  cursor: pointer;
+}
+
+.year-section:active {
+  color: #2F91E7;
+}
+
 .collection-list {
-  /*display: none;*/
+  display: none;
+  cursor: pointer;
 }
 
 .collection-list li {
   font-size: 1.5em;
   margin-left: 1.25em;
+}
+
+.collection-list li:hover {
+  color: #2F91E7;
 }
 
 .fa-angle-right{

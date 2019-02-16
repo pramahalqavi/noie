@@ -9,8 +9,8 @@
 <hr style="width: .2%">
 
 @foreach ($years as $year)
-    <hr class="right-line"><h2 onclick="showCollection('{{$year->year}}')"><i id="arrow{{$year->year}}" class="fas fa-angle-right"></i> {{ $year->year }}</h2>
-    <ol id="show{{$year->year}}" class="collection-list" style="display: none">
+    <hr class="right-line"><h2 class="year-section" onclick="showCollection('{{$year->year}}')"><i id="arrow{{$year->year}}" class="fas fa-angle-right"></i> {{ $year->year }}</h2>
+    <ol id="show{{$year->year}}" class="collection-list">
         @foreach ($collections as $collection)
             @if ($collection->year == $year->year)
             <li>{{ $collection->name }}</li>
