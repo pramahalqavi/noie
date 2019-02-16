@@ -372,6 +372,13 @@ hr.left-line {
 
 div#addYear {
   display: none;
+  width: 80%;
+  margin: auto;
+}
+
+div#addYear form {
+  /*border: 2px dashed #314190;*/
+  /*border-radius: 1em;*/
 }
 
 button.btn-success:active, button.btn:active {
