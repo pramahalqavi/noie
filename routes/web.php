@@ -34,8 +34,9 @@ Route::group(['middleware' => ['admin']], function () {
 	/*---------- Admin Product ----------*/
 	Route::post('admin/product', 'AdminProductController@addYear');
 
-	Route::get('admin/product', 'AdminProductController@index' )->name('product-mgt');
+	Route::get('admin/product', 'AdminProductController@index' )->name('collectionsPerYear');
 
+	Route::get('admin/product/{id}', 'AdminProductController@show' )->name('product-mgt');	
 
 	/*---------- Transaction ----------*/
 	Route::get('admin/transaction', 'TransactionController@index')->name('transaction');
@@ -62,6 +63,6 @@ Route::group(['middleware' => ['admin']], function () {
 
 	Route::get('admin/change-password', 'AdminRoleController@changePassword')->name('change-password');
 	Route::put('admin/submit-change-password', 'AdminRoleController@submitChangePassword')->name('change-password.submit');
-	
+
 	Route::get('admin/admin-logout', 'LoginController@logout')->name('logout');
 });
