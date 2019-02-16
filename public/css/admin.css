@@ -324,6 +324,12 @@ hr.right-line {
   float: right;
 }
 
+hr.left-line {
+  width: 0.2%;;
+  margin-left: 0;
+  float: left;
+}
+
 .year-section {
   cursor: pointer;
 }
@@ -364,6 +370,13 @@ hr.right-line {
   -webkit-transition: transform .1s linear;
 }
 
+div#addYear {
+  display: none;
+}
+
+button.btn-success:active, button.btn:active {
+  color: #5CB85C;
+}
 
 /*------------ Transaction Detail ------------*/
 .label-detail {
