@@ -9,6 +9,10 @@
 <br>
 <hr>
 
-
+<ul>
+	<li>{{ $collection->id }}</li>
+	<li>{{ $collection->name }}</li>
+	<li>{{ $collection->year }}</li>
+</ul>
 
 @endsection
