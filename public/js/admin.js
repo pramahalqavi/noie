@@ -45,6 +45,19 @@ function showCollection(year) {
     }
 }
 
+function showFormAddYear() {
+    var cn = document.getElementById('addY');
+    var show = document.getElementById('addYear');
+
+    if (cn.className === 'glyphicon glyphicon-plus') {
+        show.style.display = "block";
+        cn.className = "glyphicon glyphicon-minus";
+    } else {
+        show.style.display = "none";
+        cn.className = "glyphicon glyphicon-plus";   
+    }
+}
+
 // Close the dropdown if the user clicks outside of it
 // window.onclick = function(e) {
 //   if (!e.target.matches('.dropbtn')) {
