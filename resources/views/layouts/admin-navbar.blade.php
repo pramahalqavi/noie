@@ -39,13 +39,13 @@
                 </li>
 
                 <li>
-                    <a href="#">Statistics</a>
+                    <a href="#">Statistic</a>
                 </li>
                 <li>
-                    <a href="#">Products</a>
+                    <a href="/admin/product">Product</a>
                 </li>
                 <li>
-                    <a href="{{route('transaction')}}">Transactions</a>
+                    <a href="{{route('transaction')}}">Transaction</a>
                 </li>
                 <li>
                     <a href="{{route('admin-role')}}">Admin Role</a>
