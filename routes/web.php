@@ -37,20 +37,31 @@ Route::group(['middleware' => ['admin']], function () {
 	Route::get('admin/product', 'AdminProductController@index' )->name('product-mgt');
 
 
-
+	/*---------- Transaction ----------*/
 	Route::get('admin/transaction', 'TransactionController@index')->name('transaction');
+
 	Route::get('admin/transaction/detail/{id}', 'TransactionController@detail')->name('transaction.detail');
+
 	Route::get('admin/transaction/detail/{id}/edit', 'TransactionController@editStatus')->name('transaction.detail.edit');
+
 	Route::put('admin/transaction/detail/{id}', 'TransactionController@updateStatus')->name('transaction.detail');
+
 	Route::get('admin/transaction/download-excel', 'TransactionController@downloadExcel')->name('transaction.download.excel');
 
+
+	/*---------- Admin Role ----------*/
 	Route::get('admin/admin-role', 'AdminRoleController@index')->name('admin-role');
+
 	Route::get('admin/admin-role/register', 'AdminRoleController@registerNewAdmin')->name('admin-role.register');
+
 	Route::post('admin/admin-role/register', 'AdminRoleController@emailCheck')->name('admin-role.register');
+
 	Route::post('admin/admin-role', 'AdminRoleController@submitRegister')->name('admin-role');
+
 	Route::post('admin/admin-role/delete', 'AdminRoleController@deleteAdmin')->middleware('admin.root')->name('admin-role.delete');
 
 	Route::get('admin/change-password', 'AdminRoleController@changePassword')->name('change-password');
 	Route::put('admin/submit-change-password', 'AdminRoleController@submitChangePassword')->name('change-password.submit');
+	
 	Route::get('admin/admin-logout', 'LoginController@logout')->name('logout');
 });
