@@ -6,10 +6,11 @@
 
 <h1 style="text-align: center">PRODUCT MANAGEMENT</h1>
 
-<hr style="width: .2%">
-
+<br>
+<hr>
+<!-- <hr class="right-line"> -->
 @foreach ($years as $year)
-    <hr class="right-line"><h2 class="year-section" onclick="showCollection('{{$year->year}}')"><i id="arrow{{$year->year}}" class="fas fa-angle-right"></i> {{ $year->year }}</h2>
+    <h2 class="year-section" onclick="showCollection('{{$year->year}}')"><i id="arrow{{$year->year}}" class="fas fa-angle-right"></i> {{ $year->year }}</h2>
     <ol id="show{{$year->year}}" class="collection-list">
         @foreach ($collections as $collection)
             @if ($collection->year == $year->year)
@@ -61,6 +62,7 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
+        {{ csrf_field() }}
     </form>
 </div>
 
