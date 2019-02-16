@@ -1,6 +1,6 @@
 @extends('layouts.admin-navbar')
 
-@section('title', 'Product management')
+@section('title', 'Collection per year')
 
 @section('content')
 
@@ -14,7 +14,7 @@
     <ol id="show{{$year->year}}" class="collection-list">
         @foreach ($collections as $collection)
             @if ($collection->year == $year->year)
-            <li>{{ $collection->name }}</li>
+            <li><a href="/admin/product/{{ $collection->id }}">{{ $collection->name }}</a></li>
             @endif
         @endforeach
     </ol>
