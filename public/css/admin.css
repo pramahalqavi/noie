@@ -357,6 +357,12 @@ hr.left-line {
   color: #2F91E7;
 }
 
+button.add_field_button {
+  float: right;
+  margin-top: -2.5em
+  /*border: 1px solid red;*/
+}
+
 .fa-angle-right{
   transform: rotate(0deg);
   -ms-transform: rotate(0deg); /* IE 9 */
