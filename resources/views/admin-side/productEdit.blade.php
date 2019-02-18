@@ -9,10 +9,12 @@
 <br>
 <hr>
 
-<ul>
-	<li>{{ $collection->id }}</li>
-	<li>{{ $collection->name }}</li>
-	<li>{{ $collection->year }}</li>
-</ul>
+<h2>{{ $collection->name }} - {{ $collection->year }}</h2>
+
+<ol>
+@foreach ($products as $p)
+	<li>{{ $p->name }} (Rp {{ $p->price }})</li>
+@endforeach
+</ol>
 
 @endsection

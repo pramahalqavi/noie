@@ -348,12 +348,12 @@ hr.left-line {
   margin-left: 1.25em;
 }
 
-.collection-list li a {
+.collection-list a {
   color: black;
   text-decoration: none;
 }
 
-.collection-list li a:hover, .collection-list li:hover {
+.collection-list a:hover {
   color: #2F91E7;
 }
 

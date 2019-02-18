@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 use App\Models\Collection;
+use App\Models\Product;
 
 class AdminProductController extends Controller
 {
@@ -22,11 +23,13 @@ class AdminProductController extends Controller
 	}
 
 	public function show($id) {
+		
 		$collection = Collection::find($id);
 
-		// dd($collection);
+		$products = Product::where('collection_id', $id)->orderBy('name')->get();
+		// dd($products);
 
-		return view('admin-side/productEdit', ['collection' => $collection]);
+		return view('admin-side/productEdit', ['collection' => $collection, 'products' => $products]);
 	}
 
 	public function addYear(Request $request) {

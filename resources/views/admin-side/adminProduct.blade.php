@@ -14,7 +14,7 @@
     <ol id="show{{$year->year}}" class="collection-list">
         @foreach ($collections as $collection)
             @if ($collection->year == $year->year)
-            <li><a href="/admin/product/{{ $collection->id }}">{{ $collection->name }}</a></li>
+            <a href="/admin/product/{{ $collection->id }}"><li>{{ $collection->name }}</li></a>
             @endif
         @endforeach
     </ol>
