@@ -10,7 +10,7 @@
 <hr>
 
 <h2>{{ $collection->name }} - {{ $collection->year }}</h2>
-<button onclick="showFormAddProduct()" class="add_field_button btn btn-success btn-md"><span id="addY" class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Product</button>
+<button class="add_field_button btn btn-success btn-md btnPlus" data-toggle="modal" data-target="#adding-product"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Product</button>
 
 <ol>
 @foreach ($products as $p)
@@ -33,5 +33,27 @@
  	</figcaption>
 </figure>
 @endforeach
+
+
+<!-- MODAL FOR ADDING PRODUCT -->
+<div id="adding-product" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">ADD PRODUCT</h5>
+        <button id="closeBtn"type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 @endsection

@@ -357,12 +357,6 @@ hr.left-line {
   color: #2F91E7;
 }
 
-button.add_field_button {
-  float: right;
-  margin-top: -2.65em
-  /*border: 1px solid red;*/
-}
-
 .fa-angle-right{
   transform: rotate(0deg);
   -ms-transform: rotate(0deg); /* IE 9 */
@@ -395,6 +389,29 @@ div#addYear form {
 button.btn-success:active, button.btn:active {
   color: #5CB85C;
 }
+
+button.btnPlus {
+  float: right;
+  margin-top: -2.65em;
+  /*border: 1px solid red;*/
+}
+
+/*--- ADDING PRODUCT MODAL ---*/
+
+button#closeBtn {
+  float:right;
+  margin-top: -1.2em;
+  /*border: 1px solid red;*/
+}
+
+button.btn-secondary:hover {
+  background-color: #BBBBBB;
+}
+
+.modal-header, .modal-footer {
+  background-color: #f9f9f9;
+}
+
 
 /*------------ Transaction Detail ------------*/
 .label-detail {

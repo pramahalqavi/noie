@@ -11,7 +11,7 @@
 <br>
 <br>
 
-<button onclick="showFormAddYear()" class="add_field_button btn btn-success btn-md"><span id="addY" class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Year</button>
+<button onclick="showFormAddYear()" class="add_field_button btn btn-success btn-md btnPlus"><span id="addY" class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Year</button>
 <!-- <hr class="right-line"> -->
 @foreach ($years as $year)
     <h2 class="year-section" onclick="showCollection('{{$year->year}}')"><i id="arrow{{$year->year}}" class="fas fa-angle-right"></i> {{ $year->year }}</h2>
