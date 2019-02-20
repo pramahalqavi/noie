@@ -63,6 +63,7 @@ class Kernel extends HttpKernel
         
         'admin' => \App\Http\Middleware\RedirectIfNotAdmin::class,
         'admin.root' => \App\Http\Middleware\RedirectIfNotRootAdmin::class,
+        'user.tracker' => \App\Http\Middleware\TrackerMiddleware::class,
     ];
 
     /**
