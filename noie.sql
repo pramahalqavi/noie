@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Feb 20, 2019 at 01:16 PM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.11
+-- Host: 127.0.0.1
+-- Generation Time: Feb 20, 2019 at 05:23 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.1.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -139,6 +139,27 @@ INSERT INTO `transactions` (`transaction_id`, `product_id`, `product_name`, `pri
 (10, 2, 'Adidas Prophere', 2000000, 'Si H', 'potter@pp.co', '033343432233', 'hogwarts', 'London', 'England', '022932', 453, 'Sending', '2019-01-30 21:09:04', '2019-02-02 23:26:04'),
 (11, 2, 'Adidas Prophere', 2000000, 'Si I', 'potter@pp.co', '033343432233', 'hogwarts', 'London', 'England', '022932', 453, 'Completed', '2019-02-01 05:36:01', '2019-02-08 19:20:51');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `visitors`
+--
+
+CREATE TABLE `visitors` (
+  `id` varchar(255) NOT NULL,
+  `ip_address` varchar(255) NOT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `visit_date` date NOT NULL,
+  `visit_time` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `visitors`
+--
+
+INSERT INTO `visitors` (`id`, `ip_address`, `country`, `visit_date`, `visit_time`) VALUES
+('127.0.0.1/2019-02-20', '127.0.0.1', 'Indonesia', '2019-02-20', '16:22:55');
+
 --
 -- Indexes for dumped tables
 --
@@ -167,6 +188,12 @@ ALTER TABLE `products`
 --
 ALTER TABLE `transactions`
   ADD PRIMARY KEY (`transaction_id`);
+
+--
+-- Indexes for table `visitors`
+--
+ALTER TABLE `visitors`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
