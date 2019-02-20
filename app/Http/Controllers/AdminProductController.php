@@ -32,6 +32,11 @@ class AdminProductController extends Controller
 		return view('admin-side/productEdit', ['collection' => $collection, 'products' => $products]);
 	}
 
+	public function store(Request $request)
+    {
+        //
+    }
+
 	public function addYear(Request $request) {
 
 		// dd($request);

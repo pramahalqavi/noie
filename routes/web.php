@@ -39,6 +39,8 @@ Route::group(['middleware' => ['admin']], function () {
 
 	Route::get('admin/product/{id}', 'AdminProductController@show' )->name('product-mgt');
 
+	Route::resource('admin/image', 'ImageController');
+	// Route::post('admin/product/{id}', 'AdminProductController@store' )->name('add-product');
 
 	/*---------- Transaction ----------*/
 	Route::get('admin/transaction', 'TransactionController@index')->name('transaction');
