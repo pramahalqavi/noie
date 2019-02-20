@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 16, 2019 at 11:50 PM
+-- Generation Time: Feb 20, 2019 at 01:16 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -83,6 +83,8 @@ INSERT INTO `collections` (`id`, `name`, `year`) VALUES
 CREATE TABLE `products` (
   `product_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL DEFAULT 'images/product-img.jpg',
+  `material` varchar(255) NOT NULL,
   `price` int(11) NOT NULL,
   `size` varchar(255) DEFAULT NULL,
   `collection_id` int(11) NOT NULL
@@ -92,9 +94,9 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `name`, `price`, `size`, `collection_id`) VALUES
-(1, 'Adidas EQT', 1500000, NULL, 1),
-(2, 'Adidas Prophere', 2000000, NULL, 1);
+INSERT INTO `products` (`product_id`, `name`, `image`, `material`, `price`, `size`, `collection_id`) VALUES
+(1, 'Adidas EQT', 'images/product-img.jpg', '', 1500000, NULL, 1),
+(2, 'Adidas Prophere', 'images/product-img.jpg', '', 2000000, NULL, 1);
 
 -- --------------------------------------------------------
 
