@@ -18,4 +18,20 @@
 @endforeach
 </ol>
 
+<br>
+
+@foreach ($products as $p)
+<figure class="figure">
+	<img src="{{asset($p->image)}}" class="img-thumbnail figure-img img-fluid rounded" alt="..." width="200" height="200">
+	<figcaption class="figure-caption">
+		<ul>
+			<li>Nama</li>
+			<li>Material</li>
+			<li>Size</li>
+			<li>Price</li>
+		</ul>
+ 	</figcaption>
+</figure>
+@endforeach
+
 @endsection
