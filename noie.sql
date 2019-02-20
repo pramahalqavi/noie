@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 20, 2019 at 05:23 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.1.13
+-- Host: localhost
+-- Generation Time: Feb 20, 2019 at 07:39 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -83,10 +83,11 @@ INSERT INTO `collections` (`id`, `name`, `year`) VALUES
 CREATE TABLE `products` (
   `product_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL DEFAULT 'images/product-img.jpg',
+  `image1` varchar(255) NOT NULL DEFAULT 'images/product-img.jpg',
+  `image2` varchar(255) NOT NULL,
   `material` varchar(255) NOT NULL,
-  `price` int(11) NOT NULL,
   `size` varchar(255) DEFAULT NULL,
+  `price` int(11) NOT NULL,
   `collection_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -94,9 +95,9 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `name`, `image`, `material`, `price`, `size`, `collection_id`) VALUES
-(1, 'Adidas EQT', 'images/product-img.jpg', '', 1500000, NULL, 1),
-(2, 'Adidas Prophere', 'images/product-img.jpg', '', 2000000, NULL, 1);
+INSERT INTO `products` (`product_id`, `name`, `image1`, `image2`, `material`, `size`, `price`, `collection_id`) VALUES
+(1, 'Adidas EQT', 'images/product-img.jpg', '', '', NULL, 1500000, 1),
+(2, 'Adidas Prophere', 'images/product-img.jpg', '', '', NULL, 2000000, 1);
 
 -- --------------------------------------------------------
 
