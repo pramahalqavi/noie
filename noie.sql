@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 20, 2019 at 07:39 PM
+-- Generation Time: Feb 21, 2019 at 06:22 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -83,10 +83,12 @@ INSERT INTO `collections` (`id`, `name`, `year`) VALUES
 CREATE TABLE `products` (
   `product_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `image1` varchar(255) NOT NULL DEFAULT 'images/product-img.jpg',
-  `image2` varchar(255) NOT NULL,
-  `material` varchar(255) NOT NULL,
-  `size` varchar(255) DEFAULT NULL,
+  `image1` varchar(255) NOT NULL DEFAULT 'storage/product/product-img.jpg',
+  `image2` varchar(255) NOT NULL DEFAULT 'storage/product/product-img.jpg',
+  `thumbnail1` varchar(255) NOT NULL DEFAULT 'storage/product/thumbnail/product-img.jpg',
+  `thumbnail2` varchar(255) NOT NULL DEFAULT 'storage/product/thumbnail/product-img.jpg',
+  `material` varchar(255) NOT NULL DEFAULT '-',
+  `size` varchar(255) DEFAULT 'One Size',
   `price` int(11) NOT NULL,
   `collection_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -95,9 +97,10 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `name`, `image1`, `image2`, `material`, `size`, `price`, `collection_id`) VALUES
-(1, 'Adidas EQT', 'images/product-img.jpg', '', '', NULL, 1500000, 1),
-(2, 'Adidas Prophere', 'images/product-img.jpg', '', '', NULL, 2000000, 1);
+INSERT INTO `products` (`product_id`, `name`, `image1`, `image2`, `thumbnail1`, `thumbnail2`, `material`, `size`, `price`, `collection_id`) VALUES
+(1, 'Adidas EQT', 'storage/product/product-img.jpg', 'storage/product/product-img.jpg', 'storage/product/thumbnail/product-img.jpg', 'storage/product/thumbnail/product-img.jpg', '-', 'One size', 1500000, 1),
+(2, 'Adidas Prophere', 'storage/product/product-img.jpg', 'storage/product/product-img.jpg', 'storage/product/thumbnail/product-img.jpg', 'storage/product/thumbnail/product-img.jpg', '-', 'One size', 2000000, 1),
+(11, 'kjahdkfhas', 'storage/product/11-1.png', 'storage/product/11-2.png', 'storage/product/thumbnail/11-1.png', 'storage/product/thumbnail/11-2.png', 'jhakjdfhkjasdhjfkhas', 'kahdfkhkasjdhfjkahs', 123, 1);
 
 -- --------------------------------------------------------
 
@@ -159,7 +162,8 @@ CREATE TABLE `visitors` (
 --
 
 INSERT INTO `visitors` (`id`, `ip_address`, `country`, `visit_date`, `visit_time`) VALUES
-('127.0.0.1/2019-02-20', '127.0.0.1', 'Indonesia', '2019-02-20', '16:22:55');
+('127.0.0.1/2019-02-20', '127.0.0.1', 'Indonesia', '2019-02-20', '16:22:55'),
+('127.0.0.1/2019-02-21', '127.0.0.1', NULL, '2019-02-21', '04:07:29');
 
 --
 -- Indexes for dumped tables
@@ -210,7 +214,7 @@ ALTER TABLE `collections`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `transactions`
