@@ -3,9 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use App\Models\Tracker;
+use App\Models\Visitor;
 
-class TrackerMiddleware {
+class VisitorTracker {
     /**
      * Handle an incoming request.
      *
@@ -14,7 +14,7 @@ class TrackerMiddleware {
      * @return mixed
      */
     public function handle($request, Closure $next) {
-        Tracker::hit();
+        Visitor::hit();
         return $next($request);
     }
 }  
