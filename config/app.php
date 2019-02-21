@@ -178,7 +178,6 @@ return [
         /*---------- Customization ----------*/
         Intervention\Image\ImageServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
-
     ],
 
     /*
@@ -231,7 +230,6 @@ return [
         /*---------- Customization ----------*/
         'Image' => Intervention\Image\Facades\Image::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-
     ],
 
 ];

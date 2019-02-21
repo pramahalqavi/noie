@@ -29,10 +29,7 @@ Route::get('admin', 'LoginController@index')->middleware('guest')->name('login')
 Route::post('admin', 'LoginController@loginAttempt')->middleware('guest')->name('login');
 
 Route::group(['middleware' => ['admin']], function () {
-	Route::get('admin/stat', function() {
-		return view('admin-side/stat');
-	});
-
+	Route::get('admin/stat', 'StatisticsController@index')->name('stat');
 
 	/*---------- Admin Product ----------*/
 	Route::post('admin/product', 'AdminProductController@store');

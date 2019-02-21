@@ -148,3 +148,20 @@ function checkChangePassword() {
         return checkConfPassword();
     }
 }
+
+/*---------- Statistics -----------*/
+function getDaysInMonth(month, year) {
+    var date = new Date(year, month, 1);
+    var days = [];
+    while (date.getMonth() === month) {
+       days.push(date.getDate());
+       date.setDate(date.getDate() + 1);
+    }
+    return days;
+}
+
+function getMonthName(month) {
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"];
+    return monthNames[month];
+}
