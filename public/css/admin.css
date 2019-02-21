@@ -398,7 +398,7 @@ button.btnPlus {
 
 /*--- ADDING PRODUCT MODAL ---*/
 
-button#closeBtn {
+button.closeBtn {
   float:right;
   margin-top: -1.2em;
   /*border: 1px solid red;*/

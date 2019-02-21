@@ -34,14 +34,9 @@ class AdminProductController extends Controller
 
 	public function store(Request $request)
     {
-        //
-    }
+    	// dd($request);
 
-	public function addYear(Request $request) {
-
-		// dd($request);
-
-		$collection1 = new Collection;
+        $collection1 = new Collection;
 		$collection1->year = $request->year;
 		$collection1->name = $request->collection1;
 		$collection1->save();
@@ -61,7 +56,7 @@ class AdminProductController extends Controller
 		$collection4->name = $request->collection4;
 		$collection4->save();
 
-		return redirect('admin/product');
-	}
+		return redirect('admin/product')->with('success', 'Adding collection per year is success.');
+    }
 
 }

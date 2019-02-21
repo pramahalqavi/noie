@@ -11,8 +11,15 @@
 <br>
 <br>
 
-<button onclick="showFormAddYear()" class="add_field_button btn btn-success btn-md btnPlus"><span id="addY" class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Year</button>
-<!-- <hr class="right-line"> -->
+<button class="add_field_button btn btn-success btn-md btnPlus" data-toggle="modal" data-target="#adding-year"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add</button>
+
+@if (session('success'))
+<br>
+<div class="alert alert-success" role="alert">
+  {{ session('success') }}
+</div>
+@endif
+
 @foreach ($years as $year)
     <h2 class="year-section" onclick="showCollection('{{$year->year}}')"><i id="arrow{{$year->year}}" class="fas fa-angle-right"></i> {{ $year->year }}</h2>
     <ol id="show{{$year->year}}" class="collection-list">
@@ -24,47 +31,57 @@
     </ol>
 @endforeach
 
-<div id="addYear">
-    <br><br><br>
-    <form action="/admin/product" method="POST">
-        <div class="form-group row">
-            <label for="year" class="col-sm-2 col-form-label" style="font-size: 2em">Year</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="year" name="year" placeholder="Type here...">
+<!-- MODAL FOR ADDING YEARLY PERIOD -->
+<div id="adding-year" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Collection Per Year</h5>
+        <button type="button" class="close closeBtn" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="/admin/product" method="post">
+        <div class="modal-body">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            <div class="form-group">
+                <label for="year" style="font-size: 2em">Year</label>
+                <input type="text" class="form-control" name="year" id="year" placeholder="Enter here" required>
             </div>
-        </div>
-        <hr>
-        <div class="form-group row">
-            <label for="collection1" class="col-sm-2 col-form-label" style="margin-top: .8em; text-align: center">Collection 1</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="collection1" name="collection1" placeholder="Type here...">
+            <br>
+            <div class="form-group">
+                <label for="collection1">Collection 1</label>
+                <input type="text" class="form-control" name="collection1" id="collection1" placeholder="Enter here" required>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="collection2" class="col-sm-2 col-form-label" style="margin-top: .8em; text-align: center">Collection 2</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="collection2" name="collection2" placeholder="Type here...">
+            <div class="form-group">
+                <label for="collection2">Collection 2</label>
+                <input type="text" class="form-control" name="collection2" id="collection2" placeholder="Enter here" required>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="collection3" class="col-sm-2 col-form-label" style="margin-top: .8em; text-align: center">Collection 3</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="collection3" name="collection3" placeholder="Type here...">
+            <div class="form-group">
+                <label for="collection3">Collection 3</label>
+                <input type="text" class="form-control" name="collection3" id="collection3" placeholder="Enter here">
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="collection4" class="col-sm-2 col-form-label" style="margin-top: .8em; text-align: center">Collection 4</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="collection4" name="collection4" placeholder="Type here...">
+            <div class="form-group">
+                <label for="collection4">Collection 4</label>
+                <input type="text" class="form-control" name="collection4" id="collection4" placeholder="Enter here" required>
             </div>
+            {{ csrf_field() }}
         </div>
-        <div class="form-group row">
-            <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
-        {{ csrf_field() }}
     </form>
+    </div>
+  </div>
 </div>
 
 @endsection

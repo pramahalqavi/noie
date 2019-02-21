@@ -35,7 +35,7 @@ Route::group(['middleware' => ['admin']], function () {
 
 
 	/*---------- Admin Product ----------*/
-	Route::post('admin/product', 'AdminProductController@addYear');
+	Route::post('admin/product', 'AdminProductController@store');
 
 	Route::get('admin/product', 'AdminProductController@index' )->name('collectionsPerYear');
 

@@ -66,7 +66,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">ADD PRODUCT</h5>
-        <button id="closeBtn"type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close closeBtn" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -111,7 +111,7 @@
        		<!-- <p>Modal body text goes here.</p> -->
        	</div>
        	<div class="modal-footer">
-       		<button type="submit" class="btn btn-primary">Save changes</button>
+       		<button type="submit" class="btn btn-primary">Submit</button>
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 	    </div>
 	</form>
