@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2019 at 08:11 AM
+-- Generation Time: Feb 21, 2019 at 04:48 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.1.13
 
@@ -160,7 +160,14 @@ CREATE TABLE `visitors` (
 --
 
 INSERT INTO `visitors` (`id`, `ip_address`, `country`, `country_code`, `visit_date`, `visit_time`) VALUES
-('127.0.0.1/2019-02-21', '127.0.0.1', 'Indonesia', 'ID', '2019-02-21', '01:11:19');
+('1', '12', 'unknown', 'unknown', '2019-02-21', '06:00:00'),
+('127.0.0.1/2019-02-21', '127.0.0.1', 'Indonesia', 'ID', '2019-02-21', '01:11:19'),
+('2', '12', 'unknown', 'unknown', '2019-02-20', '06:00:00'),
+('3', '12', 'unknown', 'unknown', '2019-02-19', '06:00:00'),
+('4', '12', 'unknown', 'unknown', '2019-02-28', '06:00:00'),
+('5', '12', 'unknown', 'unknown', '2019-01-28', '06:00:00'),
+('6', '12', 'unknown', 'unknown', '2019-01-20', '06:00:00'),
+('7', '12', 'unknown', 'unknown', '2018-12-20', '06:00:00');
 
 --
 -- Indexes for dumped tables

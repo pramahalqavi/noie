@@ -11,28 +11,35 @@
   <div class="visitor-chart" id="yearly-chart"></div>
   <br>
   <h2 style="font-style: italic;">Based on Country (All time)</h2>
-  <table class="table">
-    <thead style="background-color: #404040; color: white; font-style: italic; font-size: 1.5em">
-      <tr>
-        <th class="col-lg-10" style="text-align: center">Based on Country (All time)</th>
-        <th class="col-lg-2" style="text-align: center">Top ever</th>
-      </tr>
-    </thead>
-    <tbody style="background-color: #B8B8B8">
-      <tr>
+
+  <table class="table table-striped">
+  <thead style="background-color: #e64a19; color: white">
+    <tr>
+      <th scope="col" width="10%">No.</th>
+      <th scope="col" width="10%">Flag</th>
+      <th scope="col" width="15%">Country Code</th>
+      <th scope="col" width="15%">Count</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php $number = 1; ?>
+  @if ($country_count->count())
+    @foreach ($country_count as $index => $country)
+      <tr> 
+        <td> {{$number++}} </td>
         <td>
-          <div class="row">
-            <div class="col-lg-2" style="text-align: center"><i class="fas fa-chevron-left" style="font-size: 4em; padding-top: 0.3em"></i></div>
-            <div class="col-lg-2" style="text-align: center; font-size: 1.5em"><img src="{{asset('images/ind.png')}}" width="28" height="21"> Indonesia<br><div style="padding-top: 1em; font-weight: bold">100000</div>visitors</div>
-            <div class="col-lg-2" style="text-align: center; font-size: 1.5em"><img src="{{asset('images/malaysia.png')}}" width="28" height="21"> Malaysia<br><div style="padding-top: 1em; font-weight: bold">100000</div>visitors</div>
-            <div class="col-lg-2" style="text-align: center; font-size: 1.5em"><img src="{{asset('images/sg.png')}}" width="28" height="21"> Singapore<br><div style="padding-top: 1em; font-weight: bold">100000</div>visitors</div>
-            <div class="col-lg-2" style="text-align: center; font-size: 1.5em"><img src="{{asset('images/jpn.png')}}" width="28" height="21"> Japan<br><div style="padding-top: 1em; font-weight: bold">100000</div>visitors</div>
-            <div class="col-lg-2" style="text-align: center"><i class="fas fa-chevron-right" style="font-size: 4em; padding-top: 0.3em"></i></div>
+        @if (strtolower($country->country_code) != 'unknown' && $country->country_code != null)
+          <img src="{{asset('images/flags/'.$country->country_code.'.png')}}"/> 
+        @endif
         </td>
-        <td><div class="col-lg" style="text-align: center; font-size: 1.5em"><img src="{{asset('images/ind.png')}}" width="28" height="21"> Indonesia<br><div style="padding-top: 1em; font-weight: bold">100000</div>visitors</div></td>
+        <td> {{$country->country_code}} </td>
+        <td> {{$country->count_visitor}} </td>
       </tr>
-    </tbody>
-  </table>
+    @endforeach
+  @endif
+  </tbody>
+  <table>
+
   <script>
     $(document).ready(function() {
       var today = new Date();

@@ -59,7 +59,13 @@ class StatisticsController extends Controller {
         foreach ($visitors as $visitor) {
             $yearlyVisitors[$visitor->year] = $visitor->count_visitor;
         }
+
+        $country_count = DB::table('visitors')
+            ->select('country_code', DB::raw('count(*) as count_visitor'))
+            ->groupBy('country_code')
+            ->paginate(50)
+            ->sortByDesc('count_visitor');
         
-        return view('admin-side/stat',['dailyVisitors' => $dailyVisitors, 'monthlyVisitors' => $monthlyVisitors, 'yearlyVisitors' => $yearlyVisitors, 'years' => $years]);
+        return view('admin-side/stat',['dailyVisitors' => $dailyVisitors, 'monthlyVisitors' => $monthlyVisitors, 'yearlyVisitors' => $yearlyVisitors, 'years' => $years, 'country_count' => $country_count]);
     }
 }

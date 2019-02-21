@@ -498,7 +498,7 @@ input[type=email], input[type=password], input[type=text] {
 
 /*------------ Admin-Role ------------*/
 .visitor-chart {
-    width: 550px; 
+    width: 650px; 
     height: 400px; 
     margin: 0 auto;
 }
