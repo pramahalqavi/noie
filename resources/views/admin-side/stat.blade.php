@@ -10,7 +10,6 @@
   <br>
   <div class="visitor-chart" id="yearly-chart"></div>
   <br>
-
   <h2 style="font-style: italic;">Based on Country (All time)</h2>
   <table class="table">
     <thead style="background-color: #404040; color: white; font-style: italic; font-size: 1.5em">
@@ -41,7 +40,7 @@
       document.getElementById('cur-date').innerHTML = date;
       // Daily Chart
       var chart = {
-        type: 'column'
+        type: 'area'
       };
       var title = {
           text: 'Daily Visitor'   
@@ -63,9 +62,22 @@
             text: 'Visitor'
           },
       };
+      var json_data = {!! json_encode($dailyVisitors) !!};
+      var data = []
+      for (var i in json_data) {
+        data.push(json_data[i]);
+      }
       var series =  [{
             name: 'Visitor',
-            data: [1,2,3]
+            data: data,
+            color: 'rgb(230,74,25)',
+            fillColor : {
+              linearGradient : [0, 0, 0, 250],
+              stops : [
+                [0, 'rgb(250,200,211)'],
+                [1, 'rgb(255,255,255)']
+              ]
+            },
           }
       ];
       var json = {};
@@ -79,7 +91,7 @@
       
       // Monthly Chart
       var chart = {
-        type: 'column'
+        type: 'area',
       };
       var title = {
           text: 'Monthly Visitor'   
@@ -93,16 +105,29 @@
         title: {
           text: 'Month'
         },
-          categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
       };
       var yAxis = {
           title: {
             text: 'Visitor'
           },
       };
+      var json_data = {!! json_encode($monthlyVisitors) !!};
+      var data = []
+      for (var i in json_data) {
+        data.push(json_data[i]);
+      }
       var series =  [{
             name: 'Visitor',
-            data: [1,2,3]
+            data: data,
+            color: 'rgb(230,74,25)',
+            fillColor : {
+              linearGradient : [0, 0, 0, 250],
+              stops : [
+                [0, 'rgb(250,200,211)'],
+                [1, 'rgb(255,255,255)']
+              ]
+            },
           }
       ];
       var json = {};
@@ -115,26 +140,44 @@
       $('#monthly-chart').highcharts(json);
 
       // Yearly Chart
-    var chart = {
-        type: 'column'
+      var chart = {
+        type: 'area'
       };
       var title = {
           text: 'Yearly Visitor'   
       };
+      var json_data = {!! json_encode($years) !!};
+      var years = []
+      for (var i in json_data) {
+        years.push(json_data[i]);
+      }
       var xAxis = {
         title: {
           text: 'Year'
         },
-        categories: ['2017','2018','2019']
+        categories: years
       };
       var yAxis = {
           title: {
             text: 'Visitor'
           },
       };
+      var json_data = {!! json_encode($yearlyVisitors) !!};
+      var data = []
+      for (var i in json_data) {
+        data.push(json_data[i]);
+      }
       var series =  [{
             name: 'Visitor',
-            data: [1,2,3]
+            data: data,
+            color: 'rgb(230,74,25)',
+            fillColor : {
+              linearGradient : [0, 0, 0, 250],
+              stops : [
+                [0, 'rgb(250,200,211)'],
+                [1, 'rgb(255,255,255)']
+              ]
+            },
           }
       ];
       var json = {};
