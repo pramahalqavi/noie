@@ -36,6 +36,7 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $this->validate($request, [
             'img1' => 'required|image|mimes:jpeg,jpg,png',
             'img2' => 'required|image|mimes:jpeg,jpg,png',
@@ -74,31 +75,38 @@ class ImageController extends Controller
 
                 $dimensions = ['500', '200'];
                 foreach ($dimensions as $row) {
-                    $canvas = Image::canvas($row, $row);
-                    //Resize image here
-                    $resizeImage  = Image::make($file)->resize($row, $row, function($constraint) {
-                        $constraint->aspectRatio();
-                    });
-                    
-                    $canvas->insert($resizeImage, 'center');
-                    if ($row == 500) {
+                    if ($row==500) {
+                        $canvas = Image::canvas($row, 400);
+                        //Resize image here
+                        $resizeImage  = Image::make($file)->resize($row, 400, function($constraint) {
+                            $constraint->aspectRatio();
+                        });
+                        $canvas->insert($resizeImage, 'center');
                         $canvas->save($path . $filenametostore);
-                    } elseif ($row == 200) {
+                    } elseif ($row==200) {
+                        $canvas = Image::canvas($row, 150);
+                        //Resize image here
+                        $resizeImage  = Image::make($file)->resize($row, 150, function($constraint) {
+                            $constraint->aspectRatio();
+                        });
+                        $canvas->insert($resizeImage, 'center');
                         $canvas->save($path . 'thumbnail/' . $filenametostore);
                     }
                 }
                 
-                // $thumbnailpath = public_path('storage/product/thumbnail/'.$filenametostore);
-                // $img = Image::make($thumbnailpath)->resize(400, 150, function($constraint) {
-                //     $constraint->aspectRatio();
-                // });
-                // $img->save($thumbnailpath);
-
-
-                // $canvasTn->insert($newTn, 'center');
-
-                // $canvasTn->save($path . 'thumbnail/', $filenametostore);
+                $updt = Product::find($product->product_id);
+                // dd($updt);
+                if ($i==1) {
+                    $updt->image1 = 'storage/product/' . $filenametostore;
+                    $updt->thumbnail1 = 'storage/product/thumbnail/' . $filenametostore;
+                } elseif ($i==2) {
+                    $updt->image2 = 'storage/product/' . $filenametostore;
+                    $updt->thumbnail2 = 'storage/product/thumbnail/' . $filenametostore;
+                }
+                $updt->save();
             }
+            
+            // dd("success");
      
             return redirect()->back()->with('success', "Image uploaded successfully.");
         } else {

@@ -22,27 +22,42 @@
 </div>
 @endif
 
-<ol>
-@foreach ($products as $p)
-	<li>{{ $p->name }} (Rp {{ $p->price }})</li>
-@endforeach
-</ol>
-
 <br>
 
-@foreach ($products as $p)
-<figure class="figure">
-	<img src="{{asset($p->image)}}" class="img-thumbnail figure-img img-fluid rounded" alt="..." width="200" height="200">
-	<figcaption class="figure-caption">
-		<ul>
-			<li>Name</li>
-			<li>Material</li>
-			<li>Size</li>
-			<li>Price</li>
-		</ul>
- 	</figcaption>
-</figure>
-@endforeach
+<table class="table">
+  <thead class="thead-dark" style="background-color: #EAEAEA">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Image</th>
+      <th scope="col">Name</th>
+      <th scope="col">Material</th>
+      <th scope="col">Size</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<?php
+  	$i = 0;
+  	foreach ($products as $p) {
+  	$i++; ?>
+    <tr>
+      <th scope="row">{{ $i }}</th>
+      <td>
+      	<figure class="figure">
+			<img src="{{asset($p->thumbnail1)}}" class="img-thumbnail figure-img img-fluid rounded" alt="...">
+		</figure>
+		<figure class="figure">
+			<img src="{{asset($p->thumbnail2)}}" class="img-thumbnail figure-img img-fluid rounded" alt="...">
+		</figure>
+      </td>
+      <td>{{ $p->name }}</td>
+      <td>{{ $p->material }}</td>
+      <td>{{ $p->size }}</td>
+      <td>{{ $p->price }}</td>
+    </tr>
+    <?php } ?>
+  </tbody>
+</table>
 
 
 <!-- MODAL FOR ADDING PRODUCT -->
