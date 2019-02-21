@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Feb 20, 2019 at 07:39 PM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.11
+-- Host: 127.0.0.1
+-- Generation Time: Feb 21, 2019 at 06:57 AM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.1.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -147,9 +147,10 @@ INSERT INTO `transactions` (`transaction_id`, `product_id`, `product_name`, `pri
 --
 
 CREATE TABLE `visitors` (
-  `id` varchar(255) NOT NULL,
-  `ip_address` varchar(255) NOT NULL,
-  `country` varchar(255) DEFAULT NULL,
+  `id` varchar(64) NOT NULL,
+  `ip_address` varchar(32) NOT NULL,
+  `country` varchar(128) DEFAULT NULL,
+  `country_code` varchar(8) DEFAULT NULL,
   `visit_date` date NOT NULL,
   `visit_time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -158,8 +159,8 @@ CREATE TABLE `visitors` (
 -- Dumping data for table `visitors`
 --
 
-INSERT INTO `visitors` (`id`, `ip_address`, `country`, `visit_date`, `visit_time`) VALUES
-('127.0.0.1/2019-02-20', '127.0.0.1', 'Indonesia', '2019-02-20', '16:22:55');
+INSERT INTO `visitors` (`id`, `ip_address`, `country`, `country_code`, `visit_date`, `visit_time`) VALUES
+('127.0.0.1/2019-02-21', '127.0.0.1', 'Indonesia', 'ID', '2019-02-21', '01:11:19');
 
 --
 -- Indexes for dumped tables
