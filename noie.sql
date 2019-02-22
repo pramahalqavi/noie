@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Feb 21, 2019 at 07:47 AM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.11
+-- Host: 127.0.0.1
+-- Generation Time: Feb 21, 2019 at 04:48 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.1.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -72,15 +72,7 @@ INSERT INTO `collections` (`id`, `name`, `year`) VALUES
 (9, 'II', '2018'),
 (10, 'JJ', '2018'),
 (11, 'KK', '2018'),
-(12, 'LL', '2018'),
-(13, 'testing1', '2015'),
-(14, 'testing2', '2015'),
-(15, 'testing3', '2015'),
-(16, 'testing4', '2015'),
-(17, 'a', '2014'),
-(18, 'b', '2014'),
-(19, 'c', '2014'),
-(20, 'd', '2014');
+(12, 'LL', '2018');
 
 -- --------------------------------------------------------
 
@@ -91,12 +83,10 @@ INSERT INTO `collections` (`id`, `name`, `year`) VALUES
 CREATE TABLE `products` (
   `product_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `image1` varchar(255) NOT NULL DEFAULT 'storage/product/product-img.jpg',
-  `image2` varchar(255) NOT NULL DEFAULT 'storage/product/product-img.jpg',
-  `thumbnail1` varchar(255) NOT NULL DEFAULT 'storage/product/thumbnail/product-img.jpg',
-  `thumbnail2` varchar(255) NOT NULL DEFAULT 'storage/product/thumbnail/product-img.jpg',
-  `material` varchar(255) NOT NULL DEFAULT '-',
-  `size` varchar(255) DEFAULT 'One Size',
+  `image1` varchar(255) NOT NULL DEFAULT 'images/product-img.jpg',
+  `image2` varchar(255) NOT NULL,
+  `material` varchar(255) NOT NULL,
+  `size` varchar(255) DEFAULT NULL,
   `price` int(11) NOT NULL,
   `collection_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -105,10 +95,9 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `name`, `image1`, `image2`, `thumbnail1`, `thumbnail2`, `material`, `size`, `price`, `collection_id`) VALUES
-(1, 'Adidas EQT', 'storage/product/product-img.jpg', 'storage/product/product-img.jpg', 'storage/product/thumbnail/product-img.jpg', 'storage/product/thumbnail/product-img.jpg', '-', 'One size', 1500000, 1),
-(2, 'Adidas Prophere', 'storage/product/product-img.jpg', 'storage/product/product-img.jpg', 'storage/product/thumbnail/product-img.jpg', 'storage/product/thumbnail/product-img.jpg', '-', 'One size', 2000000, 1),
-(11, 'kjahdkfhas', 'storage/product/11-1.png', 'storage/product/11-2.png', 'storage/product/thumbnail/11-1.png', 'storage/product/thumbnail/11-2.png', 'jhakjdfhkjasdhjfkhas', 'kahdfkhkasjdhfjkahs', 123, 1);
+INSERT INTO `products` (`product_id`, `name`, `image1`, `image2`, `material`, `size`, `price`, `collection_id`) VALUES
+(1, 'Adidas EQT', 'images/product-img.jpg', '', '', NULL, 1500000, 1),
+(2, 'Adidas Prophere', 'images/product-img.jpg', '', '', NULL, 2000000, 1);
 
 -- --------------------------------------------------------
 
@@ -158,9 +147,10 @@ INSERT INTO `transactions` (`transaction_id`, `product_id`, `product_name`, `pri
 --
 
 CREATE TABLE `visitors` (
-  `id` varchar(255) NOT NULL,
-  `ip_address` varchar(255) NOT NULL,
-  `country` varchar(255) DEFAULT NULL,
+  `id` varchar(64) NOT NULL,
+  `ip_address` varchar(32) NOT NULL,
+  `country` varchar(128) DEFAULT NULL,
+  `country_code` varchar(8) DEFAULT NULL,
   `visit_date` date NOT NULL,
   `visit_time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -169,9 +159,15 @@ CREATE TABLE `visitors` (
 -- Dumping data for table `visitors`
 --
 
-INSERT INTO `visitors` (`id`, `ip_address`, `country`, `visit_date`, `visit_time`) VALUES
-('127.0.0.1/2019-02-20', '127.0.0.1', 'Indonesia', '2019-02-20', '16:22:55'),
-('127.0.0.1/2019-02-21', '127.0.0.1', NULL, '2019-02-21', '04:07:29');
+INSERT INTO `visitors` (`id`, `ip_address`, `country`, `country_code`, `visit_date`, `visit_time`) VALUES
+('1', '12', 'unknown', 'unknown', '2019-02-21', '06:00:00'),
+('127.0.0.1/2019-02-21', '127.0.0.1', 'Indonesia', 'ID', '2019-02-21', '01:11:19'),
+('2', '12', 'unknown', 'unknown', '2019-02-20', '06:00:00'),
+('3', '12', 'unknown', 'unknown', '2019-02-19', '06:00:00'),
+('4', '12', 'unknown', 'unknown', '2019-02-28', '06:00:00'),
+('5', '12', 'unknown', 'unknown', '2019-01-28', '06:00:00'),
+('6', '12', 'unknown', 'unknown', '2019-01-20', '06:00:00'),
+('7', '12', 'unknown', 'unknown', '2018-12-20', '06:00:00');
 
 --
 -- Indexes for dumped tables
@@ -216,13 +212,13 @@ ALTER TABLE `visitors`
 -- AUTO_INCREMENT for table `collections`
 --
 ALTER TABLE `collections`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `transactions`
