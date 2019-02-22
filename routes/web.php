@@ -17,7 +17,7 @@
 
 Route::group(['middleware' => ['user.tracker']], function () {
 	Route::get('/', 'HomeController@index')->name('home');
-	Route::get('collections', 'ProductController@index')->name('collections');
+	Route::get('collections/{id}', 'ProductController@index')->name('collections');
 	Route::get('collections/order', 'OrderFormController@index')->name('collections.order');
 	Route::get('about', 'AboutController@index')->name('about');
 	Route::get('payment-status', 'InvoiceSearchController@index')->name('payment-status');

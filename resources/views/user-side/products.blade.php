@@ -1,51 +1,36 @@
 @extends('layouts.navbar')
 
 @section('content')
-<div class="container-fluid container-product">
+<div class="container-fluid products">
+    @if(count($products) == 0)
     <div class="row">
-        <div class="col-md-4 img-col">
-            <div class="img-slides product-img-l">
-                <img class="product-image" src="{{asset('images/shoes1.jpg')}}" style="width:100%">
-            </div>
-        </div>
-        <div class="col-md-4">
-            <h2 class="product-collection" style="font-size: 26px"> Collection 1 </h3>
-            <h2 class="product-name" style="font-size: 26px"> Name 1 </h2>
-            <hr style="width: 70%; background-color: #888;">
-            <p class="price" style="font-size: 26px"> $ 1,000 </p>
-            <p class="material" style="font-size: 22px"> Plastic Material </p>
-                <p style="display: inline-block; font-size: 18px; margin-right: 25px;"> SIZE: </p>
-                <label class="noie-container"> S 
-                    <input type="radio" name="size" id="radio1" value="S"/>
-                    <span class="noie-checkmark"></span>
-                </label>
-                <label class="noie-container"> M
-                    <input type="radio" name="size" id="radio2" value="M" checked="checked"/>
-                    <span class="noie-checkmark"></span>
-                </label>
-                <label class="noie-container"> L 
-                    <input type="radio" name="size" id="radio3" value="L"/>
-                    <span class="noie-checkmark"></span>
-                </label>
-                <label class="noie-container"> XL 
-                    <input type="radio" name="size" id="radio4" value="XL"/> 
-                    <span class="noie-checkmark"></span>
-                </label>
-            <br>
-            <button href="{{url('collections/order')}}}"> BUY NOW </button>
-            <div style="text-align:center; height: auto; width: auto">
-                <span class="dot" onclick=""></span> 
-                <span class="dot" onclick=""></span> 
-                <span class="dot" onclick=""></span> 
-            </div>
-        </div>
-        <div class="col-md-4 img-col">
-            <div class="img-slides product-img-r">
-                <img class="product-image" src="{{asset('images/shoes2.jpg')}}" style="width:100%">
-            </div>
+        <div class="col-md">
+            <h1>{{ $collection->name }} collection is empty.</h1>
         </div>
     </div>
+    @else
+    @foreach($products as $product)
+    <div class="row">
+        <div class="col-md">
+            <img src="{{ asset($product->image1) }}" alt="nama_product">
+        </div>
+        <div class="col-md">
+            <h1>{{ $collection->name }} - {{ $collection->year }}</h1>
+            <h2>{{ $product->name }}</h2>
+            <br>
+            <hr class="style-three">
+            <h2>Rp {{ $product->price }}</h2>
+            <br>
+            <h3>Material: {{ $product->material }}</h3>
+            <h3>Size: <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>{{ $product->size }}</h3>
+            <br>
+            <button type="button" style="color: white">Buy Now</button>
+        </div>
+        <div class="col-md">
+            <img src="{{ asset($product->image2) }}" alt="nama_product">
+        </div>
+    </div>
+    @endforeach
+    @endif
 </div>
-<a class="prev-slide" onclick="plusSlides(-1)">&#10094;</a>
-<a class="next-slide" onclick="plusSlides(1)">&#10095;</a>
 @endsection

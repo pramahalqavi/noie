@@ -188,7 +188,7 @@ html, body {
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
+  .prev1, .next1 {font-size: 11px}
 }
 
 
@@ -196,7 +196,38 @@ html, body {
     /* font-family: 'Thasadith', sans-serif; */
     font-family: 'Tahoma', 'Geneva', 'sans-serif';
     text-align: center;
+    width: 100%;
 }
+
+/*---------- COLLECTION OF PRODUCT ----------*/
+
+div.products {
+  margin-top: 30px;
+}
+
+/* Flaired edges */
+hr.style-three {
+  height: 30px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px 0 0 0;
+  border-radius: 20px;
+}
+hr.style-three:before {
+  display: block;
+  content: "";
+  height: 30px;
+  margin-top: -31px;
+  border-style: solid;
+  border-color: black;
+  border-width: 0 0 1px 0;
+  border-radius: 20px;
+}
+
+.products h3 {
+  text-align: left;
+}
+
 
 /* Radio Button */
 /* The container */
@@ -409,69 +440,3 @@ input[type=text], input[type=tel] {
   color: white;
 }
 
-/* Next & previous slide buttons */
-.prev-slide, .next-slide {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 28px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  background-color: rgba(201,201,201,0.7);
-}
-
-/* Position the "next button" to the right */
-.next-slide {
-  right: 0;
-  margin-right: 0.5%;
-  border-radius: 3px 0 0 3px;
-}
-.prev-slide {
-  left: 0;
-  margin-left: 0.5%;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev-slide:hover, .next-slide:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 10px;
-  width: 10px;
-  margin: 8% 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active, .dot:hover {
-  background-color: #717171;
-}
-
-.container-fluid.container-product {
-  margin-top: 2%;
-  margin-bottom: 2%;
-}
-
-.img-col {
-  padding: 0 0;
-  margin-top: 6%;
-}
-
-.product-img-l {
-  float: left;
-}
-
-.product-img-r {
-  float: right;
-}

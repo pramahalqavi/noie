@@ -73,12 +73,12 @@ class ImageController extends Controller
                 
                 $path = public_path('storage/product/');
 
-                $dimensions = ['500', '200'];
+                $dimensions = ['600', '200'];
                 foreach ($dimensions as $row) {
-                    if ($row==500) {
-                        $canvas = Image::canvas($row, 400);
+                    if ($row==600) {
+                        $canvas = Image::canvas($row, 500);
                         //Resize image here
-                        $resizeImage  = Image::make($file)->resize($row, 400, function($constraint) {
+                        $resizeImage  = Image::make($file)->resize($row, 500, function($constraint) {
                             $constraint->aspectRatio();
                         });
                         $canvas->insert($resizeImage, 'center');

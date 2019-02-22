@@ -35,11 +35,11 @@
                             @php($years = App\Models\Collection::distinct()->orderBY('year', 'desc')->get(['year']))
                             @foreach($years as $y)
                                 <div class="noie-column fade1">
-                                @php($collections = App\Models\Collection::where('year', $y->year)->orderBy('id')->get(['name']))
+                                @php($collections = App\Models\Collection::where('year', $y->year)->orderBy('id')->get(['id', 'name']))
                                     <h2>{{ $y->year }}</h2>
                                     @foreach($collections as $c)
                                     <div class="collection-column">
-                                        <a href="{{route('collections')}}">{{ $c->name }}</a>
+                                        <a href="{{route('collections', $c->id)}}">{{ $c->name }}</a>
                                     </div>
                                     @endforeach
                                 </div>
