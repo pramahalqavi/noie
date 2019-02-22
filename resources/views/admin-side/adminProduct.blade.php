@@ -53,26 +53,27 @@
                 </div>
             @endif
             <div class="form-group">
-                <label for="year" style="font-size: 2em">Year</label>
+                <label for="year" style="font-size: 2em">Year<span style="color: red">*</span></label>
                 <input type="text" class="form-control" name="year" id="year" placeholder="Enter here" required>
             </div>
             <br>
             <div class="form-group">
-                <label for="collection1">Collection 1</label>
+                <label for="collection1">Collection 1<span style="color: red">*</span></label>
                 <input type="text" class="form-control" name="collection1" id="collection1" placeholder="Enter here" required>
             </div>
             <div class="form-group">
-                <label for="collection2">Collection 2</label>
+                <label for="collection2">Collection 2<span style="color: red">*</span></label>
                 <input type="text" class="form-control" name="collection2" id="collection2" placeholder="Enter here" required>
             </div>
             <div class="form-group">
-                <label for="collection3">Collection 3</label>
-                <input type="text" class="form-control" name="collection3" id="collection3" placeholder="Enter here">
+                <label for="collection3">Collection 3<span style="color: red">*</span></label>
+                <input type="text" class="form-control" name="collection3" id="collection3" placeholder="Enter here" required>
             </div>
             <div class="form-group">
-                <label for="collection4">Collection 4</label>
+                <label for="collection4">Collection 4<span style="color: red">*</span></label>
                 <input type="text" class="form-control" name="collection4" id="collection4" placeholder="Enter here" required>
             </div>
+            <p style="color: red">* Required</p>
             {{ csrf_field() }}
         </div>
         <div class="modal-footer">

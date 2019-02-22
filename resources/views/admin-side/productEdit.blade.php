@@ -83,30 +83,31 @@
 			@endif
       		<input type="hidden" name="collection_id" value="{{ $collection->id }}">
       		<div class="form-group">
-		        <label for="img1"><span style="color: red">*</span>Image #1</label>
+		        <label for="img1">Image #1<span style="color: red">*</span></label>
 		        <input type="file" name="img1" id="img1" required>
 		    </div>
 		    <div class="form-group">
-		        <label for="img2"><span style="color: red">*</span>Image #2</label>
+		        <label for="img2">Image #2<span style="color: red">*</span></label>
 		        <input type="file" name="img2" id="img2" required>
 		    </div>
 		    <div class="form-group">
-		    	<label for="name"><span style="color: red">*</span>Name</label>
+		    	<label for="name">Name<span style="color: red">*</span></label>
 		    	<input type="text" class="form-control" name="name" id="name" placeholder="Enter here" required>
             </div>
             <div class="form-group">
-		    	<label for="material"><span style="color: red">*</span>Material</label>
+		    	<label for="material">Material<span style="color: red">*</span></label>
 		    	<input type="text" class="form-control" name="material" id="material" placeholder="Enter here" required>
             </div>
             <div class="form-group">
 		    	<label for="size">Size</label>
+          <p>Separate using space. E.g: S M L XL</p>
 		    	<input type="text" class="form-control" name="size" id="size" placeholder="Enter here">
             </div>
             <div class="form-group">
-		    	<label for="price"><span style="color: red">*</span>Price</label>
+		    	<label for="price">Price<span style="color: red">*</span></label>
 		    	<input type="text" class="form-control" name="price" id="price" placeholder="Enter here" required>
             </div>
-            <p style="color: red">* : Required</p>
+            <p style="color: red">* Required</p>
 		    {{ csrf_field() }}
 		    <!-- <button type="submit" class="btn btn-default">Submit</button> -->
        		<!-- <p>Modal body text goes here.</p> -->

@@ -11,7 +11,7 @@ class ProductController extends Controller {
     public function index($collection_id) {
     	$collection = Collection::find($collection_id);
 
-    	$products = Product::where('collection_id', $collection_id)->get();
+    	$products = Product::where('collection_id', $collection_id)->orderBy('name')->get();
 
         return view('user-side/products', ['collection' => $collection, 'products' => $products]);
     }
