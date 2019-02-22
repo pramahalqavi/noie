@@ -5,12 +5,13 @@
         <title>NOIE</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Thasadith" rel="stylesheet">
+        <link href="{{asset('css/default.css')}}" rel="stylesheet" type="text/css">
+        
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <link href="{{asset('css/default.css')}}" rel="stylesheet" type="text/css">
-
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
     </head>
     <body>
@@ -33,7 +34,7 @@
                             <div class="noie-row">
                             @php($years = App\Models\Collection::distinct()->orderBY('year', 'desc')->get(['year']))
                             @foreach($years as $y)
-                                <div class="noie-column">
+                                <div class="noie-column fade1">
                                 @php($collections = App\Models\Collection::where('year', $y->year)->orderBy('id')->get(['name']))
                                     <h2>{{ $y->year }}</h2>
                                     @foreach($collections as $c)
@@ -43,8 +44,8 @@
                                     @endforeach
                                 </div>
                             @endforeach
-                                <a class="prev" onclick="plusDivs(-1)">&#10094;</a>
-                                <a class="next" onclick="plusDivs(1)">&#10095;</a>
+                                <a class="prev1" onclick="plusDivs(-1)" style="color: black">&#10094;</a>
+                                <a class="next1" onclick="plusDivs(1)" style="color: black">&#10095;</a>
                             </div>
                         </div>
                     </div>
