@@ -49,7 +49,3 @@
 <a class="prev-slide" onclick="plusSlides(-1)">&#10094;</a>
 <a class="next-slide" onclick="plusSlides(1)">&#10095;</a>
 @endsection
-
-@section('javascript')
-<!-- <script src="{{asset('js/image_carousel.js')}}"></script> -->
-@endsection

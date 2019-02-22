@@ -92,17 +92,19 @@ html, body {
   float: left;
   width: 100%;
   padding: 0;
+  margin: 0;
   background-color: rgba(255,0,0,0);
-  overflow: auto;
+  overflow: hidden;
   max-height: 500px;
+  display: none;
 }
 
-.noie-column h3 {
+.noie-column h2 {
   float: none;
   color: black;
   /*padding: 1em;*/
   text-decoration: none;
-  display: block;
+  /*display: block;*/
   text-align: center;
   font-weight: bold;
 }
@@ -117,7 +119,7 @@ html, body {
 }
 
 .noie-column a {
-  font-size: 1.2em;
+  font-size: 1.5em;
   float: none;
   color: black;
   text-decoration: none;
@@ -134,6 +136,56 @@ html, body {
   display: table;
   clear: both;
 }
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.prev {
+  left: 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  color: white;
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
 
 .content {
     /* font-family: 'Thasadith', sans-serif; */

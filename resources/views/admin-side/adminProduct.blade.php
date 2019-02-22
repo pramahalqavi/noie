@@ -84,4 +84,35 @@
   </div>
 </div>
 
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        <img src="{{ asset('storage/product/product-img.jpg') }}" class="d-block w-100" alt="...">
+      <!-- <div class="d-block w-100" style="background-color: red">
+          <p>Testing testing 1</p>
+      </div> -->
+    </div>
+    <div class="carousel-item">
+        <img src="{{ asset('storage/product/3-1.jpg') }}" class="d-block w-100" alt="...">
+      <!-- <div class="d-block w-100" style="background-color: green">
+          <p>Testing testing 2</p>
+      </div> -->
+    </div>
+    <div class="carousel-item">
+        <img src="{{ asset('storage/product/product-img.jpg') }}" class="d-block w-100" alt="...">
+     <!--  <div class="d-block w-100" style="background-color: yellow">
+          <p>Testing testing 3</p>
+      </div> -->
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
 @endsection

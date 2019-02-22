@@ -31,37 +31,20 @@
                         <a class="noie-navbutton">COLLECTIONS</a>
                         <div class="noie-dropdown-content">
                             <div class="noie-row">
-                                @php($year = App\Models\Collection::distinct()->orderBY('year', 'desc')->get(['year']))
-                                @php($collections = App\Models\Collection::where('year', '2018')->orderBy('id')->get())
+                            @php($years = App\Models\Collection::distinct()->orderBY('year', 'desc')->get(['year']))
+                            @foreach($years as $y)
                                 <div class="noie-column">
-                                    <h3>2018</h3>
+                                @php($collections = App\Models\Collection::where('year', $y->year)->orderBy('id')->get(['name']))
+                                    <h2>{{ $y->year }}</h2>
                                     @foreach($collections as $c)
                                     <div class="collection-column">
                                         <a href="{{route('collections')}}">{{ $c->name }}</a>
                                     </div>
                                     @endforeach
-                                   <!--  <div class="collection-column">
-                                        <a href="{{route('collections')}}">BB</a>
-                                    </div>
-                                    <div class="collection-column">
-                                        <a href="{{route('collections')}}">CC</a>
-                                    </div>
-                                    <div class="collection-column">
-                                        <a href="{{route('collections')}}">DD</a>
-                                    </div> -->
                                 </div>
-                                <!-- <div class="noie-column">
-                                    <h4>Category 2</h4>
-                                    <a href="#">Link 1</a>
-                                    <a href="#">Link 2</a>
-                                    <a href="#">Link 3</a>
-                                </div>
-                                <div class="noie-column">
-                                    <h4>Category 3</h4>
-                                    <a href="#">Link 1</a>
-                                    <a href="#">Link 2</a>
-                                    <a href="#">Link 3</a>
-                                </div> -->
+                            @endforeach
+                                <a class="prev" onclick="plusDivs(-1)">&#10094;</a>
+                                <a class="next" onclick="plusDivs(1)">&#10095;</a>
                             </div>
                         </div>
                     </div>
@@ -74,9 +57,6 @@
         <div class="content">
             @yield('content')
         </div>
-        @yield('javascript')
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <script src="{{ asset('js/user.js') }}"></script>
     </body>
 </html>

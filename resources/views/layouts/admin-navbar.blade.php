@@ -13,7 +13,7 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-<link href="/css/admin.css" rel="stylesheet" type="text/css">
+<link href="{{ asset('css/admin.css') }}" rel="stylesheet" type="text/css">
 
 </head>
 <body>
@@ -74,7 +74,7 @@
     </div>
     <!-- /#wrapper -->
 
-<script src="/js/admin.js"></script>
+<script src="{{ asset('js/admin.js') }}"></script>
 
 </body>
 </html>
