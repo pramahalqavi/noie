@@ -39,7 +39,7 @@
                 </li>
 
                 <li>
-                    <a href="{{route('stat')}}">Statistic</a>
+                    <a href="{{route('stat')}}">Statistics</a>
                 </li>
                 <li>
                     <a href="/admin/product">Product</a>

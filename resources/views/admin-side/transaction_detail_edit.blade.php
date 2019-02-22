@@ -90,7 +90,8 @@
                 <div class="modal-footer text-right">
                     <button type="button" class="btn btn-danger modal-button" data-dismiss="modal">Cancel</button>
                     <input type="submit" class="btn btn-primary modal-button" value="OK" width="20%"/>
-                        {{csrf_field()}}
+                    {{csrf_field()}}
+                    <input type="hidden" value="{{$row}}" name="detail"/>
                     <input type="hidden" name="_method" value="put"/>
                 </div>
             </div>
