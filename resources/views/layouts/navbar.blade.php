@@ -28,16 +28,29 @@
                 <div class="noie-navbar">
                     <a class="noie-navbutton" href="{{ route('home') }}">HOME</a>
                     <div class="noie-dropdown">
-                        <a class="noie-navbutton">COLLECTIONS </a>
+                        <a class="noie-navbutton">COLLECTIONS</a>
                         <div class="noie-dropdown-content">
                             <div class="noie-row">
+                                @php($year = App\Models\Collection::distinct()->orderBY('year', 'desc')->get(['year']))
+                                @php($collections = App\Models\Collection::where('year', '2018')->orderBy('id')->get())
                                 <div class="noie-column">
-                                    <h4>Category 1</h4>
-                                    <a href="{{route('collections')}}">Link 1</a>
-                                    <a href="">Link 2</a>
-                                    <a href="">Link 3</a>
+                                    <h3>2018</h3>
+                                    @foreach($collections as $c)
+                                    <div class="collection-column">
+                                        <a href="{{route('collections')}}">{{ $c->name }}</a>
+                                    </div>
+                                    @endforeach
+                                   <!--  <div class="collection-column">
+                                        <a href="{{route('collections')}}">BB</a>
+                                    </div>
+                                    <div class="collection-column">
+                                        <a href="{{route('collections')}}">CC</a>
+                                    </div>
+                                    <div class="collection-column">
+                                        <a href="{{route('collections')}}">DD</a>
+                                    </div> -->
                                 </div>
-                                <div class="noie-column">
+                                <!-- <div class="noie-column">
                                     <h4>Category 2</h4>
                                     <a href="#">Link 1</a>
                                     <a href="#">Link 2</a>
@@ -48,7 +61,7 @@
                                     <a href="#">Link 1</a>
                                     <a href="#">Link 2</a>
                                     <a href="#">Link 3</a>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

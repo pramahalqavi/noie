@@ -6,7 +6,7 @@
   <h1 style="text-align: center">LIST OF TRANSACTIONS</h1>
   <a class="btn btn-success top-table-btn" href="{{route('transaction.download.excel')}}">Export Excel</a>
   <table class="table table-striped">
-    <thead style="background-color: #314190; color: white">
+    <thead style="background-color: #DDDDDD">
       <tr>
         <th scope="col" width="10%">Transaction ID</th>
         <th scope="col" width="30%">Name</th>

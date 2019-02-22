@@ -396,9 +396,13 @@ button.btnPlus {
   /*border: 1px solid red;*/
 }
 
+#edit-product th, #edit-product td {
+  font-size: 1.5em;
+}
+
 /*--- ADDING PRODUCT MODAL ---*/
 
-button.closeBtn {
+button.close.closeBtn {
   float:right;
   margin-top: -1.2em;
   /*border: 1px solid red;*/

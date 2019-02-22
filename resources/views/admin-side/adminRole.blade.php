@@ -11,7 +11,7 @@
 @endif
 <a class="btn btn-primary top-table-btn" href="{{route('admin-role.register')}}">Add New Admin</a>
 <table class="table table-striped" id="admin-table">
-  <thead style="background-color: #279636; color: white">
+  <thead style="background-color: #DDDDDD">
     <tr>
       <th scope="col" width="80%">Admin</th>
       <th scope="col" width="20%"></th>

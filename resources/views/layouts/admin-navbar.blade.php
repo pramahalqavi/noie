@@ -42,7 +42,7 @@
                     <a href="{{route('stat')}}">Statistics</a>
                 </li>
                 <li>
-                    <a href="/admin/product">Product</a>
+                    <a href="{{route('collectionsPerYear')}}">Product</a>
                 </li>
                 <li>
                     <a href="{{route('transaction')}}">Transaction</a>
