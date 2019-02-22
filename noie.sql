@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 21, 2019 at 04:48 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.1.13
+-- Host: localhost
+-- Generation Time: Feb 22, 2019 at 08:57 AM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -72,7 +72,11 @@ INSERT INTO `collections` (`id`, `name`, `year`) VALUES
 (9, 'II', '2018'),
 (10, 'JJ', '2018'),
 (11, 'KK', '2018'),
-(12, 'LL', '2018');
+(12, 'LL', '2018'),
+(13, 'Testing1', '2015'),
+(14, 'Testing2', '2015'),
+(15, 'Testing3', '2015'),
+(16, 'Testing4', '2015');
 
 -- --------------------------------------------------------
 
@@ -83,11 +87,13 @@ INSERT INTO `collections` (`id`, `name`, `year`) VALUES
 CREATE TABLE `products` (
   `product_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `image1` varchar(255) NOT NULL DEFAULT 'images/product-img.jpg',
-  `image2` varchar(255) NOT NULL,
+  `image1` varchar(255) NOT NULL DEFAULT 'storage/product/product-img.jpg',
+  `image2` varchar(255) NOT NULL DEFAULT 'storage/product/product-img.jpg',
+  `thumbnail1` varchar(255) NOT NULL DEFAULT 'storage/product/thumbnail/product-img.jpg',
+  `thumbnail2` varchar(255) NOT NULL DEFAULT 'storage/product/thumbnail/product-img.jpg',
   `material` varchar(255) NOT NULL,
-  `size` varchar(255) DEFAULT NULL,
-  `price` int(11) NOT NULL,
+  `size` varchar(255) DEFAULT '-',
+  `price` int(100) NOT NULL,
   `collection_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -95,9 +101,10 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `name`, `image1`, `image2`, `material`, `size`, `price`, `collection_id`) VALUES
-(1, 'Adidas EQT', 'images/product-img.jpg', '', '', NULL, 1500000, 1),
-(2, 'Adidas Prophere', 'images/product-img.jpg', '', '', NULL, 2000000, 1);
+INSERT INTO `products` (`product_id`, `name`, `image1`, `image2`, `thumbnail1`, `thumbnail2`, `material`, `size`, `price`, `collection_id`) VALUES
+(1, 'Adidas EQT', 'storage/product/product-img.jpg', 'storage/product/product-img.jpg', 'storage/product/thumbnail/product-img.jpg', 'storage/product/thumbnail/product-img.jpg', 'Canvas', NULL, 1500000, 1),
+(2, 'Adidas Prophere', 'storage/product/product-img.jpg', 'storage/product/product-img.jpg', 'storage/product/thumbnail/product-img.jpg', 'storage/product/thumbnail/product-img.jpg', 'Canvas', NULL, 2000000, 1),
+(3, 'Lamborghini aventador', 'storage/product/3-1.jpg', 'storage/product/3-2.jpg', 'storage/product/thumbnail/3-1.jpg', 'storage/product/thumbnail/3-2.jpg', 'Real steel', '-', 500000000, 1);
 
 -- --------------------------------------------------------
 
@@ -162,6 +169,7 @@ CREATE TABLE `visitors` (
 INSERT INTO `visitors` (`id`, `ip_address`, `country`, `country_code`, `visit_date`, `visit_time`) VALUES
 ('1', '12', 'unknown', 'unknown', '2019-02-21', '06:00:00'),
 ('127.0.0.1/2019-02-21', '127.0.0.1', 'Indonesia', 'ID', '2019-02-21', '01:11:19'),
+('127.0.0.1/2019-02-22', '127.0.0.1', 'Indonesia', 'ID', '2019-02-22', '07:41:46'),
 ('2', '12', 'unknown', 'unknown', '2019-02-20', '06:00:00'),
 ('3', '12', 'unknown', 'unknown', '2019-02-19', '06:00:00'),
 ('4', '12', 'unknown', 'unknown', '2019-02-28', '06:00:00'),
@@ -212,13 +220,13 @@ ALTER TABLE `visitors`
 -- AUTO_INCREMENT for table `collections`
 --
 ALTER TABLE `collections`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `transactions`

@@ -9,7 +9,7 @@
 <br>
 <hr>
 
-<h2>{{ $collection->name }} - {{ $collection->year }}</h2>
+<h2>Collection {{ $collection->name }} <i class="fas fa-arrow-right" style="font-size: .8em"></i> {{ $collection->year }}</h2>
 <button class="add_field_button btn btn-success btn-md btnPlus" data-toggle="modal" data-target="#adding-product"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Product</button>
 
 @if (session('success'))
@@ -24,7 +24,7 @@
 
 <br>
 
-<table class="table">
+<table id="edit-product" class="table">
   <thead class="thead-dark" style="background-color: #DDDDDD">
     <tr>
       <th scope="col">#</th>
