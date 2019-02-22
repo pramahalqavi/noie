@@ -25,7 +25,7 @@
 <br>
 
 <table class="table">
-  <thead class="thead-dark" style="background-color: #EAEAEA">
+  <thead class="thead-dark" style="background-color: #DDDDDD">
     <tr>
       <th scope="col">#</th>
       <th scope="col">Image</th>
@@ -83,19 +83,19 @@
 			@endif
       		<input type="hidden" name="collection_id" value="{{ $collection->id }}">
       		<div class="form-group">
-		        <label for="img1">Image #1</label>
+		        <label for="img1"><span style="color: red">*</span>Image #1</label>
 		        <input type="file" name="img1" id="img1" required>
 		    </div>
 		    <div class="form-group">
-		        <label for="img2">Image #2</label>
+		        <label for="img2"><span style="color: red">*</span>Image #2</label>
 		        <input type="file" name="img2" id="img2" required>
 		    </div>
 		    <div class="form-group">
-		    	<label for="name">*Name</label>
+		    	<label for="name"><span style="color: red">*</span>Name</label>
 		    	<input type="text" class="form-control" name="name" id="name" placeholder="Enter here" required>
             </div>
             <div class="form-group">
-		    	<label for="material">*Material</label>
+		    	<label for="material"><span style="color: red">*</span>Material</label>
 		    	<input type="text" class="form-control" name="material" id="material" placeholder="Enter here" required>
             </div>
             <div class="form-group">
@@ -103,16 +103,17 @@
 		    	<input type="text" class="form-control" name="size" id="size" placeholder="Enter here">
             </div>
             <div class="form-group">
-		    	<label for="price">*Price</label>
+		    	<label for="price"><span style="color: red">*</span>Price</label>
 		    	<input type="text" class="form-control" name="price" id="price" placeholder="Enter here" required>
             </div>
+            <p style="color: red">* : Required</p>
 		    {{ csrf_field() }}
 		    <!-- <button type="submit" class="btn btn-default">Submit</button> -->
        		<!-- <p>Modal body text goes here.</p> -->
        	</div>
        	<div class="modal-footer">
        		<button type="submit" class="btn btn-primary">Submit</button>
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
 	    </div>
 	</form>
     </div>
