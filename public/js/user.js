@@ -1,3 +1,4 @@
+// ---------- SLIDESHOW FOR NAVBAR
 var slideIndex = 1;
 showDivs(slideIndex);
 
@@ -50,4 +51,39 @@ function showDivs(n) {
     x[i].style.display = "none";  
   }
   x[slideIndex-1].style.display = "block";  
+}
+
+// ---------- SLIDESHOW FOR PRODUCTS
+var slideProduct = 1;
+showProd(slideProduct);
+
+$('.prev2').on('click', function() {
+  var slides = $('.product-slide');
+  if (slides.eq(slideProduct-1).css('opacity') == 1) {
+    slides.eq(slideProduct-1).fadeOut(500, function() {
+      slideProduct -= 1;
+      showProd(slideProduct);
+    });
+  }
+});
+
+$('.next2').on('click', function() {
+  var slides = $('.product-slide');
+  if (slides.eq(slideProduct-1).css('opacity') == 1) {
+    slides.eq(slideProduct-1).fadeOut(500, function() {
+      slideProduct += 1;
+      showProd(slideProduct);
+    });
+  }
+});
+
+function showProd(n) {
+  var i;
+  var x = document.getElementsByClassName("product-slide");
+  if (n > x.length) {slideProduct = 1}
+  if (n < 1) {slideProduct = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  x[slideProduct-1].style.display = "flex";  
 }

@@ -209,6 +209,10 @@ div.products {
   margin-top: 30px;
 }
 
+.col-md img {
+  width: 100%;
+}
+
 /* Flaired edges */
 hr.style-three {
   height: 30px;
@@ -233,16 +237,16 @@ hr.style-three:before {
 }
 
 .row.product-slide {
-  /*display: none;*/
+  display: none;
 }
 
 .products a.prev2, .products a.next2 {
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 32%;
   width: auto;
-  padding: 16px;
-  margin-top: -22px;
+  padding: 15px;
+  /*margin-top: -22px;*/
   color: white;
   font-weight: bold;
   font-size: 4em;
@@ -252,14 +256,14 @@ hr.style-three:before {
 }
 
 .products a.prev2 {
-  left: 0;
+  left: 1%;
+  /*float: left;*/
 }
 
 .products a.next2 {
-  right: 0;
+  right: 1%;
   border-radius: 3px 0 0 3px;
 }
-
 
 /* Radio Button */
 /* The container */

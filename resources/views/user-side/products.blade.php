@@ -12,7 +12,8 @@
     @foreach($products as $product)
     <div class="row product-slide fade1">
         <div class="col-md">
-            <img src="{{ asset($product->image1) }}" alt="nama_product">
+            <img src="{{ asset($product->image1) }}" alt="{{ $product->name }} image1">
+            <!-- <a class="prev3">&#10094;</a> -->
         </div>
         <div class="col-md">
             <h1>{{ $collection->name }} - {{ $collection->year }}</h1>
@@ -27,12 +28,12 @@
             <button type="button" style="color: white">Buy Now</button>
         </div>
         <div class="col-md">
-            <img src="{{ asset($product->image2) }}" alt="nama_product">
+            <img src="{{ asset($product->image2) }}" alt="{{ $product->name }} image2">
         </div>
     </div>
     @endforeach
-    <a class="prev2" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next2" onclick="plusSlides(1)">&#10095;</a>
+    <a class="prev2">&#10094;</a>
+    <a class="next2">&#10095;</a>
     @endif
 </div>
 @endsection
