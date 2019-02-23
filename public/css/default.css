@@ -206,7 +206,7 @@ a.prev1:hover, a.next1:hover, .products a.prev2:hover, .products a.next2:hover {
 /*---------- COLLECTION OF PRODUCT ----------*/
 
 div.products {
-  margin-top: 100px;
+  margin: 5% 0;
 }
 
 .col-md img {
@@ -442,16 +442,20 @@ input[type=text], input[type=tel] {
 
 /*------------ Order Form ------------*/
 .form-style {
-  margin-top: 2%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  display: none;
 }
 .input-label {
   font-size: 20px;
   width: 35%;
   text-align: right;
+  padding: 0 15px;
 }
 
 #order-button {
   margin-top: 40px;
+  color: white;
 }
 
 .product-detail {

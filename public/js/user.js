@@ -87,3 +87,10 @@ function showProd(n) {
   }
   x[slideProduct-1].style.display = "flex";  
 }
+
+// ---------- Buy Now Product
+function buyNowClick() {
+  $('.form-style').fadeIn("slow");
+  var x = document.getElementsByClassName("form-style");
+  x[0].scrollIntoView();
+}
