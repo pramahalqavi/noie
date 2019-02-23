@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 23, 2019 at 12:57 AM
+-- Generation Time: Feb 23, 2019 at 02:01 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -106,7 +106,8 @@ INSERT INTO `products` (`product_id`, `name`, `image1`, `image2`, `thumbnail1`, 
 (2, 'Adidas Prophere', 'storage/product/product-img.jpg', 'storage/product/product-img.jpg', 'storage/product/thumbnail/product-img.jpg', 'storage/product/thumbnail/product-img.jpg', 'Canvas', '-', 2000000, 1),
 (3, 'Lamborghini aventador', 'storage/product/3-1.jpg', 'storage/product/3-2.jpg', 'storage/product/thumbnail/3-1.jpg', 'storage/product/thumbnail/3-2.jpg', 'Real steel', '-', 500000000, 1),
 (5, 'Typing', 'storage/product/5-1.png', 'storage/product/5-2.png', 'storage/product/thumbnail/5-1.png', 'storage/product/thumbnail/5-2.png', 'Keyboard', 'One size', 200000, 9),
-(6, 'Toyota New Alphard', 'storage/product/6-1.png', 'storage/product/6-2.png', 'storage/product/thumbnail/6-1.png', 'storage/product/thumbnail/6-2.png', 'V6 Machine', 'Aa Bb Cc', 959000000, 9);
+(6, 'Toyota New Alphard', 'storage/product/6-1.png', 'storage/product/6-2.png', 'storage/product/thumbnail/6-1.png', 'storage/product/thumbnail/6-2.png', 'V6 Machine', 'Aa Bb Cc', 959000000, 9),
+(7, 'Honda Jazz', 'storage/product/7-1.jpg', 'storage/product/7-2.jpg', 'storage/product/thumbnail/7-1.jpg', 'storage/product/thumbnail/7-2.jpg', 'Real steel', 'DDd EEe FFf', 279000000, 10);
 
 -- --------------------------------------------------------
 
@@ -172,6 +173,7 @@ INSERT INTO `visitors` (`id`, `ip_address`, `country`, `country_code`, `visit_da
 ('1', '12', 'unknown', 'unknown', '2019-02-21', '06:00:00'),
 ('127.0.0.1/2019-02-21', '127.0.0.1', 'Indonesia', 'ID', '2019-02-21', '01:11:19'),
 ('127.0.0.1/2019-02-22', '127.0.0.1', 'Indonesia', 'ID', '2019-02-22', '07:41:46'),
+('127.0.0.1/2019-02-23', '127.0.0.1', 'Indonesia', 'ID', '2019-02-23', '00:00:40'),
 ('2', '12', 'unknown', 'unknown', '2019-02-20', '06:00:00'),
 ('3', '12', 'unknown', 'unknown', '2019-02-19', '06:00:00'),
 ('4', '12', 'unknown', 'unknown', '2019-02-28', '06:00:00'),
@@ -228,7 +230,7 @@ ALTER TABLE `collections`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `transactions`

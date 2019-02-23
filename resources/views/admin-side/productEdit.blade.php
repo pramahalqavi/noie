@@ -53,7 +53,7 @@
       <td>{{ $p->name }}</td>
       <td>{{ $p->material }}</td>
       <td>{{ $p->size }}</td>
-      <td>{{ $p->price }}</td>
+      <td>Rp {{ number_format($p->price) }}</td>
     </tr>
     <?php } ?>
   </tbody>
