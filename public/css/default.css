@@ -359,11 +359,12 @@ input[type=text], input[type=tel] {
   margin-top: 2%;
 }
 
-.search-button {
+.noie-search-button {
   display: inline-block;
+  color: white;
 }
 
-.search-input {
+.form-control.noie-search-input {
   display: inline-block;
   width: 50%;
   background: #fefefe;
