@@ -71,7 +71,18 @@ class ImageController extends Controller
                 // $file->storeAs('public/product', $filenametostore);
                 // $file->storeAs('public/product/thumbnail', $filenametostore);
                 
-                $path = public_path('storage/product/');
+                $path = public_path('storage/product');
+
+                //JIKA FOLDERNYA BELUM ADA
+                if (!File::isDirectory($path)) {
+                    //MAKA FOLDER TERSEBUT AKAN DIBUAT
+                    File::makeDirectory($path);
+                }
+
+                if (!File::isDirectory($path.'/thumbnail')) {
+                    //MAKA FOLDER TERSEBUT AKAN DIBUAT
+                    File::makeDirectory($path.'/thumbnail');
+                }
 
                 $dimensions = ['600', '200'];
                 foreach ($dimensions as $row) {
@@ -82,7 +93,7 @@ class ImageController extends Controller
                             $constraint->aspectRatio();
                         });
                         $canvas->insert($resizeImage, 'center');
-                        $canvas->save($path . $filenametostore);
+                        $canvas->save($path . '/' . $filenametostore);
                     } elseif ($row==200) {
                         $canvas = Image::canvas($row, 150);
                         //Resize image here
@@ -90,7 +101,7 @@ class ImageController extends Controller
                             $constraint->aspectRatio();
                         });
                         $canvas->insert($resizeImage, 'center');
-                        $canvas->save($path . 'thumbnail/' . $filenametostore);
+                        $canvas->save($path . '/thumbnail/' . $filenametostore);
                     }
                 }
                 

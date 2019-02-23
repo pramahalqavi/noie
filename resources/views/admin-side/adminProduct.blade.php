@@ -25,7 +25,7 @@
     <ol id="show{{$year->year}}" class="collection-list">
         @foreach ($collections as $collection)
             @if ($collection->year == $year->year)
-            <a href="/admin/product/{{ $collection->id }}"><li>{{ $collection->name }}</li></a>
+            <a href="{{ route('products.show', $collection->id) }}"><li>{{ $collection->name }}</li></a>
             @endif
         @endforeach
     </ol>
@@ -41,7 +41,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="/admin/product" method="post">
+      <form action="{{ route('collections.store') }}" method="post">
         <div class="modal-body">
             @if ($errors->any())
                 <div class="alert alert-danger">

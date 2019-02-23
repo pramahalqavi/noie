@@ -32,14 +32,15 @@ Route::group(['middleware' => ['admin']], function () {
 	Route::get('admin/stat', 'StatisticsController@index')->name('stat');
 
 	/*---------- Admin Product ----------*/
-	Route::post('admin/product', 'AdminProductController@store');
+	Route::post('admin/product', 'AdminProductController@store')->name('collections.store');
 
 	Route::get('admin/product', 'AdminProductController@index' )->name('collectionsPerYear');
 
-	Route::get('admin/product/{id}', 'AdminProductController@show' )->name('product-mgt');
+	Route::get('admin/product/{id}', 'AdminProductController@show' )->name('products.show');
 
 	Route::resource('admin/image', 'ImageController');
 	// Route::post('admin/product/{id}', 'AdminProductController@store' )->name('add-product');
+
 
 	/*---------- Transaction ----------*/
 	Route::get('admin/transaction', 'TransactionController@index')->name('transaction');
