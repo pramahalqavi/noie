@@ -20,10 +20,25 @@
             <h2>{{ $product->name }}</h2>
             <br>
             <hr class="style-three">
-            <h2>Rp {{ $product->price }}</h2>
+            <h2>Rp {{ number_format($product->price) }}</h2>
             <br>
-            <h3>Material: {{ $product->material }}</h3>
-            <h3>Size: <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>{{ $product->size }}</h3>
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3>Material:</h3>
+                </div>
+                <div class="col-sm-8">
+                    <h3>{{ $product->material }}</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3>Size:</h3>
+                </div>
+                <div class="col-sm-8">
+                    <h3>{{ $product->size }}</h3>
+                </div>
+            </div>
+                <!-- <h3>Size: <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>{{ $product->size }}</h3> -->
             <br>
             <button type="button" style="color: white">Buy Now</button>
         </div>

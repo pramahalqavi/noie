@@ -206,7 +206,7 @@ a.prev1:hover, a.next1:hover, .products a.prev2:hover, .products a.next2:hover {
 /*---------- COLLECTION OF PRODUCT ----------*/
 
 div.products {
-  margin-top: 30px;
+  margin-top: 100px;
 }
 
 .col-md img {
@@ -243,7 +243,7 @@ hr.style-three:before {
 .products a.prev2, .products a.next2 {
   cursor: pointer;
   position: absolute;
-  top: 32%;
+  top: 40%;
   width: auto;
   padding: 15px;
   /*margin-top: -22px;*/
