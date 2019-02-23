@@ -10,7 +10,7 @@
     </div>
     @else
     @foreach($products as $product)
-    <div class="row product-slide fade2">
+    <div class="row product-slide fade1">
         <div class="col-md">
             <img src="{{ asset($product->image1) }}" alt="nama_product">
         </div>
@@ -31,8 +31,8 @@
         </div>
     </div>
     @endforeach
-    <a class="prev1" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next1" onclick="plusSlides(1)">&#10095;</a>
+    <a class="prev2" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next2" onclick="plusSlides(1)">&#10095;</a>
     @endif
 </div>
 @endsection

@@ -118,14 +118,14 @@ html, body {
   /*border: 1px solid red;*/
 }
 
-.noie-column a {
+.collection-column a {
   font-size: 1.5em;
   float: none;
   color: black;
   text-decoration: none;
 }
 
-.noie-column a:hover {
+.collection-column a:hover {
   /* background-color: #ddd; */
   color: #1F85DE;
 }
@@ -137,14 +137,14 @@ html, body {
   clear: both;
 }
 
-.prev1, .next1 {
+a.prev1, a.next1 {
   cursor: pointer;
   position: absolute;
   top: 50%;
   width: auto;
   padding: 16px;
   margin-top: -22px;
-  color: black;
+  color: black !important;
   font-weight: bold;
   font-size: 18px;
   transition: .4s ease;
@@ -152,37 +152,41 @@ html, body {
   user-select: none;
 }
 
-.prev1 {
+a.prev1 {
   left: 0;
 }
 
 /* Position the "next button" to the right */
-.next1 {
+a.next1 {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev1:hover, .next1:hover {
-  color: white;
-  background-color: rgba(50,50,50,.8);
+a.prev1:hover, a.next1:hover, .products a.prev2:hover, .products a.next2:hover {
+  color: white !important;
+  background-color: rgba(0,0,0,.8);
 }
 
 /* Fading animation */
 .fade1 {
   -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
+  -webkit-animation-duration: .5s;
+  -webkit-animation-timing-function: linear;
+  /*-webkit-animation-delay: 1s;*/
   animation-name: fade;
-  animation-duration: 1.5s;
+  animation-duration: .5s;
+  animation-timing-function: linear;
+  /*animation-delay: 1s;*/
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4} 
+  from {opacity: 0} 
   to {opacity: 1}
 }
 
 @keyframes fade {
-  from {opacity: .4} 
+  from {opacity: 0} 
   to {opacity: 1}
 }
 
@@ -226,6 +230,34 @@ hr.style-three:before {
 
 .products h3 {
   text-align: left;
+}
+
+.row.product-slide {
+  /*display: none;*/
+}
+
+.products a.prev2, .products a.next2 {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 4em;
+  transition: 0.4s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.products a.prev2 {
+  left: 0;
+}
+
+.products a.next2 {
+  right: 0;
+  border-radius: 3px 0 0 3px;
 }
 
 

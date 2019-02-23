@@ -44,8 +44,10 @@
                                     @endforeach
                                 </div>
                             @endforeach
-                                <a class="prev1" onclick="plusDivs(-1)" style="color: black">&#10094;</a>
-                                <a class="next1" onclick="plusDivs(1)" style="color: black">&#10095;</a>
+                                <a class="prev1 fadeout">&#10094;</a>
+                                <!-- onclick="plusDivs(-1)" -->
+                                <a class="next1 fadeout">&#10095;</a>
+                                <!-- onclick="plusDivs(1)" -->
                             </div>
                         </div>
                     </div>
