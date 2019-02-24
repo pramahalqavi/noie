@@ -11,7 +11,7 @@ use App\Models\Admin;
 
 class AdminRoleController extends Controller {
     public function index() {
-        $admins = DB::table('admins')->select('email')->paginate(15);
+        $admins = DB::table('admins')->select('email')->paginate(20);
         return view('admin-side/adminRole', ['admins' => $admins]);
     }
 

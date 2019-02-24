@@ -18,7 +18,7 @@
     <tbody>
     @if($transactions->count())
       @foreach($transactions as $transaction)
-      <tr class="clickable-row" onclick="detailPage({{$transaction->transaction_id}})">
+      <tr class="clickable-row" onclick="detailPage('{{ $transaction->transaction_id }}')">
         <td scope="row">{{ $transaction->transaction_id }}</td>
         <td>{{ $transaction->cust_name }}</td>
         <td>{{ $transaction->product_name }}</td>
@@ -35,9 +35,8 @@
 
   <script> 
   function detailPage(trans_id) {
-    alert(trans_id);
     var url = '{{url("admin/transaction/detail")}}' + '/' + trans_id;
-      window.location.href = url;
+    window.location.href = url;
   }
   </script>
 
