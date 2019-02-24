@@ -14,7 +14,7 @@ use Mail;
 class TransactionController extends Controller {
 
     public function index() {
-        $transactions = Transaction::orderBy('created_at','desc')->paginate(15);
+        $transactions = Transaction::orderBy('created_at','desc')->paginate(20);
         return view('admin-side/transaction', ['transactions' => $transactions]);
     }
 

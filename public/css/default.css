@@ -339,7 +339,7 @@ a:hover {
 }
 
 /* Button */
-button {
+.noie-button {
   background-color: #222;
   border: none;
   color: white;
@@ -347,15 +347,16 @@ button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
+  font-size: 14px;
+  margin: 8px 10px;
   cursor: pointer;
   line-height: 22px;
-  font-family: 'Thasadith', sans-serif;
 }
 
-button:hover {
+.noie-button:hover {
   background-color: #333;
+  text-decoration:none;
+  color: white;
 }
 
 /*------------ About ------------*/
@@ -384,7 +385,7 @@ button:hover {
 }
 
 /*------------ Payment Search ------------*/
-input[type=text], input[type=tel] {
+input[type=text], input[type=tel], input[type=email] {
   padding: 7px 10px;
   margin-top: 8px;
   width: 50%;
@@ -443,7 +444,7 @@ input[type=text], input[type=tel] {
 /*------------ Order Form ------------*/
 .form-style {
   margin-top: 10%;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
   display: none;
 }
 .input-label {
@@ -454,7 +455,7 @@ input[type=text], input[type=tel] {
 }
 
 #order-button {
-  margin-top: 40px;
+  margin-top: 15px;
   color: white;
 }
 
@@ -465,6 +466,23 @@ input[type=text], input[type=tel] {
 
 .product-name {
   margin: 3% 0%;
+}
+
+#order-warning-message {
+  margin-top: 10px;
+  text-align: center;
+  color: #d50027;
+  visibility: hidden;
+}
+
+/*------------ Order Confirmation ------------*/
+.order-details {
+  padding-bottom: 70px;
+  padding-top: 20px;
+}
+
+.label-detail {
+  background-color: #f2f2f2;
 }
 
 /* About */
@@ -480,4 +498,5 @@ input[type=text], input[type=tel] {
   padding-bottom: 5%;
   color: white;
 }
+
 

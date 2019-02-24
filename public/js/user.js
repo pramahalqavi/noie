@@ -65,6 +65,10 @@ $('.prev2').on('click', function() {
       showProd(slideProduct);
     });
   }
+  var form = $('#order-form-'+(slideProduct-1));
+  if (form.css('opacity') == 1) {
+    form.fadeOut(500);
+  }
 });
 
 $('.next2').on('click', function() {
@@ -74,6 +78,10 @@ $('.next2').on('click', function() {
       slideProduct += 1;
       showProd(slideProduct);
     });
+  }
+  var form = $('#order-form-'+(slideProduct-1));
+  if (form.css('opacity') == 1) {
+    form.fadeOut(500);
   }
 });
 
@@ -90,7 +98,25 @@ function showProd(n) {
 
 // ---------- Buy Now Product
 function buyNowClick() {
-  $('.form-style').fadeIn("slow");
-  var x = document.getElementsByClassName("form-style");
-  x[0].scrollIntoView();
+  if ($('.product-slide').eq(slideProduct-1).css('opacity') == 1) {
+    $('#order-form-'+(slideProduct-1)).fadeIn("slow");
+    var x = document.getElementById("order-form-"+(slideProduct-1));
+    x.scrollIntoView();
+  } 
+}
+
+function checkOrderForm() {
+  var phone = document.getElementById('id-phone').value;
+  var zipcode = document.getElementById('id-zipcode').value;
+  var validPhone = /^\d+$/.test(phone);
+  var validZipcode = (/^\d+$/.test(zipcode) && zipcode.length == 6);
+  var warning = document.getElementById('order-warning-message');
+  if (!validPhone) {
+    warning.style.visibility = "visible";
+    warning.innerHTML = "Invalid phone number";
+  } else if (!validZipcode) {
+    warning.style.visibility = "visible";
+    warning.innerHTML = "Invalid zipcode";
+  }
+  return (validPhone && validZipcode);
 }

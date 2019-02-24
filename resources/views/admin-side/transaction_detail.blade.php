@@ -14,6 +14,18 @@
             <td align="left"> {{$row->product_name}} </td>
         </tr>
         <tr> 
+            <td class="label-detail" align="right">Collection: </td>
+            <td align="left"> {{$row->collection}} </td>
+        </tr>
+        <tr> 
+            <td class="label-detail" align="right">Year: </td>
+            <td align="left"> {{$row->year}} </td>
+        </tr>
+        <tr> 
+            <td class="label-detail" align="right">Size: </td>
+            <td align="left"> {{$row->size}} </td>
+        </tr>
+        <tr> 
             <td class="label-detail" align="right">Price: </td>
             <td align="left"> Rp {{number_format($row->unique_price)}} </td>
         </tr>

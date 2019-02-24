@@ -8,8 +8,8 @@
   <table class="table table-striped">
     <thead style="background-color: #DDDDDD">
       <tr>
-        <th scope="col" width="10%">Transaction ID</th>
-        <th scope="col" width="30%">Name</th>
+        <th scope="col" width="15%">Transaction ID</th>
+        <th scope="col" width="25%">Name</th>
         <th scope="col" width="30%">Product</th>
         <th scope="col" width="15%">Status</th>
         <th scope="col" width="15%">Order Date</th>
@@ -35,6 +35,7 @@
 
   <script> 
   function detailPage(trans_id) {
+    alert(trans_id);
     var url = '{{url("admin/transaction/detail")}}' + '/' + trans_id;
       window.location.href = url;
   }

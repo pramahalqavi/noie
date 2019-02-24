@@ -8,7 +8,7 @@
     <form action="{{route('payment-status.search')}}" method="post" role="search">
       {{ csrf_field() }}
       <input class="form-control noie-search-input" type="text" placeholder="Enter invoice id" aria-label="Search" maxlength="50" name="query" value="{{old('query')}}">
-      <button type="submit" class="noie-search-button">SEARCH</button>
+      <button type="submit" class="noie-button">SEARCH</button>
     </form>
   </div>
 </div>

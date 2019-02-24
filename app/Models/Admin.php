@@ -15,6 +15,7 @@ class Admin extends Authenticatable {
     protected $primaryKey = 'email';
     protected $fillable = array('email', 'password');
     protected $hidden = array('password');
+    public $incrementing = false;
 
     public function getEmail() {
         return $this->getAttributes()["email"];

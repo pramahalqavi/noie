@@ -13,7 +13,6 @@ class InvoiceSearchController extends Controller {
 
     public function doSearch(Request $request) {
         $query = $request->input('query');
-        $query = strtoupper($query);
         $transaction = Transaction::where('transaction_id', $query)->first();
         if ($transaction) {
             $result = new Transaction;
