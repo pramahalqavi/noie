@@ -27,7 +27,7 @@
                 <div class="col-sm-4">
                     <h3>Material:</h3>
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-8 lil-left">
                     <h3>{{ $product->material }}</h3>
                 </div>
             </div>
@@ -35,11 +35,23 @@
                 <div class="col-sm-4">
                     <h3>Size:</h3>
                 </div>
-                <div class="col-sm-8">
-                    <h3>{{ $product->size }}</h3>
+                <div class="col-sm-8 lil-left">
+                    @php($arr_size = explode(" ", $product->size))
+                    @foreach($arr_size as $size)
+                    @if ($size == '-')
+                    <label class="noie-container" style="padding-left: 0">
+                        <input class="size-option" type="radio" name="size" value="-"> -
+                        <!-- <span class="noie-checkmark"></span> -->
+                    </label>
+                    @else
+                    <label class="noie-container">{{ $size }}
+                        <input class="size-option" type="radio" name="size" value="{{ $size }}"> 
+                        <span class="noie-checkmark"></span>
+                    </label>
+                    @endif
+                    @endforeach
                 </div>
             </div>
-                <!-- <h3>Size: <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>{{ $product->size }}</h3> -->
             <br>
             <button class="noie-button" type="button" style="color: white" onclick="buyNowClick()">BUY NOW</button>
         </div>
@@ -54,7 +66,7 @@
         <input type="hidden" name="collection" value="{{$collection->name}}"/>
         <input type="hidden" name="year" value="{{$collection->year}}"/>
         <input type="hidden" name="price" value="{{$product->price}}"/>
-        <input type="hidden" name="size" value="Not Null"/>
+        <!-- <input type="hidden" name="size" value="Not Null"/> -->
         <input type="hidden" name="collection-id" value="{{$collection->id}}"/>
         <table style="width:100%" cellpadding="1%">
             <tr> 

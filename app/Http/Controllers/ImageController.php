@@ -44,9 +44,11 @@ class ImageController extends Controller
             'price' => 'required|min:0'
         ]);
         $product = new Product;
+        if ($request->size != '') {
+            $product->size = $request->size;
+        }
         $product->name = $request->name;
         $product->material = $request->material;
-        $product->size = $request->size;
         $product->price = $request->price;
         $product->collection_id = $request->collection_id;
         $product->save();
