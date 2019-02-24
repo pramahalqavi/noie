@@ -59,6 +59,8 @@ html, body {
 
 .noie-navbutton:hover {
     background-color: #111;
+    text-decoration: none;
+    color: white;
 }
 
   /* Dropdown Content */
@@ -85,6 +87,11 @@ html, body {
   /* overflow: auto; */
   max-height: 500px;
   transition: max-height 0.25s ease-in;
+}
+
+.nav-collection-button:hover {
+  text-decoration: none;
+  color: black;
 }
 
 /* Create three equal columns that floats next to each other */
@@ -382,6 +389,46 @@ a:hover {
 
 .socmed-icon {
   margin-right: 8px;
+  width: 10%;
+}
+
+.socmed-link {
+  color:white;
+}
+
+.socmed-link:hover {
+  text-decoration: none;
+}
+
+.fa {
+  padding: 10px;
+  font-size: 40px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+.fa:hover {
+  opacity: 0.7;
+  text-decoration: none;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
 }
 
 /*------------ Payment Search ------------*/
@@ -495,4 +542,38 @@ input[type=text], input[type=tel], input[type=email] {
   color: white;
 }
 
+/*------------ Home ------------*/
+/* #note {
+  position: absolute;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fde073;
+  text-align: center;
+  line-height: 2.5;
+  overflow: hidden; 
+  -webkit-box-shadow: 0 0 5px black;
+  -moz-box-shadow:    0 0 5px black;
+  box-shadow:         0 0 5px black;
+}
 
+@-webkit-keyframes slideDown {
+  0%, 100% { -webkit-transform: translateY(-50px); }
+  10%, 90% { -webkit-transform: translateY(0px); }
+}
+@-moz-keyframes slideDown {
+  0%, 100% { -moz-transform: translateY(-50px); }
+  10%, 90% { -moz-transform: translateY(0px); }
+}
+
+.cssanimations.csstransforms #note {
+  -webkit-transform: translateY(-50px);
+  -webkit-animation: slideDown 2.5s 1.0s 1 ease forwards;
+  -moz-transform:    translateY(-50px);
+  -moz-animation:    slideDown 2.5s 1.0s 1 ease forwards;
+}
+
+.cssanimations.csstransforms #close {
+  display: none;
+} */

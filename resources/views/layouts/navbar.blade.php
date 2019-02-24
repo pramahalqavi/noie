@@ -6,6 +6,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Thasadith" rel="stylesheet">
         <link href="{{asset('css/default.css')}}" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
@@ -39,7 +40,7 @@
                                     <h2>{{ $y->year }}</h2>
                                     @foreach($collections as $c)
                                     <div class="collection-column">
-                                        <a href="{{route('collections', $c->id)}}">{{ $c->name }}</a>
+                                        <a class="nav-collection-button" href="{{route('collections', $c->id)}}">{{ $c->name }}</a>
                                     </div>
                                     @endforeach
                                 </div>
