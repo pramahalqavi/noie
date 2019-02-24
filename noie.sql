@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 24, 2019 at 04:35 AM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.1.13
+-- Host: localhost
+-- Generation Time: Feb 24, 2019 at 05:04 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -109,7 +109,8 @@ INSERT INTO `products` (`product_id`, `name`, `image1`, `image2`, `thumbnail1`, 
 (6, 'Toyota New Alphard', 'storage/product/6-1.png', 'storage/product/6-2.png', 'storage/product/thumbnail/6-1.png', 'storage/product/thumbnail/6-2.png', 'V6 Machine', 'Aa Bb Cc', 959000000, 9),
 (7, 'Jaket Parka', 'storage/product/product-img.jpg', 'storage/product/product-img.jpg', 'storage/product/thumbnail/product-img.jpg', 'storage/product/thumbnail/product-img.jpg', 'Primeknit', 'S M L', 500000, 13),
 (11, 'Cobain', 'storage/product/11-1.jpg', 'storage/product/11-2.png', 'storage/product/thumbnail/11-1.jpg', 'storage/product/thumbnail/11-2.png', 'Primeknit', '40 41 42 43 44 45', 500000, 9),
-(12, 'Wah', 'storage/product/12-1.png', 'storage/product/12-2.png', 'storage/product/thumbnail/12-1.png', 'storage/product/thumbnail/12-2.png', 'Waw', '40 41 42 43 44', 400000, 9);
+(12, 'Wah', 'storage/product/12-1.png', 'storage/product/12-2.png', 'storage/product/thumbnail/12-1.png', 'storage/product/thumbnail/12-2.png', 'Waw', '40 41 42 43 44', 400000, 9),
+(13, 'Honda Jazz', 'storage/product/13-1.jpg', 'storage/product/13-2.jpg', 'storage/product/thumbnail/13-1.jpg', 'storage/product/thumbnail/13-2.jpg', 'Real steel', '-', 279000000, 10);
 
 -- --------------------------------------------------------
 
@@ -238,7 +239,7 @@ ALTER TABLE `collections`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables

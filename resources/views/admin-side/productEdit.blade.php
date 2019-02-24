@@ -13,10 +13,12 @@
 <button class="add_field_button btn btn-success btn-md btnPlus" data-toggle="modal" data-target="#adding-product"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Product</button>
 
 @if (session('success'))
+<br>
 <div class="alert alert-success" role="alert">
   {{ session('success') }}
 </div>
 @elseif (session('failed'))
+<br>
 <div class="alert alert-danger" role="alert">
   {{ session('failed') }}
 </div>
@@ -101,6 +103,7 @@
             <div class="form-group">
 		    	<label for="size">Size</label>
           <p>Separate using space. E.g: S M L XL</p>
+          <p>One size? Let the field empty</p>
 		    	<input type="text" class="form-control" name="size" id="size" placeholder="Enter here">
             </div>
             <div class="form-group">
