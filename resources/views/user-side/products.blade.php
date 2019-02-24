@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-sm-8 lil-left">
                     @php($arr_size = explode(" ", $product->size))
-                    @foreach($arr_size as $size)
+                    @foreach($arr_size as $idx => $size)
                     @if ($size == '-')
                     <label class="noie-container" style="padding-left: 0">
                         <input class="size-option" type="radio" name="size" value="-"> -
@@ -45,7 +45,7 @@
                     </label>
                     @else
                     <label class="noie-container">{{ $size }}
-                        <input class="size-option" type="radio" name="size" value="{{ $size }}"> 
+                        <input class="size-option" type="radio" name="size" value="{{ $size }}" @if ($idx == 0) checked @endif> 
                         <span class="noie-checkmark"></span>
                     </label>
                     @endif
