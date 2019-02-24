@@ -105,18 +105,42 @@ function buyNowClick() {
   } 
 }
 
-function checkOrderForm() {
-  var phone = document.getElementById('id-phone').value;
-  var zipcode = document.getElementById('id-zipcode').value;
+function nullOrEmpty(str) {
+  return (str == null || str == "");
+}
+
+function checkOrderForm(idx) {
+  var name = document.getElementById('id-name-'+idx).value;
+  var email = document.getElementById('id-email-'+idx).value;
+  var phone = document.getElementById('id-phone-'+idx).value;
+  var address = document.getElementById('id-address-'+idx).value;
+  var city = document.getElementById('id-city-'+idx).value;
+  var state = document.getElementById('id-state-'+idx).value;
+  var zipcode = document.getElementById('id-zipcode-'+idx).value;
+
+  var empty = false;
+  if (nullOrEmpty(name) || nullOrEmpty(email) || nullOrEmpty(phone) || nullOrEmpty(address) || nullOrEmpty(city) || nullOrEmpty(state) || nullOrEmpty(zipcode)) {
+    empty = true;
+  }
+
+  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  var validEmail = re.test(String(email).toLowerCase());
+     
   var validPhone = /^\d+$/.test(phone);
   var validZipcode = (/^\d+$/.test(zipcode) && zipcode.length == 6);
-  var warning = document.getElementById('order-warning-message');
-  if (!validPhone) {
+  var warning = document.getElementById('order-warning-message-'+idx);
+  if (empty) {
+    warning.style.visibility = "visible";
+    warning.innerHTML = "Please fill all field";
+  } else if (!validEmail) {
+    warning.style.visibility = "visible";
+    warning.innerHTML = "Invalid email";
+  } else if (!validPhone) {
     warning.style.visibility = "visible";
     warning.innerHTML = "Invalid phone number";
   } else if (!validZipcode) {
     warning.style.visibility = "visible";
     warning.innerHTML = "Invalid zipcode";
   }
-  return (validPhone && validZipcode);
+  return (validPhone && validZipcode && validEmail && !empty);
 }

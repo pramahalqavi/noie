@@ -59,37 +59,37 @@
         <table style="width:100%" cellpadding="1%">
             <tr> 
                 <td class="input-label">Name</td>
-                <td align="left"><input class="input-order-form" id="id-name" type="text" name="name" maxlength="30" required/></td>
+                <td align="left"><input class="input-order-form" id="id-name-{{$index}}" type="text" name="name" maxlength="30" required/></td>
             </tr>
             <tr> 
                 <td class="input-label">Email</td>
-                <td align="left"><input class="input-order-form" id="id-email" type="email" name="email" maxlength="30" required/></td>
+                <td align="left"><input class="input-order-form" id="id-email-{{$index}}" type="email" name="email" maxlength="30" required/></td>
             </tr>
             <tr> 
                 <td class="input-label">Phone Number</td>
-                <td align="left"><input class="input-order-form" id="id-phone" type="text" name="phone" pattern="[0-9]*" maxlength="15" required/></td>
+                <td align="left"><input class="input-order-form" id="id-phone-{{$index}}" type="text" name="phone" pattern="[0-9]*" maxlength="15" required/></td>
             </tr>
             <tr> 
                 <td class="input-label">Address</td>
-                <td align="left"><input class="input-order-form" id="id-address" type="text" name="address" maxlength="255" required/></td>
+                <td align="left"><input class="input-order-form" id="id-address-{{$index}}" type="text" name="address" maxlength="255" required/></td>
             </tr>
             <tr> 
                 <td class="input-label">City</td>
-                <td align="left"><input class="input-order-form" id="id-city" type="text" name="city" maxlength="50" required/></td>
+                <td align="left"><input class="input-order-form" id="id-city-{{$index}}" type="text" name="city" maxlength="50" required/></td>
             </tr>
             <tr> 
                 <td class="input-label">State</td>
-                <td align="left"><input class="input-order-form" id="id-state" type="text" name="state" maxlength="50" required/></td>
+                <td align="left"><input class="input-order-form" id="id-state-{{$index}}" type="text" name="state" maxlength="50" required/></td>
             </tr>
             <tr> 
                 <td class="input-label">Zipcode</td>
-                <td align="left"><input class="input-order-form" id="id-zipcode" type="text" pattern="[0-9]{6}" name="zipcode" maxlength="6" required/></td>
+                <td align="left"><input class="input-order-form" id="id-zipcode-{{$index}}" type="text" pattern="[0-9]{6}" name="zipcode" maxlength="6" required/></td>
             </tr>
         </table>
-        <div id="order-warning-message"> 
+        <div class="order-warning-message" id="order-warning-message-{{$index}}"> 
             Please fill all field
         </div>
-        <button class="noie-button" type="submit" id="order-button" onclick="return checkOrderForm()"> NEXT </button>
+        <button class="noie-button" type="submit" id="order-button-{{$index}}" onclick="return checkOrderForm({{$index}})"> NEXT </button>
         {{ csrf_field() }}
     </div>
     </form>

@@ -454,10 +454,6 @@ input[type=text], input[type=tel], input[type=email] {
   padding: 0 15px;
 }
 
-#order-button {
-  margin-top: 15px;
-  color: white;
-}
 
 .product-detail {
   align: center;
@@ -468,7 +464,7 @@ input[type=text], input[type=tel], input[type=email] {
   margin: 3% 0%;
 }
 
-#order-warning-message {
+.order-warning-message {
   margin-top: 10px;
   text-align: center;
   color: #d50027;
