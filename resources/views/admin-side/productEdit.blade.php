@@ -35,13 +35,13 @@
       <th scope="col">Material</th>
       <th scope="col">Size</th>
       <th scope="col">Price</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
-  	<?php
-  	$i = 0;
-  	foreach ($products as $p) {
-  	$i++; ?>
+  	@php($i = 0)
+  	@foreach ($products as $p)
+  	@php($i++)
     <tr>
       <th scope="row">{{ $i }}</th>
       <td>
@@ -56,8 +56,16 @@
       <td>{{ $p->material }}</td>
       <td>{{ $p->size }}</td>
       <td>Rp {{ number_format($p->price) }}</td>
+      <td>
+        <form action="{{ url('admin/product', $p->product_id) }}" method="post">
+          <button type="submit" class="btn btn-danger"><i style="font-size: 1.5em" class="fas fa-trash"></i></button>
+          <input type="hidden" name="id" value="{{ $p->product_id }}">
+          {{ csrf_field() }}
+          <input type="hidden" name="_method" value="DELETE">
+        </form>
+      </td>
     </tr>
-    <?php } ?>
+    @endforeach
   </tbody>
 </table>
 

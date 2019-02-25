@@ -39,6 +39,8 @@ Route::group(['middleware' => ['admin']], function () {
 
 	Route::get('admin/product/{id}', 'AdminProductController@show' )->name('products.show');
 
+	Route::delete('admin/product/{id}', 'AdminProductController@destroy')->name('product.delete');
+
 	Route::resource('admin/image', 'ImageController');
 	// Route::post('admin/product/{id}', 'AdminProductController@store' )->name('add-product');
 

@@ -40,7 +40,7 @@
                     @foreach($arr_size as $size)
                     @if ($size == '-')
                     <label class="noie-container" style="padding-left: 0">
-                        <input class="size-option" type="radio" name="size" value="-"> -
+                        <input class="size-option" type="hidden" name="size" value="-"> -
                         <!-- <span class="noie-checkmark"></span> -->
                     </label>
                     @else

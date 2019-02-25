@@ -400,6 +400,16 @@ button.btnPlus {
   font-size: 1.5em;
 }
 
+/*#edit-product button.act-product {
+  padding: 1em;
+}
+
+#edit-product.act-product i {
+  font-size: 2em;
+  color: black;
+}*/
+
+
 /*--- ADDING PRODUCT MODAL ---*/
 
 button.close.closeBtn {

@@ -59,4 +59,14 @@ class AdminProductController extends Controller
 		return redirect('admin/product')->with('success', 'Adding collection per year is success.');
     }
 
+    public function destroy(Request $request, $id) {
+
+    	// dd($request);
+
+    	$product = Product::find($request->id);
+    	$product->delete();
+
+    	return redirect()->back()->with('success', 'Product successfully deleted');
+    }
+
 }
