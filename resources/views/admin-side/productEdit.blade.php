@@ -57,16 +57,79 @@
       <td>{{ $p->size }}</td>
       <td>Rp {{ number_format($p->price) }}</td>
       <td>
+
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-confirm"><i style="font-size: 1.5em" class="fas fa-trash"></i></button>
+        <button id="editProduct-button-{{ $p->product_id }}" type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProduct-{{ $p->product_id }}" style="padding-left: 0.8em; padding-right: 0.8em"><i style="font-size: 1.5em" class="fas fa-pencil-alt"></i></i></button>
+
+        <!-- MODAL FOR EDIT PRODUCT -->
+        <div id="editProduct-{{ $p->product_id }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="editProductTitle-{{ $p->product_id }}" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="editProductTitle-{{ $p->product_id }}">EDIT PRODUCT</h5>
+                <button type="button" class="close closeBtn" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <form action="{{ url('admin/product', $collection->id) }}" method="post" enctype="multipart/form-data">
+                <div class="modal-body">
+                  @if ($errors->any())
+                  <div class="alert alert-danger">
+                      <ul>
+                          @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                          @endforeach
+                      </ul>
+                  </div>
+                  @endif
+                  <div class="form-group">
+                    <label for="img1">Image #1</label>
+                    <input type="file" name="img1" id="img1">
+                </div>
+                <div class="form-group">
+                    <label for="img2">Image #2</label>
+                    <input type="file" name="img2" id="img2">
+                </div>
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" name="name" id="name" value="{{ $p->name }}">
+                    </div>
+                    <div class="form-group">
+                  <label for="material">Material</label>
+                  <input type="text" class="form-control" name="material" id="material" value="{{ $p->material }}">
+                    </div>
+                    <div class="form-group">
+                  <label for="size">Size</label>
+                  <p>Separate using space. E.g: S M L XL</p>
+                  <p>One size? Let the field empty</p>
+                  <input type="text" class="form-control" name="size" id="size" value="{{ $p->size }}">
+                    </div>
+                    <div class="form-group">
+                  <label for="price">Price</label>
+                  <input type="text" class="form-control" name="price" id="price" value="{{ $p->price }}">
+                    </div>
+                    <p style="color: red">* Required</p>
+                {{ csrf_field() }}
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary">Save Changes</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+              </div>
+          </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Button trigger modal -->
+        <button id="deleteProduct-button-{{$p->product_id}}" type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-confirm-{{ $p->product_id }}"><i style="font-size: 1.5em" class="fas fa-trash"></i></button>
 
         <!-- MODAL FOR DELETE CONFIRMATION -->
-        <div class="modal fade" id="delete-confirm" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmTItle" aria-hidden="true">
+        <div class="modal fade" id="delete-confirm-{{ $p->product_id }}" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmTItle-{{ $p->product_id }}" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="deleteConfirmTItle">DELETE CONFIRMATION</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="deleteConfirmTItle-{{ $p->product_id }}">DELETE CONFIRMATION</h5>
+                <button type="button" class="close closeBtn" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
@@ -85,10 +148,6 @@
             </div>
           </div>
         </div>
-
-
-        
-
 
       </td>
     </tr>
@@ -132,8 +191,8 @@
 		    	<input type="text" class="form-control" name="name" id="name" placeholder="Enter here" required>
             </div>
             <div class="form-group">
-		    	<label for="material">Material<span style="color: red">*</span></label>
-		    	<input type="text" class="form-control" name="material" id="material" placeholder="Enter here" required>
+		    	<label for="material">Material</label>
+		    	<input type="text" class="form-control" name="material" id="material" placeholder="Enter here">
             </div>
             <div class="form-group">
 		    	<label for="size">Size</label>
@@ -152,9 +211,9 @@
        	</div>
        	<div class="modal-footer">
        		<button type="submit" class="btn btn-primary">Submit</button>
-	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-	    </div>
 	</form>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+      </div>
     </div>
   </div>
 </div>

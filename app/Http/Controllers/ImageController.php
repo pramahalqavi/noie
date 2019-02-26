@@ -48,7 +48,9 @@ class ImageController extends Controller
             $product->size = $request->size;
         }
         $product->name = $request->name;
-        $product->material = $request->material;
+        if ($request->material != '') {
+            $product->material = $request->material;
+        }
         $product->price = $request->price;
         $product->collection_id = $request->collection_id;
         $product->save();

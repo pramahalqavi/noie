@@ -35,9 +35,11 @@ Route::group(['middleware' => ['admin']], function () {
 	/*---------- Admin Product ----------*/
 	Route::post('admin/product', 'AdminProductController@store')->name('collections.store');
 
-	Route::get('admin/product', 'AdminProductController@index' )->name('collectionsPerYear');
+	Route::get('admin/product', 'AdminProductController@index')->name('collectionsPerYear');
 
-	Route::get('admin/product/{id}', 'AdminProductController@show' )->name('products.show');
+	Route::get('admin/product/{id}', 'AdminProductController@show')->name('products.show');
+
+	Route::put('admin/product/{id}', 'AdminProductController@update')->name('product.edit');
 
 	Route::delete('admin/product/{id}', 'AdminProductController@destroy')->name('product.delete');
 
