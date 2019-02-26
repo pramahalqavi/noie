@@ -24,6 +24,17 @@
 </div>
 @endif
 
+@if ($errors->any())
+<br>
+<div class="alert alert-danger" role="alert">
+  <ul>
+    @foreach ($errors->all() as $error)
+    <li>{{ $error }}</li>
+    @endforeach
+  </ul>
+</div>
+@endif
+
 <br>
 
 <table id="edit-product" class="table">
@@ -71,51 +82,46 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <form action="{{ url('admin/product', $collection->id) }}" method="post" enctype="multipart/form-data">
+              <form action="{{ url('admin/image', $p->product_id) }}" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
-                  @if ($errors->any())
-                  <div class="alert alert-danger">
-                      <ul>
-                          @foreach ($errors->all() as $error)
-                              <li>{{ $error }}</li>
-                          @endforeach
-                      </ul>
-                  </div>
-                  @endif
                   <div class="form-group">
                     <label for="img1">Image #1</label>
                     <input type="file" name="img1" id="img1">
-                </div>
-                <div class="form-group">
+                  </div>
+                  <div class="form-group">
                     <label for="img2">Image #2</label>
                     <input type="file" name="img2" id="img2">
-                </div>
-                <div class="form-group">
-                  <label for="name">Name</label>
-                  <input type="text" class="form-control" name="name" id="name" value="{{ $p->name }}">
+                  </div>
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" name="name" id="name" value="{{ $p->name }}">
                     </div>
-                    <div class="form-group">
-                  <label for="material">Material</label>
-                  <input type="text" class="form-control" name="material" id="material" value="{{ $p->material }}">
-                    </div>
-                    <div class="form-group">
-                  <label for="size">Size</label>
-                  <p>Separate using space. E.g: S M L XL</p>
-                  <p>One size? Let the field empty</p>
-                  <input type="text" class="form-control" name="size" id="size" value="{{ $p->size }}">
-                    </div>
-                    <div class="form-group">
-                  <label for="price">Price</label>
-                  <input type="text" class="form-control" name="price" id="price" value="{{ $p->price }}">
-                    </div>
-                    <p style="color: red">* Required</p>
-                {{ csrf_field() }}
+                  <div class="form-group">
+                    <label for="material">Material</label>
+                    <input type="text" class="form-control" name="material" id="material" value="{{ $p->material }}">
+                  </div>
+                  <div class="form-group">
+                    <label for="size">Size</label>
+                    <p>Separate using space. E.g: S M L XL</p>
+                    <p>One size? Let the field empty</p>
+                    <input type="text" class="form-control" name="size" id="size" value="{{ $p->size }}">
+                  </div>
+                  <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="text" class="form-control" name="price" id="price" value="{{ $p->price }}">
+                  </div>
+                  <p style="color: red">* Required</p>
+
+                  <!-- <input type="hidden" name="id" value="{{$p->product_id}}"> -->
+                  <input type="hidden" name="_method" value="PUT">
+
+                  {{ csrf_field() }}
                 </div>
                 <div class="modal-footer">
                   <button type="submit" class="btn btn-primary">Save Changes</button>
+          </form>
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
               </div>
-          </form>
             </div>
           </div>
         </div>
@@ -168,15 +174,6 @@
       </div>
       <form action="{{ url('admin/image') }}" method="post" enctype="multipart/form-data">
       	<div class="modal-body">
-      		@if ($errors->any())
-			    <div class="alert alert-danger">
-			        <ul>
-			            @foreach ($errors->all() as $error)
-			                <li>{{ $error }}</li>
-			            @endforeach
-			        </ul>
-			    </div>
-			@endif
       		<input type="hidden" name="collection_id" value="{{ $collection->id }}">
       		<div class="form-group">
 		        <label for="img1">Image #1<span style="color: red">*</span></label>

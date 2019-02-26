@@ -56,7 +56,14 @@ class AdminProductController extends Controller
 		$collection4->name = $request->collection4;
 		$collection4->save();
 
-		return redirect('admin/product')->with('success', 'Adding collection per year is success.');
+		return redirect('admin/product')->with('success', 'Collection per year successfully added');
+    }
+
+    public function update(Request $request, $id) {
+
+    	// $p = Product::find($request->id);
+    	// if ($request->hasFile())
+
     }
 
     public function destroy(Request $request, $id) {

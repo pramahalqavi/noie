@@ -121,12 +121,10 @@ class ImageController extends Controller
                 }
                 $updt->save();
             }
-            
-            // dd("success");
      
-            return redirect()->back()->with('success', "Image uploaded successfully.");
+            return redirect()->back()->with('success', "Product successfully added");
         } else {
-            return redirect()->back()->with('failed', "Image failed to upload.");
+            return redirect()->back()->with('failed', "Image failed to upload");
         }
     }
 
@@ -161,7 +159,100 @@ class ImageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dd($request);
+        $this->validate($request, [
+            'img1' => 'image|mimes:jpeg,jpg,png',
+            'img2' => 'image|mimes:jpeg,jpg,png',
+            'price' => 'required|min:0'
+        ]);
+
+        $product = Product::find($id);
+        if ($request->size != '') {
+            $product->size = $request->size;
+        } else {
+            $product->size = "-";
+        }
+        $product->name = $request->name;
+        if ($request->material != '') {
+            $product->material = $request->material;
+        } else {
+            $product->material = "-";
+        }
+        $product->price = $request->price;
+        // $product->collection_id = $request->collection_id;
+        $product->save();
+
+        for ($i=1; $i<=2; $i++) {
+            if (!$request->hasFile('img'.$i)) {
+                // dd('Gapunya img'.$i);
+                continue;
+            }
+            dd('Punya img'.$i);
+            $file = $request->file('img'.$i);
+
+            // get filename with extension
+            // $filenamewithextension = $request->file('img'.$i)->getClientOriginalName();
+     
+            // //get filename without extension
+            // $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+     
+            //get file extension
+            $extension = $file->getClientOriginalExtension();
+     
+            //filename to store
+            $filenametostore = $product->product_id.'-'.$i.'.'.$extension;
+
+            //Upload File
+            // $file->storeAs('public/product', $filenametostore);
+            // $file->storeAs('public/product/thumbnail', $filenametostore);
+            
+            $path = public_path('storage/product');
+
+            //JIKA FOLDERNYA BELUM ADA
+            if (!File::isDirectory($path)) {
+                //MAKA FOLDER TERSEBUT AKAN DIBUAT
+                File::makeDirectory($path);
+            }
+
+            if (!File::isDirectory($path.'/thumbnail')) {
+                //MAKA FOLDER TERSEBUT AKAN DIBUAT
+                File::makeDirectory($path.'/thumbnail');
+            }
+
+            $dimensions = ['600', '200'];
+            foreach ($dimensions as $row) {
+                if ($row==600) {
+                    $canvas = Image::canvas($row, 500);
+                    //Resize image here
+                    $resizeImage  = Image::make($file)->resize($row, 500, function($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                    $canvas->insert($resizeImage, 'center');
+                    $canvas->save($path . '/' . $filenametostore);
+                } elseif ($row==200) {
+                    $canvas = Image::canvas($row, 150);
+                    //Resize image here
+                    $resizeImage  = Image::make($file)->resize($row, 150, function($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                    $canvas->insert($resizeImage, 'center');
+                    $canvas->save($path . '/thumbnail/' . $filenametostore);
+                }
+            }
+            
+            $updt = Product::find($product->product_id);
+            // dd($updt);
+            if ($i==1) {
+                $updt->image1 = 'storage/product/' . $filenametostore;
+                $updt->thumbnail1 = 'storage/product/thumbnail/' . $filenametostore;
+            } elseif ($i==2) {
+                $updt->image2 = 'storage/product/' . $filenametostore;
+                $updt->thumbnail2 = 'storage/product/thumbnail/' . $filenametostore;
+            }
+            $updt->save();
+        }
+        
+        return redirect()->back()->with('success', "Product successfully updated");
     }
 
     /**
