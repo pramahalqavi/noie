@@ -57,12 +57,39 @@
       <td>{{ $p->size }}</td>
       <td>Rp {{ number_format($p->price) }}</td>
       <td>
-        <form action="{{ url('admin/product', $p->product_id) }}" method="post">
-          <button type="submit" class="btn btn-danger"><i style="font-size: 1.5em" class="fas fa-trash"></i></button>
-          <input type="hidden" name="id" value="{{ $p->product_id }}">
-          {{ csrf_field() }}
-          <input type="hidden" name="_method" value="DELETE">
-        </form>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-confirm"><i style="font-size: 1.5em" class="fas fa-trash"></i></button>
+
+        <!-- MODAL FOR DELETE CONFIRMATION -->
+        <div class="modal fade" id="delete-confirm" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmTItle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="deleteConfirmTItle">DELETE CONFIRMATION</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Deleted product cannot be restored. Are you sure you want to delete {{$p->name}} product?</p>
+              </div>
+              <div class="modal-footer">
+                <form action="{{ url('admin/product', $collection->id) }}" method="post" style="display: inline-block;">
+                  <button type="submit" class="btn btn-primary">Yes, Delete</button>
+                  <input type="hidden" name="id" value="{{ $p->product_id }}">
+                  {{ csrf_field() }}
+                  <input type="hidden" name="_method" value="DELETE">
+                </form>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">No, Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        
+
+
       </td>
     </tr>
     @endforeach
