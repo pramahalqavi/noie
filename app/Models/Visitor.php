@@ -20,16 +20,13 @@ class Visitor extends Model {
         $id = $ip.'/'.$date;
         if (!DB::table('visitors')->where('id', $id)->first()) {
             $ip_data = @json_decode(file_get_contents("http://www.geoplugin.net/json.gp?ip="));
-            $country = 'Unknown';
             $countryCode = 'Unknown';
-            if ($ip_data && $ip_data->geoplugin_countryName != NULL && $ip_data->geoplugin_countryCode != NULL) {
-                $country = $ip_data->geoplugin_countryName;
+            if ($ip_data && $ip_data->geoplugin_countryCode != NULL) {
                 $countryCode = $ip_data->geoplugin_countryCode;
             }
             static::create([
                 'id' => $id,
                 'ip_address' => $ip,
-                'country' => $country,
                 'country_code' => $countryCode,
                 'visit_date' => $date,
                 'visit_time' => date('H:i:s'),
