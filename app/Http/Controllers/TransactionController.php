@@ -20,7 +20,7 @@ class TransactionController extends Controller {
 
     public function detail($id) {
         $row = Transaction::where('transaction_id', $id)->first();
-        if(!$row) {
+        if (!$row) {
             abort(404);
         }
         $row->unique_price = $row->price + $row->unique_code;
@@ -30,6 +30,9 @@ class TransactionController extends Controller {
 
     public function editStatus($id) {
         $row = Transaction::where('transaction_id', $id)->first();
+        if (!$row) {
+            abort(404);
+        }
         $row->unique_price = $row->price + $row->unique_code;
 
         return view('admin-side/transaction_detail_edit', ['row' => $row]);
