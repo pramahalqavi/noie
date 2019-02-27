@@ -66,7 +66,6 @@
         <input type="hidden" name="collection" value="{{$collection->name}}"/>
         <input type="hidden" name="year" value="{{$collection->year}}"/>
         <input type="hidden" name="price" value="{{$product->price}}"/>
-        <!-- <input type="hidden" name="size" value="Not Null"/> -->
         <input type="hidden" name="collection-id" value="{{$collection->id}}"/>
         <table style="width:100%" cellpadding="1%">
             <tr> 

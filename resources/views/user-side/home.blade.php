@@ -1,9 +1,13 @@
 @extends('layouts.navbar')
 
 @section('content')
-    @if(Session::has('message'))
+    @if (Session::has('message'))
     <div id="note">
-        Order successfully submitted. Check your email for details.
+        {{Session('message')}}
+    </div>
+    @elseif (Session::has('error'))
+    <div id="error-note">
+        {{Session('error')}}
     </div>
     @endif
     <h1 style="font-size: 50px; color: white;">  </h1>

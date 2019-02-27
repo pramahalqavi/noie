@@ -574,6 +574,25 @@ input[type=text], input[type=tel], input[type=email] {
   animation-duration: 5s;
 }
 
+#error-note {
+  position: absolute;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #eb4a67;
+  text-align: center;
+  overflow: hidden;
+  opacity: 0;
+  line-height: 2.5;
+  -webkit-box-shadow: 0 0 5px black;
+  -webkit-animation-name: slideDown;
+  -webkit-animation-duration: 5s;
+  box-shadow: 0 0 5px black;
+  animation-name: slideDown;
+  animation-duration: 5s;
+}
+
 @-webkit-keyframes slideDown {
   0%, 100% { top: -50px; opacity: 0;}
   10%, 90% { top: 0px; opacity: 1;}
