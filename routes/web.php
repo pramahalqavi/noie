@@ -37,9 +37,9 @@ Route::group(['middleware' => ['admin']], function () {
 
 	Route::get('admin/product', 'AdminProductController@index')->name('collectionsPerYear');
 
-	Route::get('admin/product/{id}', 'AdminProductController@show')->name('products.show');
+	Route::put('admin/product', 'AdminProductController@update')->name('collections.edit');
 
-	Route::put('admin/product/{id}', 'AdminProductController@update')->name('product.edit');
+	Route::get('admin/product/{id}', 'AdminProductController@show')->name('products.show');
 
 	Route::delete('admin/product/{id}', 'AdminProductController@destroy')->name('product.delete');
 

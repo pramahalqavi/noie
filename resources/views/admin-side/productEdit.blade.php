@@ -67,7 +67,7 @@
       <td>
 
         <!-- Button trigger modal -->
-        <button id="editProduct-button-{{ $p->product_id }}" type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProduct-{{ $p->product_id }}" style="padding-left: 0.8em; padding-right: 0.8em"><i style="font-size: 1.5em" class="fas fa-pencil-alt"></i></button>
+        <button id="editProduct-button-{{ $p->product_id }}" type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProduct-{{ $p->product_id }}" style="padding-left: 0.8em; padding-right: 0.8em"><i class="fas fa-pencil-alt edit-icon"></i></button>
 
         <!-- MODAL FOR EDIT PRODUCT -->
         <div id="editProduct-{{ $p->product_id }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="editProductTitle-{{ $p->product_id }}" aria-hidden="true">
@@ -80,7 +80,7 @@
                 </button>
               </div>
               <form action="{{ url('admin/image', $p->product_id) }}" method="post" enctype="multipart/form-data">
-                <div class="modal-body">
+              <div class="modal-body">
                   <div class="form-group">
                     <label for="img1">Image #1</label>
                     <input type="file" name="img1" id="img1">
@@ -116,9 +116,9 @@
                 </div>
                 <div class="modal-footer">
                   <button type="submit" class="btn btn-primary">Save Changes</button>
-          </form>
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
               </div>
+          </form>
             </div>
           </div>
         </div>
@@ -205,9 +205,9 @@
        	</div>
        	<div class="modal-footer">
        		<button type="submit" class="btn btn-primary">Submit</button>
-	</form>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
       </div>
+	</form>
     </div>
   </div>
 </div>

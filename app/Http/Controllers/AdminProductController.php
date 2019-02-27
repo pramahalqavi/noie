@@ -16,10 +16,7 @@ class AdminProductController extends Controller
     	
     	$years = Collection::distinct()->orderBy('year', 'desc')->get(['year']);
 
-    	$collections = Collection::orderBy('year', 'desc')->orderBy('id')->get();
-    	// dd($collections);
-
-		return view('admin-side/adminProduct', ['years' => $years, 'collections' => $collections]);
+		return view('admin-side/adminProduct', ['years' => $years]);
 	}
 
 	public function show($id) {
@@ -59,7 +56,7 @@ class AdminProductController extends Controller
 		return redirect('admin/product')->with('success', 'Collection per year successfully added');
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request) {
 
     	// $p = Product::find($request->id);
     	// if ($request->hasFile())
