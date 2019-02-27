@@ -9,6 +9,9 @@
         {{ session('message') }}
     </div>
 @endif
+
+<hr class="cus-style">
+
 <a class="btn btn-primary top-table-btn" href="{{route('admin-role.register')}}">Add New Admin</a>
 <table class="table table-striped" id="admin-table">
   <thead style="background-color: #DDDDDD">

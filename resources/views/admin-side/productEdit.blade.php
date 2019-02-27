@@ -6,19 +6,18 @@
 
 <h1 style="text-align: center">PRODUCT MANAGEMENT</h1>
 
-<br>
-<hr>
+<hr class="cus-style">
 
 <h2>Collection {{ $collection->name }} <i class="fas fa-arrow-right" style="font-size: .8em"></i> {{ $collection->year }}</h2>
 <button class="add_field_button btn btn-success btn-md btnPlus" data-toggle="modal" data-target="#adding-product"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Product</button>
 
-@if (session('success'))
 <br>
+
+@if (session('success'))
 <div class="alert alert-success" role="alert">
   {{ session('success') }}
 </div>
 @elseif (session('failed'))
-<br>
 <div class="alert alert-danger" role="alert">
   {{ session('failed') }}
 </div>
@@ -34,8 +33,6 @@
   </ul>
 </div>
 @endif
-
-<br>
 
 <table id="edit-product" class="table">
   <thead class="thead-dark" style="background-color: #DDDDDD">
@@ -70,7 +67,7 @@
       <td>
 
         <!-- Button trigger modal -->
-        <button id="editProduct-button-{{ $p->product_id }}" type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProduct-{{ $p->product_id }}" style="padding-left: 0.8em; padding-right: 0.8em"><i style="font-size: 1.5em" class="fas fa-pencil-alt"></i></i></button>
+        <button id="editProduct-button-{{ $p->product_id }}" type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProduct-{{ $p->product_id }}" style="padding-left: 0.8em; padding-right: 0.8em"><i style="font-size: 1.5em" class="fas fa-pencil-alt"></i></button>
 
         <!-- MODAL FOR EDIT PRODUCT -->
         <div id="editProduct-{{ $p->product_id }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="editProductTitle-{{ $p->product_id }}" aria-hidden="true">

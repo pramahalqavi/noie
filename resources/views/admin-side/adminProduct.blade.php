@@ -6,30 +6,39 @@
 
 <h1 style="text-align: center">PRODUCT MANAGEMENT</h1>
 
-<br>
-<hr>
+<hr class="cus-style">
 <br>
 <br>
 
 <button class="add_field_button btn btn-success btn-md btnPlus" data-toggle="modal" data-target="#adding-year"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add</button>
 
-@if (session('success'))
 <br>
+
+@if (session('success'))
 <div class="alert alert-success" role="alert">
   {{ session('success') }}
 </div>
 @endif
 
-@foreach ($years as $year)
-    <h2 class="year-section" onclick="showCollection('{{$year->year}}')"><i id="arrow{{$year->year}}" class="fas fa-angle-right"></i> {{ $year->year }}</h2>
-    <ol id="show{{$year->year}}" class="collection-list">
-        @foreach ($collections as $collection)
-            @if ($collection->year == $year->year)
-            <a href="{{ route('products.show', $collection->id) }}"><li>{{ $collection->name }}</li></a>
-            @endif
-        @endforeach
-    </ol>
-@endforeach
+<div class="container">
+    @foreach ($years as $year)
+    <div class="row">
+        <div class="col-md-2">
+            <h2 class="year-section" onclick="showCollection('{{$year->year}}')"><i id="arrow{{$year->year}}" class="fas fa-angle-right"></i> {{ $year->year }}</h2>
+            <ol id="show{{$year->year}}" class="collection-list">
+                @foreach ($collections as $collection)
+                    @if ($collection->year == $year->year)
+                    <a href="{{ route('products.show', $collection->id) }}"><li>{{ $collection->name }}</li></a>
+                    @endif
+                @endforeach
+            </ol>
+        </div>
+        <div class="col-md-10">
+            <hr style="width: 100%; margin: 2.2em 0">
+        </div>
+    </div>
+    @endforeach
+</div>
 
 <!-- MODAL FOR ADDING YEARLY PERIOD -->
 <div id="adding-year" class="modal fade" tabindex="-1" role="dialog">

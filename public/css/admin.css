@@ -318,17 +318,13 @@ html { height: 100%;}
 }
 
 /*------------ PRODUCT MANAGEMENT ------------*/
-hr.right-line {
-  width: 82%;
-  border-width: 2px;
-  margin-right:0;
-  float: right;
-}
-
-hr.left-line {
-  width: 0.2%;;
-  margin-left: 0;
-  float: left;
+hr.cus-style {
+  border: 0; 
+  height: 1px; 
+  background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0); 
 }
 
 .year-section {
