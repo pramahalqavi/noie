@@ -53,14 +53,29 @@ class AdminProductController extends Controller
 		$collection4->name = $request->collection4;
 		$collection4->save();
 
-		return redirect('admin/product')->with('success', 'Collection per year successfully added');
+		return redirect('admin/product')->with('success', 'Annual collections successfully added');
     }
 
     public function update(Request $request) {
 
-    	// $p = Product::find($request->id);
-    	// if ($request->hasFile())
+    	$collections = Collection::where('year', $request->year)->get(['id']);
 
+    	foreach ($collections as $i => $c) {
+    		$collection = Collection::find($c->id);
+    		if ($i==0) {
+    			$collection->name = $request->collection1;
+    		} elseif ($i==1) {
+    			$collection->name = $request->collection2;
+    		} elseif ($i==2) {
+    			$collection->name = $request->collection3;
+    		} else {
+    			$collection->name = $request->collection4;
+    		}
+    		$collection->year = $request->year;
+    		$collection->save();
+    	}
+
+    	return back()->with('success', 'Annual collections successfully edited');
     }
 
     public function destroy(Request $request, $id) {
