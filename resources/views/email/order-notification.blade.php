@@ -292,50 +292,52 @@
                             <table border="0" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td>
-                                        <p>Hi, {{ $details->cust_name }}</p>
-                                        <p>Thank you for your order from NOIE. Your order is now on {{$newStatus}}.</p>
+                                        <p>Hi, {{ $details["name"] }}</p>
+                                        <p>Thank you for your order from NOIE. Checkout successfull at {{$details["date"]}} WIB</p>
+                                        <p> Please transfer exactly <b>Rp {{number_format($details["unique_price"])}}</b> to the following bank account:</p>
+                                        <p><b> BCA 123231312312 (Name)</b></p>
                                         <p> Your order confirmation is below: </p>
                                         <table border="0" cellpadding="0" cellspacing="0">
                                         	<tbody>
-							                 <tr> 
+							                <tr> 
 							                    <td>Invoice Id</td>
-							                    <td>{{$details->transaction_id}}</td>
+							                    <td>{{$details["transaction_id"]}}</td>
 							                </tr>
 							                <tr> 
 							                    <td>Customer Name</td>
-							                    <td>{{$details->cust_name}}</td>
+							                    <td>{{$details["name"]}}</td>
 							                </tr>
 							                <tr> 
 							                    <td>Phone Number</td>
-							                    <td>{{$details->cust_phone}}</td>
+							                    <td>{{$details["phone"]}}</td>
 							                </tr>
 							                <tr> 
 							                    <td>Product Name</td>
-							                    <td>{{$details->product_name}}</td>
+							                    <td>{{$details["product"]}}</td>
 							                </tr>
 							                <tr> 
 							                    <td>Price</td>
-							                    <td>Rp {{number_format($details->unique_price)}}</td>
+							                    <td>Rp {{number_format($details["unique_price"])}}</td>
 							                </tr>
 							                <tr> 
 							                    <td>Address</td>
-							                    <td>{{$details->cust_address}}</td>
+							                    <td>{{$details["address"]}}</td>
 							                </tr>
 							                <tr> 
 							                    <td>City</td>
-							                    <td>{{$details->cust_city}}</td>
+							                    <td>{{$details["city"]}}</td>
 							                </tr>
 							                <tr> 
 							                    <td>State</td>
-							                    <td>{{$details->cust_state}}</td>
+							                    <td>{{$details["state"]}}</td>
 							                </tr>
 							                <tr> 
 							                    <td>Zipcode</td>
-							                    <td>{{$details->cust_zipcode}}</td>
+							                    <td>{{$details["zipcode"]}}</td>
                                             </tr>
                                             <tr> 
 							                    <td>Status</td>
-							                    <td>{{$newStatus}}</td>
+							                    <td>{{$details["status"]}}</td>
 							                </tr>
 							            </tbody>
 							            </table>

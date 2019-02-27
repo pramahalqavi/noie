@@ -38,14 +38,14 @@ class TransactionController extends Controller {
             $transaction->status = $request->status;
             $transaction->save();
         }
-        // $details = json_decode($request->input('detail'));
-        // $newStatus = $request->input('status');
+        $details = json_decode($request->input('detail'));
+        $newStatus = $request->input('status');
 
-        // Mail::send('email/status-notification', ['details' => $details, 'newStatus' => $newStatus], function ($message) use($details) {
-        //     $message->from('sap86759@gmail.com', 'NOIE');
-        //     $message->to($details->cust_email);
-        //     $message->subject("NOIE Product Order");
-        // });
+        Mail::send('email/status-notification', ['details' => $details, 'newStatus' => $newStatus], function ($message) use($details) {
+            $message->from('sap86759@gmail.com', 'NOIE');
+            $message->to($details->cust_email);
+            $message->subject("NOIE Order Status Update");
+        });
 
         return redirect()->route('transaction.detail', [$transaction->transaction_id]);
     }

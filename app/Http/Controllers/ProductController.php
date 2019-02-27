@@ -8,6 +8,7 @@ use App\Models\Collection;
 use App\Models\Product;
 
 use App\Models\Transaction;
+use Mail;
 
 class ProductController extends Controller {
     public function index($collection_id) {
@@ -33,7 +34,10 @@ class ProductController extends Controller {
             ->where('name', $order['product'])
             ->where('price', $order['price'])
             ->get();
-        if (count($product) > 0) {
+        $collection = Collection::where('name', $order['collection'])
+            ->where('year', $order['year'])
+            ->get();
+        if (count($product) > 0 && count($collection)) {
             $characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
             $max = strlen($characters) - 1;
             $t_id = '';
@@ -64,6 +68,16 @@ class ProductController extends Controller {
                 'unique_code' => $unique_code,
                 'status' => $status,
             ]);
+            $order["transaction_id"] = $t_id;
+            $order["unique_code"] = $unique_code;
+            $order["status"] = $status;
+            $order["unique_price"] = $order["price"] + $unique_code;
+            $order["date"] = date("d M Y G:i", time());
+            Mail::send('email/order-notification', ['details' => $order], function ($message) use($order) {
+                $message->from('sap86759@gmail.com', 'NOIE');
+                $message->to($order["email"]);
+                $message->subject("NOIE Product Order");
+            });
             return redirect()->route('home')->with('message', 'Order successfully submitted, check your email for details.');
         } else {
             return redirect()->route('home')->with('error', 'Order invalid');
