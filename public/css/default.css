@@ -31,9 +31,10 @@ html, body {
 }
 
 .noie-logo {
-    font-size: 28px;
+    font-size: 32px;
     padding-bottom: 5px;
     vertical-align: center;
+    font-family: 'Granjon';
 }
 
 .noie-navbar {

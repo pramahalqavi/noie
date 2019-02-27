@@ -26,7 +26,7 @@
             <ul class="nav sidebar-nav">
                 <li class="sidebar-brand">
                     <a href="{{route('home')}}">
-                       NOIE
+                       N O I E
                     </a>
                 </li>
                 <li class="dropdown">

@@ -25,7 +25,7 @@
         @endif
             <div class="noie-nav">
                 <div class="noie-logo">
-                    NOIE
+                    N O I E
                 </div>
                 <div class="noie-navbar">
                     <a class="noie-navbutton" href="{{ route('home') }}">HOME</a>
