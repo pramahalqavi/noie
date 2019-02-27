@@ -67,8 +67,19 @@
                 <td class="label-detail" align="right">Status: </td>
                 <td align="left">
         
-                <select id="select-status" name="status" class="status-dropdown">
-                    @foreach (array("Unpaid", "Packaging", "Sending", "Completed") as $status)
+                <select id="select-status" name="status" class="status-dropdown" onchange="onSelectStatus()">
+                    @if ($row->status == 'Unpaid')
+                        @php($status_array = array("Unpaid", "Packaging", "Sending", "Completed", "Canceled"))
+                    @elseif ($row->status == 'Packaging')
+                        @php($status_array = array("Packaging", "Sending", "Completed", "Canceled"))
+                    @elseif ($row->status == 'Sending')
+                        @php($status_array = array("Sending", "Completed", "Canceled"))
+                    @elseif ($row->status == 'Completed')
+                        @php($status_array = array("Completed"))
+                    @elseif ($row->status == 'Canceled')
+                        @php($status_array = array("Canceled"))
+                    @endif
+                    @foreach ($status_array as $status)
                         <option value="{{$status}}"
                         @if ($status == $row->status)
                             selected="selected"
@@ -97,7 +108,7 @@
                 </div>
 
                 <div class="modal-body">
-                    <p>A notification email will be sent to the customer. Are you sure want to change the status?</p>
+                    <p id="conf-message"> </p>
                 </div>
 
                 <div class="modal-footer text-right">

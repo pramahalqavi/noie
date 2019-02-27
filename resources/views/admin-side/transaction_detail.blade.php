@@ -4,6 +4,11 @@
 
 @section('content')
 <h2 > Transaction Details </h2>
+@if (session('message'))
+<div class="alert alert-success">
+    {{ session('message') }}
+</div>
+@endif
     <table class="table table-bordered" style="margin-top: 1%">
         <tr> 
             <td class="label-detail" align="right" width="30%">Transaction ID: </td>
@@ -68,6 +73,8 @@
     </table>
     <div class="btn-wrapper">
         <a class="btn btn-danger transaction-detail-button" href="{{route('transaction')}}" >Back</a>
+        @if ($row->status != 'Completed' && $row->status != 'Canceled')
         <a class="btn btn-primary transaction-detail-button" href="{{ route('transaction.detail.edit', [$row->transaction_id]) }}"> Edit Status </a>
+        @endif
     </div>
 @endsection

@@ -34,20 +34,26 @@ class TransactionController extends Controller {
 
     public function updateStatus(Request $request, $id) {
         $transaction = Transaction::where('transaction_id', $id)->first();
-        if ($transaction->status != $request->status) {
-            $transaction->status = $request->status;
-            $transaction->save();
+        if (count($transaction) > 0) {
+            if ($transaction->status != $request->status) {
+                $transaction->status = $request->status;
+                $transaction->save();
+            }
+            if ($request->status != 'Canceled') {
+                $details = json_decode($request->input('detail'));
+                $newStatus = $request->input('status');
+        
+                Mail::send('email/status-notification', ['details' => $details, 'newStatus' => $newStatus], function ($message) use($details) {
+                    $message->from('sap86759@gmail.com', 'NOIE');
+                    $message->to($details->cust_email);
+                    $message->subject("NOIE Order Status Update");
+                });
+            }
+            return redirect()->route('transaction.detail', [$transaction->transaction_id])->with('message', 'Transaction status successfully changed');
+        } else {
+            return redirect()->route('transaction.detail');
         }
-        $details = json_decode($request->input('detail'));
-        $newStatus = $request->input('status');
-
-        Mail::send('email/status-notification', ['details' => $details, 'newStatus' => $newStatus], function ($message) use($details) {
-            $message->from('sap86759@gmail.com', 'NOIE');
-            $message->to($details->cust_email);
-            $message->subject("NOIE Order Status Update");
-        });
-
-        return redirect()->route('transaction.detail', [$transaction->transaction_id]);
+        
     }
 
     public function downloadExcel() {

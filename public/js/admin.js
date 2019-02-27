@@ -165,3 +165,12 @@ function getMonthName(month) {
         "July", "August", "September", "October", "November", "December"];
     return monthNames[month];
 }
+
+/*---------- Transactions -----------*/
+function onSelectStatus() {
+    if (document.getElementById("select-status").value == 'Canceled') {
+        document.getElementById("conf-message").innerHTML = 'Are you sure want to change the status?';
+    } else {
+        document.getElementById("conf-message").innerHTML = 'A notification email will be sent to the customer. Are you sure want to change the status?';
+    }
+}
