@@ -159,7 +159,7 @@ class ImageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // dd($request);
+        
         $this->validate($request, [
             'img1' => 'image|mimes:jpeg,jpg,png',
             'img2' => 'image|mimes:jpeg,jpg,png',
@@ -168,6 +168,7 @@ class ImageController extends Controller
         ]);
 
         $product = Product::find($id);
+        dd(realpath($product->image1));
         if ($request->size != '') {
             $product->size = $request->size;
         } else {
@@ -191,7 +192,7 @@ class ImageController extends Controller
                 continue;
             }
             $file = $request->file('img'.$i);
-            
+
             //get file extension
             $extension = $file->getClientOriginalExtension();
      
