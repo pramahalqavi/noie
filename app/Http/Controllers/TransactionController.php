@@ -52,7 +52,7 @@ class TransactionController extends Controller {
                 Mail::send('email/status-notification', ['details' => $details, 'newStatus' => $newStatus], function ($message) use($details) {
                     $message->from('noie.fashion.official@gmail.com', 'NOIE');
                     $message->to($details->cust_email);
-                    $message->subject("NOIE Order Status Update");
+                    $message->subject("NOIE Order Status Update - Invoice id: " . $details->transaction_id);
                 });
             }
             return redirect()->route('transaction.detail', [$transaction->transaction_id])->with('message', 'Transaction status successfully changed');

@@ -294,7 +294,7 @@
                                     <td>
                                         <p>Hi, {{ $details["name"] }}</p>
                                         <p>Thank you for your order from NOIE. Checkout successfull at {{$details["date"]}} WIB</p>
-                                        <p> Please transfer exactly <b>Rp {{number_format($details["unique_price"])}}</b> to the following bank account:</p>
+                                        <p> Please transfer exactly <b>Rp {{number_format($details["unique_price"])}}</b> before {{$details["payment_expired"]}} WIB to the following bank account:</p>
                                         <p><b> BCA 123231312312 (Name)</b></p>
                                         <p> Your order confirmation is below: </p>
                                         <table border="0" cellpadding="0" cellspacing="0">
@@ -314,6 +314,18 @@
 							                <tr> 
 							                    <td>Product Name</td>
 							                    <td>{{$details["product"]}}</td>
+							                </tr>
+                                            <tr> 
+							                    <td>Size</td>
+							                    <td>{{$details["size"]}}</td>
+							                </tr>
+                                            <tr> 
+							                    <td>Collection</td>
+							                    <td>{{$details["collection"]}}</td>
+							                </tr>
+                                            <tr> 
+							                    <td>Year</td>
+							                    <td>{{$details["year"]}}</td>
 							                </tr>
 							                <tr> 
 							                    <td>Price</td>
@@ -342,7 +354,7 @@
 							            </tbody>
 							            </table>
                                         <br>
-                                        <p> If you have any questions about your order please contact us at </p>
+                                        <p> If you have any questions about your order please contact us at noie.fashion.official@gmail.com </p>
                                     </td>
                                 </tr>
                             </table>
