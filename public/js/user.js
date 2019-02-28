@@ -6,7 +6,7 @@ $('.prev1').on('click', function() {
   var slides = $('.navbar-slide');
   if (slides.eq(slideIndex-1).css('opacity') == 1) {
     // console.log("prev1");
-    slides.eq(slideIndex-1).fadeOut(500, function() {
+    slides.eq(slideIndex-1).fadeOut(100, function() {
       slideIndex -= 1;
       showDivs(slideIndex);
     });
@@ -25,7 +25,7 @@ $('.next1').on('click', function() {
   var slides = $('.navbar-slide');
   if (slides.eq(slideIndex-1).css('opacity') == 1) {
     // console.log("next1");
-    slides.eq(slideIndex-1).fadeOut(500, function() {
+    slides.eq(slideIndex-1).fadeOut(100, function() {
       slideIndex += 1;
       showDivs(slideIndex);
     });
@@ -60,28 +60,28 @@ showProd(slideProduct);
 $('.prev2').on('click', function() {
   var slides = $('.product-slide');
   if (slides.eq(slideProduct-1).css('opacity') == 1) {
-    slides.eq(slideProduct-1).fadeOut(500, function() {
+    slides.eq(slideProduct-1).fadeOut(300, function() {
       slideProduct -= 1;
       showProd(slideProduct);
     });
   }
   var form = $('#order-form-'+(slideProduct-1));
   if (form.css('opacity') == 1) {
-    form.fadeOut(500);
+    form.fadeOut(300);
   }
 });
 
 $('.next2').on('click', function() {
   var slides = $('.product-slide');
   if (slides.eq(slideProduct-1).css('opacity') == 1) {
-    slides.eq(slideProduct-1).fadeOut(500, function() {
+    slides.eq(slideProduct-1).fadeOut(300, function() {
       slideProduct += 1;
       showProd(slideProduct);
     });
   }
   var form = $('#order-form-'+(slideProduct-1));
   if (form.css('opacity') == 1) {
-    form.fadeOut(500);
+    form.fadeOut(300);
   }
 });
 
