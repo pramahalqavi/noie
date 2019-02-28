@@ -27,7 +27,7 @@ class LoginController extends Controller {
             if (Hash::check($request->password, $auth->password)) {
                 Session::put('auth-email', $request->email);
                 Session::put('auth-login', TRUE);
-                return redirect()->route('transaction');
+                return redirect()->route('stat');
             }
             return redirect()->back()->with('error','Wrong email or password.')->withInput();
         }
