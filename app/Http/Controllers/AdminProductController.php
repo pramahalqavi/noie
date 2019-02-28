@@ -57,8 +57,7 @@ class AdminProductController extends Controller
     }
 
     public function update(Request $request) {
-
-    	$collections = Collection::where('year', $request->year)->get(['id']);
+    	$collections = Collection::where('year', $request->oldYear)->get(['id']);
 
     	foreach ($collections as $i => $c) {
     		$collection = Collection::find($c->id);
@@ -71,7 +70,7 @@ class AdminProductController extends Controller
     		} else {
     			$collection->name = $request->collection4;
     		}
-    		$collection->year = $request->year;
+    		$collection->year = $request->newYear;
     		$collection->save();
     	}
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 27, 2019 at 04:15 PM
+-- Generation Time: Feb 28, 2019 at 01:22 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -69,9 +69,9 @@ INSERT INTO `collections` (`id`, `name`, `year`) VALUES
 (6, 'FF', '2017'),
 (7, 'GG', '2017'),
 (8, 'HH', '2017'),
-(9, 'II', '2018'),
-(10, 'JJ', '2018'),
-(11, 'KK', '2018'),
+(9, 'IIII', '2018'),
+(10, 'JJJJ', '2018'),
+(11, 'KKKK', '2018'),
 (12, 'LL', '2018'),
 (13, 'Testing1', '2015'),
 (14, 'Testing2', '2015'),
@@ -93,7 +93,7 @@ CREATE TABLE `products` (
   `thumbnail2` varchar(255) NOT NULL DEFAULT 'storage/product/thumbnail/product-img.jpg',
   `material` varchar(255) NOT NULL DEFAULT '-',
   `size` varchar(255) DEFAULT '-',
-  `price` int(100) NOT NULL,
+  `price` bigint(100) NOT NULL,
   `collection_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -105,7 +105,7 @@ INSERT INTO `products` (`product_id`, `name`, `image1`, `image2`, `thumbnail1`, 
 (1, 'Adidas EQT', 'storage/product/product-img.jpg', 'storage/product/product-img.jpg', 'storage/product/thumbnail/product-img.jpg', 'storage/product/thumbnail/product-img.jpg', 'Canvas', '-', 1500000, 1),
 (2, 'Adidas Prophere', 'storage/product/product-img.jpg', 'storage/product/product-img.jpg', 'storage/product/thumbnail/product-img.jpg', 'storage/product/thumbnail/product-img.jpg', 'Canvas', '-', 2000000, 1),
 (3, 'Lamborghini aventador', 'storage/product/3-1.jpg', 'storage/product/3-2.jpg', 'storage/product/thumbnail/3-1.jpg', 'storage/product/thumbnail/3-2.jpg', 'Real steel', '-', 500000000, 1),
-(5, 'Typing', 'storage/product/5-1.png', 'storage/product/5-2.png', 'storage/product/thumbnail/5-1.png', 'storage/product/thumbnail/5-2.png', 'Keyboard', 'One size', 200000, 9),
+(5, 'Typing1', 'storage/product/5-1.png', 'storage/product/5-2.png', 'storage/product/thumbnail/5-1.png', 'storage/product/thumbnail/5-2.png', 'Keyboard', 'One size', 200000999999, 9),
 (6, 'Toyota New Alphard', 'storage/product/6-1.png', 'storage/product/6-2.png', 'storage/product/thumbnail/6-1.png', 'storage/product/thumbnail/6-2.png', 'V6 Machine', 'Aa Bb Cc', 959000000, 9),
 (7, 'Jaket Parka', 'storage/product/product-img.jpg', 'storage/product/product-img.jpg', 'storage/product/thumbnail/product-img.jpg', 'storage/product/thumbnail/product-img.jpg', 'Primeknit', 'S M L', 500000, 13),
 (13, 'Honda Jazz', 'storage/product/13-1.jpg', 'storage/product/13-2.jpg', 'storage/product/thumbnail/13-1.jpg', 'storage/product/thumbnail/13-2.jpg', 'Real steel', '-', 279000000, 9);
@@ -123,7 +123,7 @@ CREATE TABLE `transactions` (
   `collection` varchar(255) NOT NULL,
   `year` varchar(10) NOT NULL,
   `size` varchar(10) NOT NULL,
-  `price` int(11) NOT NULL,
+  `price` bigint(12) NOT NULL,
   `cust_name` varchar(50) NOT NULL,
   `cust_email` varchar(100) NOT NULL,
   `cust_phone` varchar(15) NOT NULL,
@@ -146,6 +146,7 @@ INSERT INTO `transactions` (`transaction_id`, `product_id`, `product_name`, `col
 ('10', 2, 'Adidas Prophere', 'JJ', '2018', '44', 2000000, 'Si H', 'potter@pp.co', '033343432233', 'hogwarts', 'London', 'England', '022932', 453, 'Sending', '2019-01-30 21:09:04', '2019-02-02 23:26:04'),
 ('11', 2, 'Adidas Prophere', 'KK', '2018', '44', 2000000, 'Si I', 'potter@pp.co', '033343432233', 'hogwarts', 'London', 'England', '022932', 453, 'Completed', '2019-02-01 05:36:01', '2019-02-08 19:20:51'),
 ('2', 2, 'Adidas Prophere', 'BB', '2018', '44', 2000000, 'Potter', 'potter@pp.co', '033343432233', 'hogwarts', 'London', 'England', '022932', 453, 'Sending', '2019-01-30 17:00:00', '2019-02-02 23:26:04'),
+('2rn5c77b8979c8c4', 13, 'Honda Jazz', 'II', '2018', '-', 279000000, 'Ali Rido', 'mohammadalirido1997@gmail.com', '081934182937', 'Jln. cisitu lama', 'Bandung', 'Indonesia', '123683', 635, 'Unpaid', '2019-02-28 10:31:51', '2019-02-28 10:31:51'),
 ('3', 2, 'Adidas Prophere', 'CC', '2018', '44', 2000000, 'Si A', 'potter@pp.co', '033343432233', 'hogwarts', 'London', 'England', '022932', 453, 'Unpaid', '2019-01-31 19:03:04', '2019-02-02 23:26:04'),
 ('30r5c72c54e50294', 6, 'Toyota New Alphard', 'II', '2018', 'Not Null', 959000000, 'fasdf', 'qqq@xyz.co', '123123', 'fasdfasd', 'asdfasdf', 'asdfasdf', '213123', 238, 'Unpaid', '2019-02-24 16:24:46', '2019-02-24 16:24:46'),
 ('4', 1, 'Adidas EQT', 'DD', '2018', '44', 1500000, 'Si B', 'harry@gg.co', '023232232323', 'testing street', 'Bandung', 'Indonesia', '123455', 124, 'Unpaid', '2019-01-29 01:30:00', '2019-02-02 23:11:41'),
@@ -162,11 +163,14 @@ INSERT INTO `transactions` (`transaction_id`, `product_id`, `product_name`, `col
 ('e3e5c76049212155', 5, 'Typing', 'II', '2018', 'size', 200000, 'liplop', 'qqq@xyz.co', '123123', 'fasdfasd', 'asdfasdf', 'asdfasdf', '232121', 823, 'Unpaid', '2019-02-27 03:31:30', '2019-02-27 03:31:30'),
 ('fvg5c72b76ae1db3', 12, 'Wah', 'II', '2018', 'Not Null', 400000, 'fasdf', 'qqq@xyz.co', '123123', 'fasdfasd', 'asdfasdf', 'asdfasdf', '213123', 210, 'Unpaid', '2019-02-24 08:25:30', '2019-02-24 08:25:30'),
 ('g2c5c76192d62631', 5, 'Typing', 'II', '2018', 'One', 200000, 'liplop', 'qqq@xyz.co', '123123', 'fasdfasd', 'asdfasdf', 'asdfasdf', '232121', 893, 'Unpaid', '2019-02-27 04:59:25', '2019-02-27 04:59:25'),
+('gvn5c77b9015ee7b', 13, 'Honda Jazz', 'II', '2018', '-', 279000000, 'Ali Rido', 'mohammadalirido1997@gmail.com', '081934182937', 'Jln. cisitu lama', 'Bandung', 'Indonesia', '123683', 505, 'Unpaid', '2019-02-28 10:33:37', '2019-02-28 10:33:37'),
 ('h4n5c72084a1a24e', 11, 'Cobain', 'II', '2018', 'Not Null', 500000, 'fasdf', 'qqq@xyz.co', '123123', 'fasdfasd', 'asdfasdf', 'asdfasdf', '213123', 141, 'Unpaid', '2019-02-23 19:58:18', '2019-02-23 19:58:18'),
+('hki5c77b927d8037', 13, 'Honda Jazz', 'II', '2018', '-', 279000000, 'Ali Rido', 'mohammadalirido1997@gmail.com', '081934182937', 'Jln. cisitu lama', 'Bandung', 'Indonesia', '273183', 301, 'Unpaid', '2019-02-28 10:34:15', '2019-02-28 10:34:15'),
 ('jkp5c7604a3a1a58', 5, 'Typing', 'II', '2018', 'size', 200000, 'liplop', 'qqq@xyz.co', '123123', 'fasdfasd', 'asdfasdf', 'asdfasdf', '232121', 18, 'Canceled', '2019-02-27 03:31:47', '2019-02-27 06:45:45'),
 ('jzn5c7604ce9b31e', 5, 'Typing', 'II', '2018', 'size', 200000, 'liplop', 'qqq@xyz.co', '123123', 'fasdfasd', 'asdfasdf', 'asdfasdf', '232121', 240, 'Unpaid', '2019-02-27 03:32:30', '2019-02-27 03:32:30'),
 ('nun5c7603b8daa28', 5, 'Typing', 'II', '2018', 'size', 200000, 'liplop', 'qqq@xyz.co', '123123', 'fasdfasd', 'asdfasdf', 'asdfasdf', '232121', 839, 'Unpaid', '2019-02-27 03:27:52', '2019-02-27 03:27:52'),
 ('orr5c75fe17917cf', 6, 'Toyota New Alphard', 'II', '2018', 'Aa', 959000000, 'liplop', 'qqq@xyz.co', '123123', 'fasdfasd', 'asdfasdf', 'asdfasdf', '231232', 638, 'Unpaid', '2019-02-27 03:03:51', '2019-02-27 03:03:51'),
+('qu85c77bad4dec40', 13, 'Honda Jazz', 'II', '2018', '-', 279000000, 'Ali Rido', 'mohammadalirido1997@gmail.com', '081934182937', 'Jln. cisitu lama', 'Bandung', 'Indonesia', '123683', 230, 'Unpaid', '2019-02-28 10:41:24', '2019-02-28 10:41:24'),
 ('tig5c7604dd8bdba', 5, 'Typing', 'II', '2018', 'size', 200000, 'liplop', 'qqq@xyz.co', '123123', 'fasdfasd', 'asdfasdf', 'asdfasdf', '232121', 396, 'Unpaid', '2019-02-27 03:32:45', '2019-02-27 03:32:45'),
 ('tnv5c72b98922066', 5, 'Typing', 'II', '2018', 'Not Null', 200000, 'fasdf', 'qqq@xyz.co', '123123', 'fasdfasd', 'asdfasdf', 'asdfasdf', '213123', 16, 'Unpaid', '2019-02-24 15:34:33', '2019-02-24 15:34:33');
 
@@ -194,6 +198,7 @@ INSERT INTO `visitors` (`id`, `ip_address`, `country_code`, `visit_date`, `visit
 ('127.0.0.1/2019-02-23', '127.0.0.1', 'ID', '2019-02-23', '06:35:53'),
 ('127.0.0.1/2019-02-24', '127.0.0.1', 'ID', '2019-02-24', '22:36:39'),
 ('127.0.0.1/2019-02-27', '127.0.0.1', 'ID', '2019-02-27', '14:19:11'),
+('127.0.0.1/2019-02-28', '127.0.0.1', 'ID', '2019-02-28', '16:19:25'),
 ('7', '12', 'unknown', '2018-12-20', '06:00:00');
 
 --
@@ -245,7 +250,7 @@ ALTER TABLE `collections`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables

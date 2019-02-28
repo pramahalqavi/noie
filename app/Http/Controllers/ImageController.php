@@ -163,6 +163,7 @@ class ImageController extends Controller
         $this->validate($request, [
             'img1' => 'image|mimes:jpeg,jpg,png',
             'img2' => 'image|mimes:jpeg,jpg,png',
+            'name' => 'required|min:0',
             'price' => 'required|min:0'
         ]);
 
@@ -172,30 +173,25 @@ class ImageController extends Controller
         } else {
             $product->size = "-";
         }
-        $product->name = $request->name;
+        if ($request->name != '') {
+            $product->name = $request->name;
+        }
         if ($request->material != '') {
             $product->material = $request->material;
         } else {
             $product->material = "-";
         }
-        $product->price = $request->price;
-        // $product->collection_id = $request->collection_id;
+        if ($request->price != '') {
+            $product->price = $request->price;
+        }
         $product->save();
 
         for ($i=1; $i<=2; $i++) {
             if (!$request->hasFile('img'.$i)) {
-                // dd('Gapunya img'.$i);
                 continue;
             }
-            dd('Punya img'.$i);
             $file = $request->file('img'.$i);
-
-            // get filename with extension
-            // $filenamewithextension = $request->file('img'.$i)->getClientOriginalName();
-     
-            // //get filename without extension
-            // $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
-     
+            
             //get file extension
             $extension = $file->getClientOriginalExtension();
      
