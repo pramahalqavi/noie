@@ -105,7 +105,7 @@
                   </div>
                   <div class="form-group">
                     <label for="price">Price</label>
-                    <input type="text" class="form-control" name="price" id="price" value="{{ $p->price }}" maxlength="12">
+                    <input type="number" class="form-control" name="price" id="price" value="{{ $p->price }}" min="0" max="1000000000000">
                   </div>
 
                   <input type="hidden" name="_method" value="PUT">
@@ -168,44 +168,44 @@
         </button>
       </div>
       <form action="{{ url('admin/image') }}" method="post" enctype="multipart/form-data">
-      	<div class="modal-body">
-      		<input type="hidden" name="collection_id" value="{{ $collection->id }}">
-      		<div class="form-group">
-		        <label for="img1">Image #1<span style="color: red">*</span></label>
-		        <input type="file" name="img1" id="img1" required>
-		    </div>
-		    <div class="form-group">
-		        <label for="img2">Image #2<span style="color: red">*</span></label>
-		        <input type="file" name="img2" id="img2" required>
+      <div class="modal-body">
+        <input type="hidden" name="collection_id" value="{{ $collection->id }}">
+        <div class="form-group">
+          <label for="img1">Image #1<span style="color: red">*</span></label>
+          <input type="file" name="img1" id="img1" required>
+        </div>
+        <div class="form-group">
+          <label for="img2">Image #2<span style="color: red">*</span></label>
+          <input type="file" name="img2" id="img2" required>
 		    </div>
 		    <div class="form-group">
 		    	<label for="name">Name<span style="color: red">*</span></label>
 		    	<input type="text" class="form-control" name="name" id="name" placeholder="Enter here" maxlength="255" required>
-            </div>
-            <div class="form-group">
+        </div>
+        <div class="form-group">
 		    	<label for="material">Material</label>
 		    	<input type="text" class="form-control" name="material" id="material" placeholder="Enter here" maxlength="255">
-            </div>
-            <div class="form-group">
+        </div>
+        <div class="form-group">
 		    	<label for="size">Size</label>
           <p>Separate using space. E.g: S M L XL</p>
           <p>One size? Let the field empty</p>
 		    	<input type="text" class="form-control" name="size" id="size" placeholder="Enter here" maxlength="255">
-            </div>
-            <div class="form-group">
+        </div>
+        <div class="form-group">
 		    	<label for="price">Price<span style="color: red">*</span></label>
-		    	<input type="text" class="form-control" name="price" id="price" placeholder="Enter here" maxlength="12" required>
-            </div>
-            <p style="color: red">* Required</p>
-		    {{ csrf_field() }}
-		    <!-- <button type="submit" class="btn btn-default">Submit</button> -->
-       		<!-- <p>Modal body text goes here.</p> -->
-       	</div>
-       	<div class="modal-footer">
-       		<button type="submit" class="btn btn-primary" onclick="">Submit</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+		    	<input type="number" class="form-control" name="price" id="price" placeholder="Enter here" min="0" max="1000000000000" required>
+        </div>
+        <p style="color: red">* Required</p>
+
+        {{ csrf_field() }}
+
       </div>
-	</form>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+      </div>
+    </form>
     </div>
   </div>
 </div>
