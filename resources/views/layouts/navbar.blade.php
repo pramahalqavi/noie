@@ -35,7 +35,7 @@
                             <div class="noie-row">
                             @php($years = App\Models\Collection::distinct()->orderBY('year', 'desc')->get(['year']))
                             @foreach($years as $y)
-                                <div class="noie-column navbar-slide fade1">
+                                <div class="noie-column navbar-slide fade2">
                                 @php($collections = App\Models\Collection::where('year', $y->year)->orderBy('id')->get(['id', 'name']))
                                     <h2>{{ $y->year }}</h2>
                                     @foreach($collections as $c)
