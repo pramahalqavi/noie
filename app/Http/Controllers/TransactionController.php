@@ -10,11 +10,21 @@ use App\Models\Transaction;
 use App\Exports\TransactionsExport;
 use Excel;
 use Mail;
+use DateTime;
+use DatePeriod;
+use DateInterval;
 
 class TransactionController extends Controller {
 
     public function index() {
         $transactions = Transaction::orderBy('created_at','desc')->paginate(20);
+        $dt = new DateTime;
+        foreach ($transactions as $transaction) {
+            if ($transaction->created_at->add(new DateInterval('P1D')) < $dt && $transaction->status == 'Unpaid') {
+                $transaction->status = 'Canceled';
+                $transaction->save();
+            }
+        }
         return view('admin-side/transaction', ['transactions' => $transactions]);
     }
 
