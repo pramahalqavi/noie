@@ -41,6 +41,7 @@ class ImageController extends Controller
         $this->validate($request, [
             'img1' => 'required|image|mimes:jpeg,jpg,png',
             'img2' => 'required|image|mimes:jpeg,jpg,png',
+            'name' => 'required',
             'price' => 'required|min:0'
         ]);
         $product = new Product;
@@ -163,34 +164,28 @@ class ImageController extends Controller
         $this->validate($request, [
             'img1' => 'image|mimes:jpeg,jpg,png',
             'img2' => 'image|mimes:jpeg,jpg,png',
-            'name' => 'required|min:0',
+            'name' => 'required',
             'price' => 'required|min:0'
         ]);
 
         $product = Product::find($id);
-        dd(realpath($product->image1));
-        if ($request->size != '') {
-            $product->size = $request->size;
-        } else {
-            $product->size = "-";
-        }
-        if ($request->name != '') {
-            $product->name = $request->name;
-        }
-        if ($request->material != '') {
-            $product->material = $request->material;
-        } else {
-            $product->material = "-";
-        }
-        if ($request->price != '') {
-            $product->price = $request->price;
-        }
-        $product->save();
 
         for ($i=1; $i<=2; $i++) {
+            // dd(realpath($product->getAttributes()['image'.$i]));
             if (!$request->hasFile('img'.$i)) {
                 continue;
             }
+            $delete_image = realpath($product->getAttributes()['image'.$i]);
+            $delete_thumbnail = realpath($product->getAttributes()['thumbnail'.$i]);
+            if (file_exists($delete_image) && file_exists($delete_thumbnail)) {    
+                if (is_writable($delete_image) && is_writable($delete_thumbnail)) {
+                    unlink($delete_image);
+                    unlink($delete_thumbnail);
+                } else {
+                    return redirect()->back()->with('failed', 'File cannot be repladed');
+                }
+            }
+            
             $file = $request->file('img'.$i);
 
             //get file extension
@@ -236,18 +231,35 @@ class ImageController extends Controller
                     $canvas->save($path . '/thumbnail/' . $filenametostore);
                 }
             }
-            
-            $updt = Product::find($product->product_id);
-            // dd($updt);
+
             if ($i==1) {
-                $updt->image1 = 'storage/product/' . $filenametostore;
-                $updt->thumbnail1 = 'storage/product/thumbnail/' . $filenametostore;
+                $product->image1 = 'storage/product/' . $filenametostore;
+                $product->thumbnail1 = 'storage/product/thumbnail/' . $filenametostore;
             } elseif ($i==2) {
-                $updt->image2 = 'storage/product/' . $filenametostore;
-                $updt->thumbnail2 = 'storage/product/thumbnail/' . $filenametostore;
+                $product->image2 = 'storage/product/' . $filenametostore;
+                $product->thumbnail2 = 'storage/product/thumbnail/' . $filenametostore;
             }
-            $updt->save();
+            
         }
+
+        if ($request->name != '') {
+            $product->name = $request->name;
+        }
+        if ($request->size != '') {
+            $product->size = $request->size;
+        } else {
+            $product->size = "-";
+        }
+        if ($request->material != '') {
+            $product->material = $request->material;
+        } else {
+            $product->material = "-";
+        }
+        if ($request->price != '') {
+            $product->price = $request->price;
+        }
+        
+        $product->save();
         
         return redirect()->back()->with('success', "Product successfully updated");
     }
