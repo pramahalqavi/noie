@@ -15,15 +15,15 @@
             <form class="form-horizontal" style="margin: 0 auto" action="{{route('admin-role')}}" method="post">
                 <label for="email"><b>Email</b></label>
                 <input type="email" placeholder="Enter Email" onblur="checkEmail()" name="email" id="email-id" required value="{{old('email')}}">
-                <p id="email-warning"></p>
+                <p id="email-warning" maxlength="255"></p>
 
                 <label for="psw"><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" onblur="checkPassword()" name="psw" id="psw-id" pattern=".{8,}" required>
-                <p id="pass-warning"></p>
+                <p id="pass-warning" maxlength="255"></p>
 
                 <label for="psw-repeat"><b>Confirm Password</b></label>
                 <input type="password" placeholder="Confirm Password" onblur="checkConfPassword()" name="psw-repeat" id="psw-repeat-id" pattern=".{8,}" required>
-                <p id="confpass-warning"></p>
+                <p id="confpass-warning" maxlength="255"></p>
 
                 @if (session('error'))
                     <div class="alert alert-danger">

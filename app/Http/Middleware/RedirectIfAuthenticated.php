@@ -21,7 +21,7 @@ class RedirectIfAuthenticated
         //     return redirect(route('transaction'));
         // }
         if (Session::get('auth-login')) {
-            return redirect(route('transaction'));
+            return redirect(route('stat'));
         }
         return $next($request);
     }

@@ -313,6 +313,18 @@
 							                    <td>Product Name</td>
 							                    <td>{{$details->product_name}}</td>
 							                </tr>
+                                            <tr> 
+							                    <td>Size</td>
+							                    <td>{{$details->size}}</td>
+							                </tr>
+                                            <tr> 
+							                    <td>Collection</td>
+							                    <td>{{$details->collection}}</td>
+							                </tr>
+                                            <tr> 
+							                    <td>Year</td>
+							                    <td>{{$details->year}}</td>
+							                </tr>
 							                <tr> 
 							                    <td>Price</td>
 							                    <td>Rp {{number_format($details->unique_price)}}</td>
@@ -340,7 +352,7 @@
 							            </tbody>
 							            </table>
                                         <br>
-                                        <p> If you have any questions about your order please contact us at </p>
+                                        <p> If you have any questions about your order please contact us at noie.fashion.official@gmail.com </p>
                                     </td>
                                 </tr>
                             </table>

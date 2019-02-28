@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Transaction;
+use DateTime;
+use DatePeriod;
+use DateInterval;
 
 class InvoiceSearchController extends Controller {
     public function index() {
@@ -20,6 +23,11 @@ class InvoiceSearchController extends Controller {
             $result->cust_name = $transaction->cust_name;
             $result->product_name = $transaction->product_name;
             $result->price = $transaction->price + $transaction->unique_code;
+            $dt = new DateTime;
+            if ($transaction->created_at->add(new DateInterval('P1D')) < $dt && $transaction->status == 'Unpaid') {
+                $transaction->status = 'Canceled';
+                $transaction->save();
+            }
             $result->status = $transaction->status;
             return redirect()->route('payment-status')->with('result', $result)->withInput();
         }

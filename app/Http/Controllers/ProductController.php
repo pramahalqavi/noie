@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Collection;
 use App\Models\Product;
 
 use App\Models\Transaction;
 use Mail;
+use DateTime;
+use DatePeriod;
+use DateInterval;
 
 class ProductController extends Controller {
     public function index($collection_id) {
@@ -74,10 +78,13 @@ class ProductController extends Controller {
             $order["status"] = $status;
             $order["unique_price"] = $order["price"] + $unique_code;
             $order["date"] = date("d M Y G:i", time());
+            $dt = new DateTime;
+            $dt->add(new DateInterval('PT12H'));
+            $order["payment_expired"] = $dt->format("d M Y G:i");
             Mail::send('email/order-notification', ['details' => $order], function ($message) use($order) {
                 $message->from('noie.fashion.official@gmail.com', 'NOIE');
                 $message->to($order["email"]);
-                $message->subject("NOIE Product Order");
+                $message->subject("NOIE Product Order - Invoice id: " . $order["transaction_id"]);
             });
             return redirect()->route('home')->with('message', 'Order successfully submitted, check your email for details.');
         } else {

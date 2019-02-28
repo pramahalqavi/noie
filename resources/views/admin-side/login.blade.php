@@ -28,13 +28,13 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                       </div>
-                      <input type="email" name="email" class="form-control" placeholder="Enter email.." aria-label="Email" aria-describedby="basic-addon1" required value="{{old('email')}}">
+                      <input type="email" name="email" class="form-control" placeholder="Enter email.." aria-label="Email" aria-describedby="basic-addon1" required value="{{old('email')}}" maxlength="255">
                     </div>
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
                       </div>
-                      <input type="password" name="password" class="form-control" placeholder="Enter password.." aria-label="Password" aria-describedby="basic-addon1" required>
+                      <input type="password" name="password" class="form-control" placeholder="Enter password.." aria-label="Password" aria-describedby="basic-addon1" required maxlength="255">
                     </div>
 
                     @if (session('error'))

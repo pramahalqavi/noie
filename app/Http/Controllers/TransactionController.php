@@ -10,11 +10,21 @@ use App\Models\Transaction;
 use App\Exports\TransactionsExport;
 use Excel;
 use Mail;
+use DateTime;
+use DatePeriod;
+use DateInterval;
 
 class TransactionController extends Controller {
 
     public function index() {
         $transactions = Transaction::orderBy('created_at','desc')->paginate(20);
+        $dt = new DateTime;
+        foreach ($transactions as $transaction) {
+            if ($transaction->created_at->add(new DateInterval('P1D')) < $dt && $transaction->status == 'Unpaid') {
+                $transaction->status = 'Canceled';
+                $transaction->save();
+            }
+        }
         return view('admin-side/transaction', ['transactions' => $transactions]);
     }
 
@@ -52,7 +62,7 @@ class TransactionController extends Controller {
                 Mail::send('email/status-notification', ['details' => $details, 'newStatus' => $newStatus], function ($message) use($details) {
                     $message->from('noie.fashion.official@gmail.com', 'NOIE');
                     $message->to($details->cust_email);
-                    $message->subject("NOIE Order Status Update");
+                    $message->subject("NOIE Order Status Update - Invoice id: " . $details->transaction_id);
                 });
             }
             return redirect()->route('transaction.detail', [$transaction->transaction_id])->with('message', 'Transaction status successfully changed');
