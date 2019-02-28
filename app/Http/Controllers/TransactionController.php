@@ -50,7 +50,7 @@ class TransactionController extends Controller {
                 $newStatus = $request->input('status');
         
                 Mail::send('email/status-notification', ['details' => $details, 'newStatus' => $newStatus], function ($message) use($details) {
-                    $message->from('sap86759@gmail.com', 'NOIE');
+                    $message->from('noie.fashion.official@gmail.com', 'NOIE');
                     $message->to($details->cust_email);
                     $message->subject("NOIE Order Status Update");
                 });

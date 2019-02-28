@@ -75,7 +75,7 @@ class ProductController extends Controller {
             $order["unique_price"] = $order["price"] + $unique_code;
             $order["date"] = date("d M Y G:i", time());
             Mail::send('email/order-notification', ['details' => $order], function ($message) use($order) {
-                $message->from('sap86759@gmail.com', 'NOIE');
+                $message->from('noie.fashion.official@gmail.com', 'NOIE');
                 $message->to($order["email"]);
                 $message->subject("NOIE Product Order");
             });
