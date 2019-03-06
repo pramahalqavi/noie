@@ -78,7 +78,7 @@
             </tr>
             <tr> 
                 <td class="input-label">Phone Number</td>
-                <td align="left"><input class="input-order-form" id="id-phone-{{$index}}" type="text" name="phone" pattern="[0-9]*" maxlength="15" required/></td>
+                <td align="left"><input class="input-order-form" id="id-phone-{{$index}}" type="number" name="phone" pattern="[0-9]*" maxlength="15" required/></td>
             </tr>
             <tr> 
                 <td class="input-label">Address</td>
@@ -94,7 +94,7 @@
             </tr>
             <tr> 
                 <td class="input-label">Zipcode</td>
-                <td align="left"><input class="input-order-form" id="id-zipcode-{{$index}}" type="text" pattern="[0-9]{6}" name="zipcode" maxlength="6" required/></td>
+                <td align="left"><input class="input-order-form" id="id-zipcode-{{$index}}" type="number" pattern="[0-9]{6}" name="zipcode" maxlength="6" required/></td>
             </tr>
         </table>
         <div class="order-warning-message" id="order-warning-message-{{$index}}"> 
