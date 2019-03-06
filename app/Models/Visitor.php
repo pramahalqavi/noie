@@ -13,13 +13,13 @@ class Visitor extends Model {
 
     public static function hit() {
         $ip = 'Unknown';
-        if ($_SERVER['REMOTE_ADDR'] != NULL) {
-            $ip = $_SERVER['REMOTE_ADDR'];
+        $ip_data = @json_decode(file_get_contents("http://www.geoplugin.net/json.gp?ip="));
+        if ($ip_data && $ip_data->geoplugin_request != NULL) {
+            $ip = $ip_data->geoplugin_request;
         }
         $date = date('Y-m-d');
         $id = $ip.'/'.$date;
         if (!DB::table('visitors')->where('id', $id)->first()) {
-            $ip_data = @json_decode(file_get_contents("http://www.geoplugin.net/json.gp?ip="));
             $countryCode = 'Unknown';
             if ($ip_data && $ip_data->geoplugin_countryCode != NULL) {
                 $countryCode = $ip_data->geoplugin_countryCode;
