@@ -31,7 +31,7 @@ html, body {
 }
 
 .noie-logo {
-    font-size: 32px;
+    font-size: 38px;
     padding-bottom: 5px;
     vertical-align: center;
     font-family: 'Granjon';
@@ -63,6 +63,18 @@ html, body {
     text-decoration: none;
     color: white;
 }
+.noie-navbutton:link {
+    text-decoration: none;
+    color: white;
+}
+.noie-navbutton:visited {
+  text-decoration: none;
+  color: white;
+}
+.noie-navbutton:active {
+  text-decoration: none;
+  color: white;
+}
 
   /* Dropdown Content */
 .noie-dropdown {
@@ -91,6 +103,18 @@ html, body {
 }
 
 .nav-collection-button:hover {
+  text-decoration: none;
+  color: black;
+}
+.nav-collection-button:link {
+  text-decoration: none;
+  color: black;
+}
+.nav-collection-button:visited {
+  text-decoration: none;
+  color: black;
+}
+.nav-collection-button:active {
   text-decoration: none;
   color: black;
 }

@@ -23,7 +23,11 @@
         @else
         <!-- <div class="background" style="background-color: #eee"> -->
         @endif
+        @if(!Request::is('/') && !Request::is('about'))
+            <div class="noie-nav" style="background-color: #222;">
+        @else
             <div class="noie-nav">
+        @endif
                 <div class="noie-logo">
                     N O I E
                 </div>
@@ -54,7 +58,7 @@
                     </div>
 
                     <a class="noie-navbutton" href="{{route('about')}}">ABOUT</a>
-                    <a class="noie-navbutton" href="{{route('payment-status')}}">PAYMENT STATUS</a>
+                    <a class="noie-navbutton" href="{{route('payment-status')}}">ORDER</a>
                 </ul>
             </div>
         </div>
